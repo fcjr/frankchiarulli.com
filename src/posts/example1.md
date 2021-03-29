@@ -9,6 +9,7 @@ series: ['alert']
 ---
 
 This is an example 1
+
 ## <!--more-->
 
 With some example text

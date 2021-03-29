@@ -13,10 +13,13 @@
 <script lang="ts">
 	import Tags from '$lib/Tags.svelte';
 	import type { Post } from '$lib/posts';
+	import highlight from '$lib/higlight';
 	export let post: Post;
 </script>
 
 <h1>{post.attributes.title}</h1>
 <Tags tags={post.attributes.tags} />
 
-{@html post.html}
+<div use:highlight>
+	{@html post.html}
+</div>
