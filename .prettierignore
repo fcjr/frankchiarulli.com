@@ -1,4 +1,7 @@
 .svelte/**
 static/**
 node_modules/**
+build/**
+.svelte/**
 .forestry/*
+netlify.toml

@@ -10,7 +10,7 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[{package.json,package-lock.json,.foresty/*}]
+[{package.json,package-lock.json,.foresty/*,netlify.toml}]
 ; The indent size used in the `package.json` file cannot be changed
 ; https://github.com/npm/npm/pull/3180#issuecomment-16336516
 indent_size = 2

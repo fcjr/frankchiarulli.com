@@ -4,6 +4,11 @@
   functions = "functions"
   publish = "build"
 
+[[redirects]]
+  from = "/*"
+  to = "/404/"
+  status = 404
+
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
   #[[redirects]]
