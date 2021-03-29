@@ -1,13 +1,16 @@
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+	import { posts } from '$lib/posts';
 </script>
 
 <main>
 	<h1>Hello world!</h1>
 
-	<Counter />
-
-	<p>Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte apps.</p>
+	{#each posts as post}
+		<a href={`/posts/${post.permalink}`}>
+			<h2>{post.attributes.title}</h2>
+			<p>{post.attributes.description}</p>
+		</a>
+	{/each}
 </main>
 
 <style>

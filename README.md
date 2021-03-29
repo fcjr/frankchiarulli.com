@@ -1,6 +1,7 @@
 # frankchiarulli.com
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9c04f7d6-9e72-42f8-84ea-7b0e6472d4aa/deploy-status)](https://app.netlify.com/sites/frankchiarulli-com/deploys)
+
 ## Developing
 
 ```bash
