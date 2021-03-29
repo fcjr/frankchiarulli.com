@@ -2,6 +2,7 @@ const sveltePreprocess = require('svelte-preprocess');
 const adapter = require('@sveltejs/adapter-static');
 const pkg = require('./package.json');
 
+const { resolve } = require("path");
 const md = require('vite-plugin-markdown');
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -22,7 +23,13 @@ module.exports = {
 			plugins: [md.plugin({ mode: md.Mode.HTML })],
 			ssr: {
 				noExternal: Object.keys(pkg.dependencies || {})
-			}
+			},
+			resolve: {
+				alias: {
+					// custom aliases (be sure to add in in tsconfig.json)
+					$components: resolve(__dirname, "./src/components"),
+				},
+			},
 		}
 	}
 };

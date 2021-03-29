@@ -13,7 +13,8 @@
 
 <script lang="ts">
 	import type { Post } from '$lib/posts';
-	import PostList from '$lib/PostList.svelte';
+
+	import PostList from '$components/PostList.svelte';
 
 	export let posts: Array<Post>;
 </script>

@@ -1,6 +1,7 @@
 <script lang="ts">
-	import PostList from '$lib/PostList.svelte';
 	import { posts } from '$lib/posts';
+
+	import PostList from '$components/PostList.svelte';
 </script>
 
 <main>

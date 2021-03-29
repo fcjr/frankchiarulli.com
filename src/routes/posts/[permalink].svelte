@@ -11,9 +11,11 @@
 </script>
 
 <script lang="ts">
-	import Tags from '$lib/Tags.svelte';
 	import type { Post } from '$lib/posts';
 	import highlight from '$lib/higlight';
+
+	import Tags from '$components/Tags.svelte';
+
 	export let post: Post;
 </script>
 
