@@ -6,7 +6,7 @@
 <main>
 	<h1>Hello world!</h1>
 
-	<PostList posts={posts} />
+	<PostList {posts} />
 </main>
 
 <style>

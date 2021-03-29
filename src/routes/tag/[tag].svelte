@@ -18,4 +18,4 @@
 	export let posts: Array<Post>;
 </script>
 
-<PostList posts={posts} />
+<PostList {posts} />

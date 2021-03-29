@@ -3,4 +3,4 @@
 	import { posts } from '$lib/posts';
 </script>
 
-<PostList posts={posts} />
+<PostList {posts} />

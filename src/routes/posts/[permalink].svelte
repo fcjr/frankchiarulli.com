@@ -17,6 +17,6 @@
 </script>
 
 <h1>{post.attributes.title}</h1>
-<Tags tags={post.attributes.tags}/>
+<Tags tags={post.attributes.tags} />
 
 {@html post.html}
