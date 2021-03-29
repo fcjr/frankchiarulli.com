@@ -11,11 +11,12 @@
 </script>
 
 <script lang="ts">
+	import Tags from '$lib/Tags.svelte';
 	import type { Post } from '$lib/posts';
 	export let post: Post;
 </script>
 
-<!-- display the post -->
 <h1>{post.attributes.title}</h1>
+<Tags tags={post.attributes.tags}/>
 
 {@html post.html}

@@ -23,3 +23,6 @@ export const posts = Object.keys(modules).map(
 
 export const findPost = (permalink: string): Post =>
 	posts.find((post) => post.permalink === permalink);
+
+export const findPostsByTag = (tag: string): Array<Post> =>
+	posts.filter((post) => post.attributes.tags.includes(tag))

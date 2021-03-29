@@ -1,16 +1,12 @@
 <script lang="ts">
+	import PostList from '$lib/PostList.svelte';
 	import { posts } from '$lib/posts';
 </script>
 
 <main>
 	<h1>Hello world!</h1>
 
-	{#each posts as post}
-		<a href={`/posts/${post.permalink}`}>
-			<h2>{post.attributes.title}</h2>
-			<p>{post.attributes.description}</p>
-		</a>
-	{/each}
+	<PostList posts={posts} />
 </main>
 
 <style>
