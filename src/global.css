@@ -1,1 +1,54 @@
 @import 'highlight.js/styles/rainbow.css';
+@import 'reset.css';
+
+:root {
+
+	/* Font */
+	--standard-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+		'Open Sans', 'Helvetica Neue', sans-serif;
+	--code-font: 'Roboto Mono', monospace;
+
+	/* Size Variables */
+	--gap: 24px;
+	--content-gap: 20px;
+	--nav-width: 1024px;
+	--main-width: 720px;
+	--header-height: 60px;
+	--footer-height: 60px;
+	--radius: 8px;
+
+	/* Theme Variables 15 */
+	--background: #e3f6f5;
+	--headline: #272343;
+	--paragraph: #2d334a;
+	--button: #ffd803;
+	--button-text: #272343;
+	--secondary-paragraph: #2d334a;
+
+	--stroke: #272343;
+	--highlight: #ffd803;
+	--secondary: #fffffe;
+	--tertiary: #bae8e8;
+}
+
+/* Themes */
+.dark-mode {
+	--background: #16161a;
+	--paragraph: #94a1b2;
+	--headline: #fffffe;
+	--button: #7f5af0;
+	--button-text: #fffffe;
+	--secondary-paragraph: #16161a;
+
+	--stroke: #94a1b2;
+	--highlight: #7f5af0;
+	--secondary: #72757e;
+	--tertiary: #2cb67d;
+}
+
+/* Defaults */
+
+body {
+	background-color: var(--background);
+	color: var(--paragraph);
+}

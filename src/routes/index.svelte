@@ -2,49 +2,47 @@
 	import { posts } from '$lib/posts';
 
 	import PostList from '$components/PostList.svelte';
+	import SocialIcons from '$components/SocialIcons.svelte';
 </script>
 
-<main>
-	<h1>Hello world!</h1>
+<section>
+	<h1 class="name">Frank Chiarulli Jr.</h1>
+	<p>
+		Hi, I’m Frank! I write code that keeps you safe and private online.
+		<br />
+		I’m a Lead Software Engineer at <a href="https://ghostery.com" rel="_blank"><b>Ghostery</b></a>.
+		Building <a href="https://ghostery.com/midnight" rel="_blank">system-wide privacy tools</a>.
+	</p>
+	<p>
+		Interested in go, security, embedded systems, & operating systems.
+		<br />
+		Probably doing something I shouldn’t with cGo or WinAPI.
+	</p>
+	<p>
+		Looking for my <a href="/art">art</a>?
+	</p>
+	<SocialIcons />
+</section>
 
-	<PostList {posts} />
-</main>
+<PostList {posts} />
 
 <style>
-	:root {
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-			'Open Sans', 'Helvetica Neue', sans-serif;
+	.name {
+		font-size: 34px;
+		line-height: 1.3;
+		color: var(--paragraph);
 	}
-
-	main {
-		text-align: center;
-		padding: 1em;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4rem;
-		font-weight: 100;
-		line-height: 1.1;
-		margin: 4rem auto;
-		max-width: 14rem;
-	}
-
 	p {
-		max-width: 14rem;
 		margin: 2rem auto;
+		text-align: left;
 		line-height: 1.35;
 	}
 
-	@media (min-width: 480px) {
-		h1 {
-			max-width: none;
-		}
-
-		p {
-			max-width: none;
-		}
+	b {
+		font-weight: 700;
+	}
+	a {
+		font-weight: 600;
+		text-decoration: none;
 	}
 </style>

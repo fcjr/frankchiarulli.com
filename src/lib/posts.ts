@@ -12,10 +12,10 @@ export type PostAttributes = {
 	author: string;
 	date: string;
 	description: string;
-	tags: Array<string>;
+	tags: string[];
 
-	categories: Array<string>;
-	series: Array<string>;
+	categories: string[];
+	series: string[];
 };
 
 export const posts = Object.keys(modules)
@@ -32,5 +32,9 @@ export const posts = Object.keys(modules)
 export const findPost = (permalink: string): Post =>
 	posts.find((post) => post.permalink === permalink);
 
-export const findPostsByTag = (tag: string): Array<Post> =>
+export const findPostsByTag = (tag: string): Post[] =>
 	posts.filter((post) => post.attributes.tags.includes(tag));
+
+export const tags = posts
+	.reduce((acc, curPost) => [...acc, ...curPost.attributes.tags], [])
+	.filter((val, i, arr) => arr.indexOf(val) === i);

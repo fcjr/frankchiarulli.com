@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let tags: Array<string>;
+	export let tags: string[];
 </script>
 
 <nav>
@@ -10,6 +10,6 @@
 
 <style>
 	a {
-		padding: 0.1em;
+		padding: 0.4em;
 	}
 </style>

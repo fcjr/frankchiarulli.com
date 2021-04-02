@@ -7,7 +7,7 @@
 	export function load({ page }) {
 		const { tag } = page.params;
 		const posts = findPostsByTag(tag);
-		return { props: { posts } };
+		return { props: { tag, posts } };
 	}
 </script>
 
@@ -15,8 +15,18 @@
 	import type { Post } from '$lib/posts';
 
 	import PostList from '$components/PostList.svelte';
+	import CascadeNavigator from '$components/CascadeNavigator.svelte';
 
-	export let posts: Array<Post>;
+	export let tag: string;
+	export let posts: Post[];
 </script>
 
+<CascadeNavigator />
 <PostList {posts} />
+
+<style>
+	h1 {
+		font-size: 18px;
+		margin-bottom: var(--gap);
+	}
+</style>
