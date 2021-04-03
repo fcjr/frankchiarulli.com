@@ -6,7 +6,7 @@
 	import Tags from '$components/Tags.svelte';
 	import CascadeNavigator from '$components/CascadeNavigator.svelte';
 
-	const permalink = $page?.path.split('/').filter(part => part !== '').pop() ?? '';
+	const permalink = $page?.path?.split('/').filter(part => part !== '').pop() ?? '';
 
 	export let title;
 	export let author;
