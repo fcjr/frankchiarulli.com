@@ -90,7 +90,7 @@
 
 	svg {
 		display: none;
-		width: 18px;
+		width: 24px;
 		stroke-width: 2;
 		stroke: var(--stroke);
 	}
