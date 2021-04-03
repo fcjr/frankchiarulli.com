@@ -33,7 +33,7 @@
 				)}">Open an issue</a
 			>
 		</p>
-		<Tags tags={tags} />
+		<Tags {tags} />
 	</footer>
 </article>
 
@@ -64,8 +64,8 @@
 		line-height: 1.5;
 	}
 
-	.article :global(pre[class*="language-"]),
-	.article :global(code[class*="language-"]) {
+	.article :global(pre[class*='language-']),
+	.article :global(code[class*='language-']) {
 		padding-top: 2px;
 		font-size: 14px;
 		font-family: var(--code-font);

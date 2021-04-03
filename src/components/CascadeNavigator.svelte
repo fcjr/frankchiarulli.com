@@ -9,7 +9,7 @@
 	var links: Link[] = [];
 	onMount(() => {
 		const pathname = window.location.pathname;
-		const trimmed =  pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+		const trimmed = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
 		trimmed.split('/').forEach((name, i, arr) => {
 			const link: Link = {
 				name: name || 'home',

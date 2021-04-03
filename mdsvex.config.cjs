@@ -1,16 +1,17 @@
 module.exports = {
-	extensions: [".svx", ".md"],
-	layout: "./src/md-layouts/blog.svelte",
+	extensions: ['.svx', '.md'],
+	layout: './src/md-layouts/blog.svelte',
 	smartypants: {
-		dashes: "oldschool",
+		dashes: 'oldschool'
 	},
-	remarkPlugins: [
-		require("remark-abbr"),
-	],
+	remarkPlugins: [require('remark-abbr')],
 	rehypePlugins: [
-		require("rehype-slug"),
-		[require("rehype-autolink-headings"), {
-			behavior: "wrap",
-		}],
-	],
+		require('rehype-slug'),
+		[
+			require('rehype-autolink-headings'),
+			{
+				behavior: 'wrap'
+			}
+		]
+	]
 };
