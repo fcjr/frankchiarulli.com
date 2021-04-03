@@ -3,17 +3,24 @@
 	import highlight from '$lib/highlight';
 	import { page } from '$app/stores';
 
+	import SEO from '$components/SEO.svelte';
 	import Tags from '$components/Tags.svelte';
 	import CascadeNavigator from '$components/CascadeNavigator.svelte';
 
-	const permalink = $page?.path?.split('/').filter(part => part !== '').pop() ?? '';
+	const permalink =
+		$page?.path
+			?.split('/')
+			.filter((part) => part !== '')
+			.pop() ?? '';
 
 	export let title;
 	export let author;
 	export let date;
+	export let description;
 	export let tags;
 </script>
 
+<SEO {title} desc={description} />
 <CascadeNavigator />
 <article class="article" use:highlight>
 	<header>

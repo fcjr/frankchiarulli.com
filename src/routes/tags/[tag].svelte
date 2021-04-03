@@ -14,6 +14,7 @@
 <script lang="ts">
 	import type { Post } from '$lib/posts';
 
+	import SEO from '$components/SEO.svelte';
 	import PostList from '$components/PostList.svelte';
 	import CascadeNavigator from '$components/CascadeNavigator.svelte';
 
@@ -21,6 +22,7 @@
 	export let posts: Post[];
 </script>
 
+<SEO title={`Tag: ${tag}`} />
 <CascadeNavigator />
 <PostList {posts} />
 

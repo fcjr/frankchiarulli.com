@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { posts } from '$lib/posts';
 
+	import SEO from '$components/SEO.svelte';
 	import PostList from '$components/PostList.svelte';
 	import SocialIcons from '$components/SocialIcons.svelte';
 </script>
 
 <section>
+	<SEO title="Home" />
 	<h1 class="name">Frank Chiarulli Jr.</h1>
 	<p>
 		Hi, I’m Frank! I write code that keeps you safe and private online.

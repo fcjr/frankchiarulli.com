@@ -4,7 +4,7 @@
 
 <nav>
 	{#each tags as tag}
-		<a href="/tag/{tag}">#{tag}</a>
+		<a href="/tags/{tag}">#{tag}</a>
 	{/each}
 </nav>
 

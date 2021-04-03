@@ -1,5 +1,11 @@
+<script lang="ts">
+	import siteInfo from '../siteInfo';
+
+	const { github, linkedIn, twitter, email } = siteInfo;
+</script>
+
 <div class="social-icons">
-	<a href="https://github.com/fcjr" target="_blank" rel="noopener noreferrer me" title="Github">
+	<a href={github} target="_blank" rel="noopener noreferrer me" title="Github">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"
@@ -15,12 +21,7 @@
 			/></svg
 		>
 	</a>
-	<a
-		href="https://linkedin.com/in/frankchiarulli"
-		target="_blank"
-		rel="noopener noreferrer me"
-		title="LinkedIn"
-	>
+	<a href={linkedIn} target="_blank" rel="noopener noreferrer me" title="LinkedIn">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"
@@ -36,7 +37,7 @@
 			/><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg
 		>
 	</a>
-	<a href="https://twitter.com/_fcjr" target="_blank" rel="noopener noreferrer me" title="Twitter">
+	<a href={twitter} target="_blank" rel="noopener noreferrer me" title="Twitter">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"
@@ -52,12 +53,7 @@
 			/></svg
 		>
 	</a>
-	<a
-		href="mailto:frank@frankchiarulli.com"
-		target="_blank"
-		rel="noopener noreferrer me"
-		title="Email"
-	>
+	<a href="mailto:{email}" target="_blank" rel="noopener noreferrer me" title="Email">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"

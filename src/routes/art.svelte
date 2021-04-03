@@ -1,9 +1,11 @@
 <script lang="ts">
+	import SEO from '$components/SEO.svelte';
 	import CascadeNavigator from '$components/CascadeNavigator.svelte';
 
 	import Gallery from '$components/Gallery.svelte';
 </script>
 
+<SEO title="Art" />
 <CascadeNavigator />
 <Gallery
 	images={[
