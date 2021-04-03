@@ -5,8 +5,15 @@
 </script>
 
 <div class="social-icons">
-	<a href={github} target="_blank" rel="noopener noreferrer me" title="Github">
+	<a
+		href={github}
+		target="_blank"
+		rel="noopener noreferrer me"
+		title="Github"
+		aria-label="Visit My Github Page (opens in a new window)"
+	>
 		<svg
+			aria-label="Github Logo"
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"
 			height="24"
@@ -21,8 +28,15 @@
 			/></svg
 		>
 	</a>
-	<a href={linkedIn} target="_blank" rel="noopener noreferrer me" title="LinkedIn">
+	<a
+		href={linkedIn}
+		target="_blank"
+		rel="noopener noreferrer me"
+		title="LinkedIn"
+		aria-label="Visit My LinkedIn Page (opens in a new window)"
+	>
 		<svg
+			aria-label="LinkedIn Logo"
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"
 			height="24"
@@ -37,8 +51,15 @@
 			/><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg
 		>
 	</a>
-	<a href={twitter} target="_blank" rel="noopener noreferrer me" title="Twitter">
+	<a
+		href={twitter}
+		target="_blank"
+		rel="noopener noreferrer me"
+		title="Twitter"
+		aria-label="Visit My Twitter Page (opens in a new window)"
+	>
 		<svg
+			aria-label="Twitter Logo"
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"
 			height="24"
@@ -53,8 +74,15 @@
 			/></svg
 		>
 	</a>
-	<a href="mailto:{email}" target="_blank" rel="noopener noreferrer me" title="Email">
+	<a
+		href="mailto:{email}"
+		target="_blank"
+		rel="noopener noreferrer me"
+		title="Email"
+		aria-label="Email Me (opens in your configured email client)"
+	>
 		<svg
+			aria-label="Email Link"
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"
 			height="24"
