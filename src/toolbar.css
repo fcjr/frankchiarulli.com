@@ -1,0 +1,37 @@
+/*
+custom prismjs toolbar theming
+
+Currently only used to display the language name
+so this is a minimal subset of the toolbar theming.
+If other toolbar plugins are added this will likely
+need to be updated.
+
+*/
+
+
+div.code-toolbar {
+	position: relative;
+}
+
+div.code-toolbar > .toolbar {
+	position: absolute;
+	top: .3em;
+	right: .2em;
+}
+
+div.code-toolbar > .toolbar .toolbar-item {
+	display: inline-block;
+}
+
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+	color: #bbb;
+	text-transform: lowercase;
+	font-size: .8em;
+	padding: 0 .5em;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}

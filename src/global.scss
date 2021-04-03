@@ -3,7 +3,7 @@
 @import 'prismjs/themes/prism.css';
 
 @import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
-@import 'prismjs/plugins/toolbar/prism-toolbar.css';
+@import 'toolbar.css'; // custom prismjs toolbar theming
 
 :root {
 	/* Font */
