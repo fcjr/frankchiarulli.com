@@ -29,7 +29,6 @@
 		font-family: var(--standard-font);
 	}
 
-
 	:global(a) {
 		font-weight: 500;
 		color: var(--paragraph);

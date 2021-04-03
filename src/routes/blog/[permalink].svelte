@@ -29,6 +29,18 @@
 	</header>
 	{@html post.html}
 	<footer>
+		<p class="make-an-edit">
+			Noticed a mistake?
+			<a href="https://github.com/fcjr/frankchiarulli.com/blob/main/src/posts/{post.permalink}.md"
+				>Make an edit</a
+			>
+			or
+			<a
+				href="https://github.com/fcjr/frankchiarulli.com/issues/new?title={encodeURIComponent(
+					`[Blog Correction]: ${post.permalink}`
+				)}">Open an issue</a
+			>
+		</p>
 		<Tags tags={post.attributes.tags} />
 	</footer>
 </article>
@@ -43,6 +55,11 @@
 	h2,
 	footer {
 		margin-left: 20px;
+	}
+
+	.make-an-edit {
+		font-size: 12px;
+		font-style: italic;
 	}
 
 	/* Markdown CSS
