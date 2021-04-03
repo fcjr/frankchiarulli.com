@@ -66,6 +66,7 @@
 
 	.article :global(pre[class*="language-"]),
 	.article :global(code[class*="language-"]) {
+		padding-top: 2px;
 		font-size: 14px;
 		font-family: var(--code-font);
 		text-shadow: none;
