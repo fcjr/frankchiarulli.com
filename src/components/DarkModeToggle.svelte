@@ -85,7 +85,7 @@
 		border: none;
 	}
 	#darkmode-toggle:focus {
-		outline: thin dotted;
+		outline: var(--stroke) thin dotted;
 	}
 
 	svg {
