@@ -1,5 +1,10 @@
-@import 'highlight.js/styles/rainbow.css';
 @import 'reset.css';
+
+@import 'prismjs/themes/prism.css';
+
+@import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+@import 'prismjs/plugins/toolbar/prism-toolbar.css';
+
 
 :root {
 	/* Font */

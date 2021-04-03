@@ -13,7 +13,7 @@
 
 <script lang="ts">
 	import type { Post } from '$lib/posts';
-	import highlight from '$lib/higlight';
+	import highlight from '$lib/highlight';
 
 	import Tags from '$components/Tags.svelte';
 	import CascadeNavigator from '$components/CascadeNavigator.svelte';
@@ -69,11 +69,12 @@
 	.article :global(p) {
 		margin: 1rem auto;
 		text-align: left;
-		line-height: 1.35;
+		line-height: 1.5;
 	}
 
-	.article :global(code) {
-		padding: 20px;
+	.article :global(pre[class*="language-"]) {
+		font-size: 14px;
 		border-radius: var(--radius);
+		white-space: pre-wrap;
 	}
 </style>

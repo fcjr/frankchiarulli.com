@@ -53,7 +53,7 @@
 	.post-content {
 		margin: 8px 0;
 		font-size: 14px;
-		line-height: 1.6;
+		line-height: 1.5;
 		overflow: hidden;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;

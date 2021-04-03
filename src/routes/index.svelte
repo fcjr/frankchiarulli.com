@@ -35,7 +35,7 @@
 	p {
 		margin: 2rem auto;
 		text-align: left;
-		line-height: 1.35;
+		line-height: 1.5;
 	}
 
 	b {
