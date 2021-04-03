@@ -72,8 +72,11 @@
 		line-height: 1.5;
 	}
 
-	.article :global(pre[class*="language-"]) {
+	.article :global(pre[class*="language-"]),
+	.article :global(code[class*="language-"]) {
 		font-size: 14px;
+		font-family: var(--code-font);
+		text-shadow: none;
 		border-radius: var(--radius);
 		white-space: pre-wrap;
 	}

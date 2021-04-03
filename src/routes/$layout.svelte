@@ -4,7 +4,7 @@
 	import Footer from '$components/Footer.svelte';
 	import { page } from '$app/stores';
 
-	import '../global.css';
+	import '../global.scss';
 </script>
 
 <Header />

@@ -37,6 +37,8 @@
 
 /* Themes */
 .dark-mode {
+	@import 'dark';
+
 	--background: #16161a;
 	--paragraph: #94a1b2;
 	--headline: #fffffe;
