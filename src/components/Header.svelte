@@ -15,6 +15,7 @@
 		</div>
 		<nav class="header-nav" role="navigation">
 			<a class="nav-link" href="/blog">Blog</a>
+			•
 			<a class="nav-link" href="/art">Art</a>
 			<!-- <a class="nav-link" href="/projects">Projects</a> -->
 			<!-- <a class="nav-link" href="/search" aria-label="Search">🔍</a> -->
