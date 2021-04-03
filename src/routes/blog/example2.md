@@ -6,7 +6,6 @@ description: 'Example 2'
 tags: []
 categories: ['windows', 'go', 'user-interfaces']
 series: ['alert']
-permalink: 'example2'
 ---
 
 This is an example 2

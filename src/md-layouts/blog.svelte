@@ -1,16 +1,17 @@
 <script>
 	import { formatDate } from '$lib/utils';
 	import highlight from '$lib/highlight';
+	import { page } from '$app/stores';
 
 	import Tags from '$components/Tags.svelte';
 	import CascadeNavigator from '$components/CascadeNavigator.svelte';
+
+	const permalink = $page?.path.split('/').filter(part => part !== '').pop() ?? '';
 
 	export let title;
 	export let author;
 	export let date;
 	export let tags;
-
-	export let permalink;
 </script>
 
 <CascadeNavigator />
@@ -21,18 +22,20 @@
 	</header>
 	<slot />
 	<footer>
-		<p class="make-an-edit">
-			Noticed a mistake?
-			<a href="https://github.com/fcjr/frankchiarulli.com/blob/main/src/blog/{permalink}.md"
-				>Make an edit</a
-			>
-			or
-			<a
-				href="https://github.com/fcjr/frankchiarulli.com/issues/new?title={encodeURIComponent(
-					`[Blog Correction]: ${permalink}`
-				)}">Open an issue</a
-			>
-		</p>
+		{#if permalink}
+			<p class="make-an-edit">
+				Noticed a mistake?
+				<a href="https://github.com/fcjr/frankchiarulli.com/blob/main/src/blog/{permalink}.md"
+					>Make an edit</a
+				>
+				or
+				<a
+					href="https://github.com/fcjr/frankchiarulli.com/issues/new?title={encodeURIComponent(
+						`[Blog Correction]: ${permalink}`
+					)}">Open an issue</a
+				>
+			</p>
+		{/if}
 		<Tags {tags} />
 	</footer>
 </article>

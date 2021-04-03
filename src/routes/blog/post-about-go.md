@@ -6,7 +6,6 @@ description: 'This demo has some code with hello world'
 tags: ['windows', 'go', 'ui', 'winapi']
 categories: ['windows', 'go', 'user-interfaces']
 series: ['alert']
-permalink: 'post-about-go'
 ---
 
 Sed consequat neque neque, volutpat tempor ex vehicula at. Fusce eros metus, elementum eu eros ut, lobortis faucibus libero. Donec mi est, blandit vel aliquet eu, hendrerit eu lacus. Aenean pharetra metus id erat luctus, nec malesuada ex commodo. Donec sit amet euismod odio. Ut a commodo mauris. Nulla auctor ligula at lorem molestie rutrum. Duis arcu ipsum, commodo sed placerat ut, dictum et orci. Morbi non ultrices odio, ut elementum ante.

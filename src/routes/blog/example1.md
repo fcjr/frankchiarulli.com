@@ -6,7 +6,6 @@ description: 'Example 1'
 tags: ['windows', 'go', 'ui', 'winapi']
 categories: ['windows', 'go', 'user-interfaces']
 series: ['alert']
-permalink: 'example1'
 ---
 
 This is an example 1
