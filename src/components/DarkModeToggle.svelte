@@ -22,23 +22,20 @@
 		unsubscribe && unsubscribe();
 	});
 
-	function onClickCheckbox(e: MouseEvent) {
+	function toggleDarkmode() {
 		darkmode_value = !darkmode_value;
 	}
 </script>
 
-<div class="checkbox" on:click={onClickCheckbox}>
-	<input
-		class="visually-hidden"
-		tabindex="0"
-		bind:checked={darkmode_value}
-		id="darkmode-toggle"
-		type="checkbox"
-	/>
-	<label class="visually-hidden" for="darkmode-toggle"
-		>{`Dark Mode Toggle: ${darkmode_value ? 'enabled' : 'disabled'}`}</label
-	>
+<button
+	id="darkmode-toggle"
+	tabindex="0"
+	aria-label="Dark Mode Toggle"
+	aria-pressed={darkmode_value}
+	on:click={() => toggleDarkmode()}
+>
 	<svg
+		class:visible={!darkmode_value}
 		class="moon"
 		aria-hidden="true"
 		xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +47,7 @@
 		stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg
 	>
 	<svg
+		class:visible={darkmode_value}
 		class="sun"
 		aria-hidden="true"
 		xmlns="http://www.w3.org/2000/svg"
@@ -76,45 +74,32 @@
 			y2="18.36"
 		/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg
 	>
-</div>
+</button>
 
 <style>
-	.checkbox {
+	#darkmode-toggle {
 		display: flex;
 		align-items: center;
 		cursor: pointer;
+		background: none;
+		border: none;
+	}
+	#darkmode-toggle:focus {
+		outline: thin dotted;
 	}
 
 	svg {
 		display: none;
 		width: 18px;
 		stroke-width: 2;
+		stroke: var(--stroke);
 	}
 
 	svg:active {
 		stroke: var(--highlight);
 	}
 
-	input[type='checkbox']:checked ~ .sun,
-	input[type='checkbox']:not(:checked) ~ .moon {
+	.visible {
 		display: inline-block;
-	}
-
-	input[type='checkbox']:focus ~ svg {
-		outline: thin dotted;
-	}
-
-	input[type='checkbox']:active ~ svg {
-		color: var(--highlight);
-	}
-
-	.visually-hidden {
-		clip: rect(0 0 0 0);
-		clip-path: inset(50%);
-		height: 1px;
-		overflow: hidden;
-		position: absolute;
-		white-space: nowrap;
-		width: 1px;
 	}
 </style>

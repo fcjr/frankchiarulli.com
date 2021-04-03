@@ -5,7 +5,6 @@ const dateOptions: Intl.DateTimeFormatOptions = {
 };
 
 export function formatDate(date: Date): string {
-
 	// javascript dates are a bit weird and inconsistent, normalize to utc
 	// so that the formatted date matches the frontmatter date.
 	// TODO is a better way to do this?
