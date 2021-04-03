@@ -1,47 +1,39 @@
-<script lang="ts" context="module">
-	import { findPost } from '$lib/posts';
+<script>
 	import { formatDate } from '$lib/utils';
-
-	/**
-	 * @type {import('@sveltejs/kit').Load}
-	 */
-	export function load({ page }) {
-		const post = findPost(page.params.permalink);
-		return { props: { post } };
-	}
-</script>
-
-<script lang="ts">
-	import type { Post } from '$lib/posts';
 	import highlight from '$lib/highlight';
 
 	import Tags from '$components/Tags.svelte';
 	import CascadeNavigator from '$components/CascadeNavigator.svelte';
 
-	export let post: Post;
+	export let title;
+	export let author;
+	export let date;
+	export let tags;
+
+	export let permalink;
 </script>
 
 <CascadeNavigator />
 <article class="article" use:highlight>
 	<header>
-		<h1>{post.attributes.title}</h1>
-		<h2>{formatDate(post.date)} · {post.attributes.author}</h2>
+		<h1>{title}</h1>
+		<h2>{formatDate(new Date(date))} · {author}</h2>
 	</header>
-	{@html post.html}
+	<slot />
 	<footer>
 		<p class="make-an-edit">
 			Noticed a mistake?
-			<a href="https://github.com/fcjr/frankchiarulli.com/blob/main/src/posts/{post.permalink}.md"
+			<a href="https://github.com/fcjr/frankchiarulli.com/blob/main/src/blog/{permalink}.md"
 				>Make an edit</a
 			>
 			or
 			<a
 				href="https://github.com/fcjr/frankchiarulli.com/issues/new?title={encodeURIComponent(
-					`[Blog Correction]: ${post.permalink}`
+					`[Blog Correction]: ${permalink}`
 				)}">Open an issue</a
 			>
 		</p>
-		<Tags tags={post.attributes.tags} />
+		<Tags tags={tags} />
 	</footer>
 </article>
 

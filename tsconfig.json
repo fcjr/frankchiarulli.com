@@ -23,9 +23,9 @@
 		"paths": {
 			// defaults don't require corresponding vite aliases
 			"$app/*": [".svelte/dev/runtime/app/*", ".svelte/build/runtime/app/*"],
-			"$components/*": ["src/components/*"],
+			"$lib/*": ["src/lib/*"],
 			// custom aliases (be sure to add in svelte.config.cjs)
-			"$lib/*": ["src/lib/*"]
+			"$components/*": ["src/components/*"]
 		}
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]

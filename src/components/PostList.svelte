@@ -8,16 +8,16 @@
 {#each posts as post}
 	<a
 		class="post-link"
-		aria-label={`link to post: ${post.attributes.title}`}
+		aria-label={`link to post: ${post.metadata.title}`}
 		href={`/blog/${post.permalink}`}
 	>
 		<article class="post">
-			<h2 class="post-header">{post.attributes.title}</h2>
+			<h2 class="post-header">{post.metadata.title}</h2>
 			<section class="post-content">
-				<p>{post.attributes.description}</p>
+				<p>{post.metadata.description}</p>
 			</section>
 			<footer class="post-footer">
-				{formatDate(post.date)} · {post.attributes.author}
+				{formatDate(post.date)} · {post.metadata.author}
 			</footer>
 		</article>
 	</a>

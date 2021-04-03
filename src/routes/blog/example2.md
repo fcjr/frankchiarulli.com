@@ -1,14 +1,15 @@
 ---
 author: 'Frank Chiarulli Jr.'
-title: 'Example 1'
-date: '2021-02-27'
-description: 'Example 1'
-tags: ['windows', 'go', 'ui', 'winapi']
+title: 'Example 2'
+date: '2021-03-27'
+description: 'Example 2'
+tags: []
 categories: ['windows', 'go', 'user-interfaces']
 series: ['alert']
+permalink: 'example2'
 ---
 
-This is an example 1
+This is an example 2
 
 ## <!--more-->
 

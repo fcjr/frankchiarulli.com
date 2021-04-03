@@ -1,13 +1,12 @@
-const modules = import.meta.globEager('../posts/*.md');
+const modules = import.meta.globEager('../routes/blog/*.md');
 
 export type Post = {
 	permalink: string;
 	date: Date;
-	attributes: PostAttributes;
-	html: string;
+	metadata: PostMetadata;
 };
 
-export type PostAttributes = {
+export type PostMetadata = {
 	title: string;
 	author: string;
 	date: string;
@@ -23,7 +22,7 @@ export const posts = Object.keys(modules)
 		(key) =>
 			({
 				permalink: key.split('/').pop().slice(0, -3),
-				date: new Date(modules[key].attributes.date),
+				date: new Date(modules[key].metadata.date),
 				...modules[key]
 			} as Post)
 	)
@@ -33,8 +32,8 @@ export const findPost = (permalink: string): Post =>
 	posts.find((post) => post.permalink === permalink);
 
 export const findPostsByTag = (tag: string): Post[] =>
-	posts.filter((post) => post.attributes.tags.includes(tag));
+	posts.filter((post) => post.metadata.tags.includes(tag));
 
 export const tags = posts
-	.reduce((acc, curPost) => [...acc, ...curPost.attributes.tags], [])
+	.reduce((acc, curPost) => [...acc, ...curPost.metadata.tags], [])
 	.filter((val, i, arr) => arr.indexOf(val) === i);
