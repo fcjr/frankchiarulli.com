@@ -12,3 +12,11 @@ export function formatDate(date: Date): string {
 
 	return utc.toLocaleString('en', dateOptions);
 }
+
+export function chunk<Type>(arr: Type[], chunkSize = 1): Type[][] {
+	return arr.reduce((acc, item, index) => {
+		const chunkIndex = Math.floor(index / chunkSize);
+		acc[chunkIndex] = [...(acc[chunkIndex] || []), item];
+		return acc;
+	}, []);
+}

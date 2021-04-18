@@ -32,7 +32,8 @@
 		{#if permalink}
 			<p class="make-an-edit">
 				Noticed a mistake?
-				<a href="https://github.com/fcjr/frankchiarulli.com/blob/main/src/routes/blog/{permalink}.md"
+				<a
+					href="https://github.com/fcjr/frankchiarulli.com/blob/main/src/routes/blog/{permalink}.md"
 					>Make an edit</a
 				>
 				or

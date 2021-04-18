@@ -4,6 +4,7 @@
 	import SEO from '$components/SEO.svelte';
 	import PostList from '$components/PostList.svelte';
 	import SocialIcons from '$components/SocialIcons.svelte';
+	import Button from '$components/Button.svelte';
 </script>
 
 <section>
@@ -25,8 +26,15 @@
 	</p>
 	<SocialIcons />
 </section>
-
-<PostList {posts} />
+<section class="postContainer">
+	<h2 class="postHeader">Latest Post:</h2>
+	<PostList posts={posts.slice(0, 1)} />
+	{#if posts?.length > 1}
+		<div class="buttonContainer">
+			<Button href="/blog">All Posts</Button>
+		</div>
+	{/if}
+</section>
 
 <style>
 	.name {
@@ -46,5 +54,17 @@
 	a {
 		font-weight: 600;
 		text-decoration: none;
+	}
+
+	.postContainer {
+		display: flex;
+		flex-direction: column;
+	}
+	.postHeader {
+		margin: 15px 0 15px 0;
+	}
+
+	.buttonContainer {
+		align-self: flex-end;
 	}
 </style>

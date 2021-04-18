@@ -9,9 +9,7 @@
 				<img class="logo" src="/img/logo.svg" height="35" width="35" alt="logo" />
 				Frank Chiarulli Jr.
 			</a>
-			<div class="darkmode-toggle-container">
-				<DarkModeToggle />
-			</div>
+			<DarkModeToggle />
 		</div>
 		<nav class="header-nav" role="navigation">
 			<a class="nav-link" href="/blog">Blog</a>
@@ -39,6 +37,7 @@
 	.logo-group {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		font-size: 24px;
 		font-weight: 700;
 	}
@@ -46,14 +45,11 @@
 	.logo-link {
 		display: flex;
 		align-items: center;
+		margin-right: 5px;
 	}
 
 	.logo {
 		margin-right: 10px;
-	}
-
-	.darkmode-toggle-container {
-		margin-left: 5px;
 	}
 
 	.header-nav {

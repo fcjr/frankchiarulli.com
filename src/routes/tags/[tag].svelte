@@ -23,6 +23,7 @@
 </script>
 
 <SEO title={`Tag: ${tag}`} />
+<h1>Tags</h1>
 <CascadeNavigator />
 <PostList {posts} />
 

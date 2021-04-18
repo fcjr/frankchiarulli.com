@@ -19,6 +19,7 @@
 			<footer class="post-footer">
 				{formatDate(post.date)} · {post.metadata.author}
 			</footer>
+			<div class="post-arrow">></div>
 		</article>
 	</a>
 {/each}
@@ -63,5 +64,13 @@
 	.post-footer {
 		font-size: 12px;
 		font-family: var(--code-font);
+	}
+
+	.post-arrow {
+		position: absolute;
+		font-size: 32px;
+		right: 15px;
+		top: 35%;
+		transform: scaleX(0.5);
 	}
 </style>
