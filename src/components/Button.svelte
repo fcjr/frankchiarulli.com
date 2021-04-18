@@ -11,7 +11,7 @@
 	.button {
 		background: var(--secondary);
 		border-radius: var(--radius);
-		color: var(--paragraph);
+		color: var(--secondary-paragraph);
 		text-decoration: none;
 		padding: 8px;
 	}
