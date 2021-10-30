@@ -19,7 +19,7 @@
 		"mdsvex": "^0.8.9",
 		"prettier": "~2.2.1",
 		"prettier-plugin-svelte": "^2.2.0",
-		"prismjs": "^1.23.0",
+		"prismjs": "^1.25.0",
 		"rehype-autolink-headings": "^5.0.1",
 		"rehype-slug": "^4.0.1",
 		"remark-abbr": "^1.4.1",
