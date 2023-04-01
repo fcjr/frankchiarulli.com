@@ -10,17 +10,23 @@
 <section>
 	<SEO title="Home" desc="Frank Chiarulli Jr." />
 	<h1 class="name">Frank Chiarulli Jr.</h1>
+	<p>Hi, I’m Frank! I write code that keeps you safe and private online.</p>
 	<p>
-		Hi, I’m Frank! I write code that keeps you safe and private online.
-		<br />
-		I’m a Lead Software Engineer at <a href="https://ghostery.com" rel="_blank"><b>Ghostery</b></a>.
-		Building <a href="https://ghostery.com/midnight" rel="_blank">system-wide privacy tools</a>.
+		I am a software engineer who loves privacy, security, enmbeded systems, and open source. I
+		mostly write Go, TypeScript, & Python on personal projects and currently Go, Java, Kotlin, and
+		Swift for work. Though, I am currently learning and loving Rust.
 	</p>
 	<p>
-		Interested in go, security, embedded systems, & operating systems.
-		<br />
-		Probably doing something I shouldn’t with cGo or WinAPI.
+		I am a tech lead at <a href="https://jpmorganchase.com"><b>JPMorganChase</b></a>'s Global
+		Business Accelerator, running a team focused on privacy and security. Prior to that, I served as
+		a founding engineer at <a href="https://svix.com"><b>Svix</b></a> (YC W21), where I helped build
+		the company's initial platform and infrastructure. Before covid, I was the lead backend engineer
+		at <a href="https://ghostery.com"><b>Ghostery</b></a>/<a href="https://github.com/cliqz"
+			><b>Cliqz</b></a
+		>
+		, working on anti-tracking software including Ghostery Midnight (a system wide & tracker blocker).
 	</p>
+	<p>Probably doing something I shouldn’t with cGo or WinAPI.</p>
 	<SocialIcons />
 </section>
 {#if posts?.length > 1}
