@@ -8,7 +8,7 @@
 </script>
 
 <section>
-	<SEO title="Home" />
+	<SEO title="Home" desc="Frank Chiarulli Jr." />
 	<h1 class="name">Frank Chiarulli Jr.</h1>
 	<p>
 		Hi, I’m Frank! I write code that keeps you safe and private online.
@@ -21,20 +21,17 @@
 		<br />
 		Probably doing something I shouldn’t with cGo or WinAPI.
 	</p>
-	<p>
-		Looking for my <a href="/art">art</a>?
-	</p>
 	<SocialIcons />
 </section>
-<section class="postContainer">
-	<h2 class="postHeader">Latest Post:</h2>
-	<PostList posts={posts.slice(0, 1)} />
-	{#if posts?.length > 1}
+{#if posts?.length > 1}
+	<section class="postContainer">
+		<h2 class="postHeader">Latest Post:</h2>
+		<PostList posts={posts.slice(0, 1)} />
 		<div class="buttonContainer">
-			<Button href="/blog">All Posts</Button>
+			<Button href="/blog" ariaLabel="blog">All Posts</Button>
 		</div>
-	{/if}
-</section>
+	</section>
+{/if}
 
 <style>
 	.name {

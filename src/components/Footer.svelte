@@ -1,5 +1,5 @@
 <footer>
-	<span>© 2021 Frank Chiarulli Jr.</span>
+	<span>© 2023 Frank Chiarulli Jr.</span>
 </footer>
 
 <style>

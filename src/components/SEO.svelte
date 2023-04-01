@@ -14,7 +14,7 @@
 	const { siteName, siteUrl, desc: defaultDesc } = siteInfo;
 
 	export let title: string;
-	export let desc: '';
+	export let desc: string = '';
 	export let canonical = '';
 	export let noindex = false;
 </script>
