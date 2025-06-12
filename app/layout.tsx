@@ -1,4 +1,3 @@
-import PlausibleProvider from "next-plausible";
 import Link from "./Link";
 import HomeLink from "./HomeLink";
 import { sans } from "./fonts";
@@ -14,7 +13,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={sans.className}>
       <body className="mx-auto max-w-2xl bg-white px-6 py-16 text-gray-900 antialiased">
-        <PlausibleProvider domain="frankchiarulli.com">
           <header className="mb-16">
             <HomeLink />
             <nav className="mt-4 flex gap-4 text-sm text-gray-600 items-center">
@@ -35,7 +33,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>
             <Activity mode="visible">{children}</Activity>
           </main>
-        </PlausibleProvider>
       </body>
     </html>
   );
