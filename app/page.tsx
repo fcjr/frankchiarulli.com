@@ -27,20 +27,17 @@ export default async function Home() {
       
       {posts.length > 0 && (
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">Recent Posts</h2>
-          {posts.map((post) => (
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">Latest Post</h2>
             <Link
-              key={post.slug}
               className="block hover:opacity-70 transition-opacity mb-8"
-              href={"/blog/" + post.slug + "/"}
+              href={"/blog/" + posts[0].slug + "/"}
             >
               <article>
-                <PostTitle post={post} />
-                <PostMeta post={post} />
-                <PostSubtitle post={post} />
+                <PostTitle post={posts[0]} />
+                <PostMeta post={posts[0]} />
+                <PostSubtitle post={posts[0]} />
               </article>
             </Link>
-          ))}
         </section>
       )}
     </div>

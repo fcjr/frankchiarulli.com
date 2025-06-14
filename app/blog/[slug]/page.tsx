@@ -35,6 +35,15 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   )}/index.md`;
   return (
     <>
+      <div className="mb-8">
+        <Link 
+          href="/blog" 
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors duration-200 group"
+        >
+          <span className="transition-transform duration-200 group-hover:-translate-x-1">←</span>
+          <span>all posts</span>
+        </Link>
+      </div>
       <article>
         <h1
           className={[
