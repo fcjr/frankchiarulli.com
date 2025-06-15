@@ -20,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="https://github.com/fcjr" target="_blank">GitHub</Link>
               <Link href="https://linkedin.com/in/frankchiarulli" target="_blank">LinkedIn</Link>
               <Link href="https://twitter.com/_fcjr" target="_blank">Twitter</Link>
+              <Link href="https://bsky.app/profile/frankchiarulli.com" target="_blank">Bluesky</Link>
               <Link href="mailto:frank@frankchiarulli.com">Email</Link>
               <Link href="/blog/rss.xml" title="RSS Feed">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
