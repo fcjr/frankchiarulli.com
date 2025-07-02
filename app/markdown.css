@@ -80,14 +80,15 @@
 }
 
 .markdown ul:not(.unstyled) {
-    @apply list-inside md:list-outside list-disc;
+    @apply list-disc;
     margin-top: 0;
     padding-bottom: 0;
-    padding-left: 0;
+    padding-left: 1.5rem;
     padding-right: 0;
     padding-top: 0;
     margin-bottom: 1.75rem;
     list-style-image: none;
+    list-style-position: outside;
 }
 
 .markdown ul:not(.unstyled) ul {
