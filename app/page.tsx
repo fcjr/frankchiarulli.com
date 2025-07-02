@@ -17,7 +17,7 @@ export default async function Home() {
           I work with Go, TypeScript, Python, Java, Kotlin, Swift, and I'm currently learning Rust.
         </p>
         <p className="text-gray-700 mb-3">
-          I'll be attending the Summer 2 batch of <Link href="https://www.recurse.com/" className="text-blue-600 hover:text-blue-800 underline">Recurse Center</Link> starting June 30th, having recently left my role as tech lead and engineering manager at <Link href="https://www.jpmorganchase.com/" className="text-blue-600 hover:text-blue-800 underline">JPMorgan Chase</Link>'s Global Business Accelerator. 
+          I am currently attending the Summer 2 batch of <Link href="https://www.recurse.com/" className="text-blue-600 hover:text-blue-800 underline">Recurse Center</Link>, having recently left my role as tech lead and engineering manager at <Link href="https://www.jpmorganchase.com/" className="text-blue-600 hover:text-blue-800 underline">JPMorgan Chase</Link>'s Global Business Accelerator. 
           Previously, I was a founding engineer at <Link href="https://www.svix.com/" className="text-blue-600 hover:text-blue-800 underline">Svix</Link> (YC W21) and lead backend/desktop engineer at <Link href="https://www.ghostery.com/" className="text-blue-600 hover:text-blue-800 underline">Ghostery</Link>/<Link href="https://cliqz.com/" className="text-blue-600 hover:text-blue-800 underline">Cliqz</Link>, working on anti-tracking software.
         </p>
         <p className="text-gray-600 text-sm italic">
