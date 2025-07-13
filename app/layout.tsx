@@ -14,12 +14,12 @@ const Activity: any = Symbol.for("react.activity");
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={sans.className}>
-      <body className="mx-auto max-w-2xl bg-white px-6 py-16 text-gray-900 antialiased">
+      <body className="mx-auto max-w-2xl bg-white px-6 py-8 text-gray-900 antialiased">
         <Script 
           src="https://www.recurse-scout.com/loader.js?t=ba46ea16fafed13b3f8ccacb0ce83ad1"
           strategy="afterInteractive"
         />
-          <header className="mb-16">
+          <header className="mb-8">
             <HomeLink />
             <nav className="mt-4 flex gap-4 text-sm text-gray-600 items-center">
               <Link href="/blog">Blog</Link>
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>
             <Activity mode="visible">{children}</Activity>
           </main>
-          <footer className="mt-16">
+          <footer className="mt-8">
             <div className="rc-scout"></div>
             <RecurseRing />
           </footer>
