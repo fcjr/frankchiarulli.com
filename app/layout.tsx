@@ -1,5 +1,6 @@
 import Link from "./Link";
 import HomeLink from "./HomeLink";
+import RecurseRing from "./RecurseRing";
 import { sans } from "./fonts";
 import "./global.css";
 
@@ -34,6 +35,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>
             <Activity mode="visible">{children}</Activity>
           </main>
+          <footer className="mt-16">
+            <RecurseRing />
+          </footer>
       </body>
     </html>
   );
