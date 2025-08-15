@@ -41,7 +41,7 @@ export async function generateOpenGraphImage(props = {}) {
             alignItems: "center",
           }}
         >
-          A Blog by Frank Chairulli Jr.
+          A Blog by frank chiarulli jr.
         </span>
       </div>
       <div

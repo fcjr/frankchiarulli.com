@@ -2,8 +2,8 @@ import Link from "../Link";
 import { getPosts, Post } from "../posts";
 
 export const metadata = {
-  title: "Blog - Frank Chiarulli Jr.",
-  description: "All blog posts by Frank Chiarulli Jr.",
+  title: "Blog - frank chiarulli jr.",
+  description: "All blog posts by frank chiarulli jr.",
 };
 
 export default async function BlogPage() {

@@ -15,7 +15,7 @@ export default function HomeLink() {
         "inline-block text-3xl font-bold text-gray-900 hover:text-gray-700 transition-colors",
       ].join(" ")}
     >
-      Frank Chiarulli Jr.
+      frank chiarulli jr.
     </Link>
   );
 }

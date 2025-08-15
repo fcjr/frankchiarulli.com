@@ -12,8 +12,8 @@ export interface Post {
 }
 
 export const metadata = {
-  title: "The Personal Blog of Frank Chiarulli Jr.",
-  description: "A blog by Frank Chiarulli Jr.",
+  title: "The Personal Blog of frank chiarulli jr.",
+  description: "A blog by frank chiarulli jr.",
   openGraph: {
     title: "frankchiarulli.com",
   },
@@ -50,7 +50,7 @@ export async function generateFeed() {
 
   const feedOptions = {
     author: {
-      name: "Frank Chiarulli Jr.",
+      name: "frank chiarulli jr.",
       email: "frank@frankchiarulli.com",
       link: site_url,
     },
