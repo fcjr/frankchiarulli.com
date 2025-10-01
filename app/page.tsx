@@ -13,8 +13,9 @@ export default async function Home() {
           Hi, I'm Frank! I write code that keeps you safe and private online.
         </p>
         <p className="text-gray-700 mb-2">
-          I'm a software engineer passionate about privacy, security, embedded systems, and open source. 
-          I work with Go, TypeScript, Python, Java, Kotlin, Swift, and I'm currently learning Rust.
+          I'm a software engineer passionate about privacy, security, embedded systems, and open source.
+          I work mostly with Go, TypeScript, Python, Java, Kotlin, Swift, and I'm currently learning Rust.
+          I recently started operating my own ASN <Link href="https://www.peeringdb.com/asn/402030" className="text-blue-600 hover:text-blue-800 underline">AS402030</Link> to learn more about BGP and peering.
         </p>
         <p className="text-gray-700 mb-2">
           I am currently attending the <s>Summer 2</s> Fall 2 (I extended 🙈) batch of <Link href="https://www.recurse.com/" className="text-blue-600 hover:text-blue-800 underline">Recurse Center</Link>, having recently left my role as tech lead and engineering manager at <Link href="https://www.jpmorganchase.com/" className="text-blue-600 hover:text-blue-800 underline">JPMorgan Chase</Link>'s Global Business Accelerator.
