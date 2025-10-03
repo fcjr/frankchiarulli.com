@@ -67,6 +67,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 className="leading-tight mt-4"
                 href={data.youtube}
                 target="_blank"
+                aria-label="Watch on YouTube"
               >
                 <span className="hidden min-[400px]:inline">Watch on </span>
                 YouTube
