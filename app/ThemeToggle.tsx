@@ -24,7 +24,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="text-headline hover:text-stroke transition-colors theme-toggle"
+      className="text-headline theme-toggle"
       aria-label="Toggle theme"
       type="button"
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
