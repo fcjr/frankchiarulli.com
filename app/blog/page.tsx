@@ -23,7 +23,7 @@ export default async function BlogPage() {
           posts.map((post) => (
             <Link
               key={post.slug}
-              className="block hover:opacity-70 transition-opacity"
+              className="block group"
               href={"/blog/" + post.slug + "/"}
             >
               <article className="pb-6 border-b border-stroke border-opacity-20 last:border-b-0">
@@ -43,7 +43,7 @@ export default async function BlogPage() {
 
 function PostTitle({ post }: { post: Post }) {
   return (
-    <h2 className="text-2xl font-semibold text-headline mb-2 leading-tight">
+    <h2 className="text-2xl font-semibold text-headline group-hover:text-secondary mb-2 leading-tight transition-colors">
       {post.title}
     </h2>
   );
