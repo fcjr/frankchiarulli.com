@@ -12,7 +12,7 @@
 }
 
 .markdown a:not(.tip):not(.linked-heading) {
-    @apply border-b-[1px] border-headline text-headline hover:text-stroke;
+    @apply border-b-[1px] border-headline text-headline hover:text-secondary hover:border-secondary;
 }
 
 .markdown hr {

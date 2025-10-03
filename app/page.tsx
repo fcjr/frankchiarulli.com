@@ -15,11 +15,11 @@ export default async function Home() {
         <p className="text-paragraph mb-2">
           I'm a software engineer passionate about privacy, security, embedded systems, and open source.
           I work mostly with Go, TypeScript, Python, Java, Kotlin, Swift, and I'm currently learning Rust.
-          I recently started operating my own ASN <Link href="https://www.peeringdb.com/asn/402030" className="text-headline hover:text-stroke underline">AS402030</Link> to learn more about BGP and peering.
+          I recently started operating my own ASN <Link href="https://www.peeringdb.com/asn/402030" className="text-headline hover:text-secondary underline">AS402030</Link> to learn more about BGP and peering.
         </p>
         <p className="text-paragraph mb-2">
-          I am currently attending the <s>Summer 2</s> Fall 2 (I extended 🙈) batch of <Link href="https://www.recurse.com/" className="text-headline hover:text-stroke underline">Recurse Center</Link>, having recently left my role as tech lead and engineering manager at <Link href="https://www.jpmorganchase.com/" className="text-headline hover:text-stroke underline">JPMorgan Chase</Link>'s Global Business Accelerator.
-          Previously, I was a founding engineer at <Link href="https://www.svix.com/" className="text-headline hover:text-stroke underline">Svix</Link> (YC W21) and lead backend/desktop engineer at <Link href="https://www.ghostery.com/" className="text-headline hover:text-stroke underline">Ghostery</Link>/<Link href="https://cliqz.com/" className="text-headline hover:text-stroke underline">Cliqz</Link>, working on anti-tracking software.
+          I am currently attending the <s>Summer 2</s> Fall 2 (I extended 🙈) batch of <Link href="https://www.recurse.com/" className="text-headline hover:text-secondary underline">Recurse Center</Link>, having recently left my role as tech lead and engineering manager at <Link href="https://www.jpmorganchase.com/" className="text-headline hover:text-secondary underline">JPMorgan Chase</Link>'s Global Business Accelerator.
+          Previously, I was a founding engineer at <Link href="https://www.svix.com/" className="text-headline hover:text-secondary underline">Svix</Link> (YC W21) and lead backend/desktop engineer at <Link href="https://www.ghostery.com/" className="text-headline hover:text-secondary underline">Ghostery</Link>/<Link href="https://cliqz.com/" className="text-headline hover:text-secondary underline">Cliqz</Link>, working on anti-tracking software.
         </p>
         <p className="text-paragraph text-sm italic">
           Probably doing something I shouldn't with cGo or WinAPI.
@@ -30,7 +30,7 @@ export default async function Home() {
         <section>
           <h2 className="text-xl font-semibold text-headline mb-3">Latest Post</h2>
             <Link
-              className="block hover:opacity-70 transition-opacity mb-4"
+              className="block group mb-4"
               href={"/blog/" + posts[0].slug + "/"}
             >
               <article>
@@ -47,7 +47,7 @@ export default async function Home() {
 
 function PostTitle({ post }: { post: Post }) {
   return (
-    <h2 className="text-xl font-semibold text-headline mb-1 leading-tight">
+    <h2 className="text-xl font-semibold text-headline group-hover:text-secondary mb-1 leading-tight transition-colors">
       {post.title}
     </h2>
   );
