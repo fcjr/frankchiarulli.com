@@ -53,11 +53,11 @@ export default function RecurseRing() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-      <a id="rc-ring-prev" href="https://ring.recurse.com/prev?id=54" className="hover:text-gray-700 transition-colors" aria-label="Previous site in Recurse webring">←</a>
-      <a id="rc-ring-home" data-rc-uuid="242f4aa8-c457-4681-a710-2009f3cd7299" href="https://ring.recurse.com/" className="hover:text-gray-700 transition-colors text-xs">The Recurse Webring</a>
-      <a id="rc-ring-next" href="https://ring.recurse.com/next?id=54" className="hover:text-gray-700 transition-colors" aria-label="Next site in Recurse webring">→</a>
-      <a id="rc-ring-rand" href="https://ring.recurse.com/rand" className="hover:text-gray-700 transition-colors" aria-label="Random site in Recurse webring">?</a>
+    <div className="flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+      <a id="rc-ring-prev" href="https://ring.recurse.com/prev?id=54" className="hover:text-secondary transition-colors" aria-label="Previous site in Recurse webring">←</a>
+      <a id="rc-ring-home" data-rc-uuid="242f4aa8-c457-4681-a710-2009f3cd7299" href="https://ring.recurse.com/" className="hover:text-secondary transition-colors text-xs">The Recurse Webring</a>
+      <a id="rc-ring-next" href="https://ring.recurse.com/next?id=54" className="hover:text-secondary transition-colors" aria-label="Next site in Recurse webring">→</a>
+      <a id="rc-ring-rand" href="https://ring.recurse.com/rand" className="hover:text-secondary transition-colors" aria-label="Random site in Recurse webring">?</a>
     </div>
   );
 }
