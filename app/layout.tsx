@@ -2,6 +2,8 @@ import Link from "./Link";
 import HomeLink from "./HomeLink";
 import RecurseRing from "./RecurseRing";
 import RCScout from "./RCScout";
+import ThemeToggle from "./ThemeToggle";
+import ThemeScript from "./ThemeScript";
 import { sans } from "./fonts";
 import Script from "next/script";
 import "./global.css";
@@ -14,7 +16,10 @@ const Activity: any = Symbol.for("react.activity");
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={sans.className}>
+    <html lang="en" className={sans.className} suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className="mx-auto max-w-2xl bg-background px-6 py-8 text-paragraph antialiased">
         <header className="mb-8">
           <HomeLink />
@@ -32,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <circle cx="5" cy="19" r="1" fill="currentColor"/>
               </svg>
             </Link>
+            <ThemeToggle />
           </nav>
         </header>
         <main>

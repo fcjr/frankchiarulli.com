@@ -126,7 +126,8 @@
 
 .markdown th,
 .markdown td {
-    @apply border border-stroke/20;
+    border: 1px solid var(--stroke);
+    opacity: 0.6;
     padding: 8px;
     text-align: left;
 }
@@ -136,13 +137,15 @@
     margin-left: -16px;
     margin-right: -16px;
     padding-left: 12px;
-    @apply border-l-4 border-tertiary bg-secondary/20;
+    border-left: 4px solid var(--tertiary);
+    background-color: var(--secondary);
+    opacity: 0.2;
     display: block;
     padding-right: 1em;
 }
 
 .tip {
-    @apply inline-block px-8 py-4 font-sans font-semibold text-xl rounded-full shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-tertiary/30 focus:ring-opacity-50 border-b-[1px] overflow-clip transition-transform;
+    @apply inline-block px-8 py-4 font-sans font-semibold text-xl rounded-full shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 border-b-[1px] overflow-clip transition-transform;
     @apply bg-button text-button-text border-button;
 }
 

@@ -19,9 +19,44 @@
     --tertiary: #f582ae;
 }
 
+.dark {
+    --bg: #0f0e17;
+    --text: #a7a9be;
+    --headline: #fffffe;
+    --link: #fffffe;
+    --button: #ff8906;
+    --button-text: #fffffe;
+    --code-bg: #1a1923;
+    --inlineCode-bg: #1a1923;
+    --inlineCode-text: #fffffe;
+    --stroke: #000000;
+    --main: #fffffe;
+    --highlight: #ff8906;
+    --secondary: #ff8906;
+    --tertiary: #ff8906;
+}
+
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.theme-toggle .sun-icon {
+    display: none;
+}
+
+.theme-toggle .moon-icon {
+    display: block;
+}
+
+.dark .theme-toggle .sun-icon {
+    display: block;
+}
+
+.dark .theme-toggle .moon-icon {
+    display: none;
 }
 
 @media (prefers-reduced-motion) {

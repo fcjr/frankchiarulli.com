@@ -26,7 +26,7 @@ export default async function BlogPage() {
               className="block hover:opacity-70 transition-opacity"
               href={"/blog/" + post.slug + "/"}
             >
-              <article className="pb-6 border-b border-stroke/20 last:border-b-0">
+              <article className="pb-6 border-b border-stroke border-opacity-20 last:border-b-0">
                 <PostTitle post={post} />
                 <PostMeta post={post} />
                 <PostSubtitle post={post} />
