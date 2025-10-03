@@ -12,7 +12,7 @@ export default function HomeLink() {
       href="/"
       className={[
         sans.className,
-        "inline-block text-3xl font-bold text-headline hover:text-stroke transition-colors",
+        "inline-block text-3xl font-bold text-headline hover:text-headline transition-colors",
       ].join(" ")}
     >
       Frank Chiarulli Jr.
