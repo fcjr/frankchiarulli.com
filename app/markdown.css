@@ -12,7 +12,7 @@
 }
 
 .markdown a:not(.tip):not(.linked-heading) {
-    @apply border-b-[1px] border-[--link] text-[--link];
+    @apply border-b-[1px] border-headline text-headline hover:text-stroke;
 }
 
 .markdown hr {
@@ -41,8 +41,7 @@
 
 .markdown :not(pre) > code {
     border-radius: 10px;
-    background: var(--inlineCode-bg);
-    color: var(--inlineCode-text);
+    @apply bg-main text-headline;
     padding: 0.15em 0.2em 0.05em;
     white-space: normal;
 }
@@ -65,8 +64,7 @@
 .markdown blockquote {
     @apply relative -left-2 -ml-4 mb-8 pl-4;
     font-style: italic;
-    border-left: 3px solid hsla(0, 0%, 0%, 0.9);
-    border-left-color: inherit;
+    @apply border-l-[3px] border-stroke;
     opacity: 0.8;
 }
 
@@ -117,7 +115,7 @@
 }
 
 .markdown input {
-    color: #222;
+    @apply text-headline;
 }
 
 .markdown table {
@@ -128,30 +126,24 @@
 
 .markdown th,
 .markdown td {
-    border: 1px solid #dcdcdc;
+    @apply border border-stroke/20;
     padding: 8px;
     text-align: left;
 }
 
-@media (prefers-color-scheme: dark) {
-    .markdown input {
-        color: #111;
-    }
-}
 
 .markdown pre [data-highlighted-line] {
     margin-left: -16px;
     margin-right: -16px;
     padding-left: 12px;
-    border-left: 4px solid #ffa7c4;
-    background-color: #022a4b;
+    @apply border-l-4 border-tertiary bg-secondary/20;
     display: block;
     padding-right: 1em;
 }
 
 .tip {
-    @apply inline-block px-8 py-4 font-sans font-semibold text-xl rounded-full shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-opacity-50 border-b-[1px] text-white overflow-clip transition-transform;
-    border-color: var(--link);
+    @apply inline-block px-8 py-4 font-sans font-semibold text-xl rounded-full shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-tertiary/30 focus:ring-opacity-50 border-b-[1px] overflow-clip transition-transform;
+    @apply bg-button text-button-text border-button;
 }
 
 .tip.tip-sm {
@@ -159,17 +151,11 @@
 }
 
 .tip-bg {
-    background-image: linear-gradient(45deg, var(--purple), var(--pink));
+    background-image: linear-gradient(45deg, var(--secondary), var(--tertiary));
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: -1;
-}
-
-@media (prefers-color-scheme: dark) {
-    .tip-bg {
-        filter: brightness(0.46);
-    }
 }

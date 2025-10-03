@@ -15,10 +15,10 @@ const Activity: any = Symbol.for("react.activity");
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={sans.className}>
-      <body className="mx-auto max-w-2xl bg-white px-6 py-8 text-gray-900 antialiased">
+      <body className="mx-auto max-w-2xl bg-background px-6 py-8 text-paragraph antialiased">
         <header className="mb-8">
           <HomeLink />
-          <nav className="mt-4 flex gap-4 text-sm text-gray-600 items-center">
+          <nav className="mt-4 flex gap-4 text-sm text-headline items-center">
             <Link href="/blog">Blog</Link>
             <Link href="https://github.com/fcjr" target="_blank">GitHub</Link>
             <Link href="https://linkedin.com/in/frankchiarulli" target="_blank">LinkedIn</Link>

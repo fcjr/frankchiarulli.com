@@ -4,7 +4,7 @@ date: '2025-06-16'
 spoiler: "I'm betting on myself."
 ---
 
-After 3 years at JPMorgan Chase, my last day was this past Friday. I'm trading my comfortable corporate job for a summer of challenging, exciting, (and unpaid) learning at [Recurse Center](https://recurse.com)'s Summer 2 batch.
+After 3 years at JPMorgan Chase, my last day was this past Friday. I'm trading my comfortable corporate job for a ~~summer~~ fall (I extended 🙈) of challenging, exciting, (and unpaid) learning at [Recurse Center](https://recurse.com)'s ~~Summer 2~~ Fall 2 batch.
 
 Yes, you read that right. I'm leaving a well-paying position at one of the world's largest banks to attend what might sound like a "writer's retreat for programmers." And honestly? I've never been more excited about a career decision.
 
