@@ -1,10 +1,11 @@
-import { Montserrat, Merriweather } from "next/font/google";
+import localFont from "next/font/local";
+import { Merriweather } from "next/font/google";
 
-export const sans = Montserrat({
-  subsets: ["latin"],
+export const sans = localFont({
+  src: "./fonts/Isonorm 3098 Regular.otf",
   display: "swap",
-  weight: ["400", "600", "700"],
-  style: ["normal"],
+  weight: "400",
+  style: "normal",
 });
 
 export const serif = Merriweather({

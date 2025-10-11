@@ -41,6 +41,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--bg);
     color: var(--text);
+    font-size: 18px;
 }
 
 .theme-toggle .sun-icon {

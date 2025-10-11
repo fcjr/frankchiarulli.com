@@ -4,7 +4,7 @@ const RCScout = () => {
   return (
     <div>
       <div className="block p-0 border-0 m-0" data-scout-rendered="true">
-        <p className="block p-0 border-0 m-0 h-full text-base">
+        <p className="block p-0 border-0 m-0 h-full text-base text-center">
           <i
             className="inline-block p-0 border-0 m-0 w-3 h-3 bg-no-repeat bg-center"
             aria-hidden="true"
