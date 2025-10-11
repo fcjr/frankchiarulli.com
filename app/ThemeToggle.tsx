@@ -9,9 +9,6 @@ export default function ThemeToggle() {
     // Sync state on mount in case system preference changed
     const isDarkMode = document.documentElement.classList.contains("dark");
     setIsDark(isDarkMode);
-    if (isDarkMode) {
-      localStorage.setItem("theme", "dark");
-    }
   }, []);
 
   const toggleTheme = () => {
