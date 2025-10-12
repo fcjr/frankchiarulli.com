@@ -11,7 +11,16 @@ export default async function BlogPage() {
   
   return (
     <div className="flex flex-col gap-8">
-      <header className="mb-8">
+      <div>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-paragraph hover:text-secondary text-sm font-medium transition-colors duration-200 group"
+        >
+          <span className="transition-transform duration-200 group-hover:-translate-x-1">←</span>
+          <span>home</span>
+        </Link>
+      </div>
+      <header>
         <h1 className="text-3xl font-bold text-headline mb-4">Blog</h1>
         <p className="text-paragraph">
           Thoughts on privacy, security, programming, and building better software.
