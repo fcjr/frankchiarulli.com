@@ -12,7 +12,7 @@
     "colorjs.io": "^0.4.5",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
-    "next": ">=15.4.8",
+    "next": ">=16.0.9",
     "next-mdx-remote-client": "^2.1.1",
     "overnight": "^1.8.0",
     "react": "^19",
