@@ -41,7 +41,8 @@
 
 .markdown :not(pre) > code {
     border-radius: 10px;
-    @apply bg-main text-headline;
+    background-color: var(--inlineCode-bg);
+    color: var(--inlineCode-text);
     padding: 0.15em 0.2em 0.05em;
     white-space: normal;
 }
@@ -105,6 +106,21 @@
     max-width: 100%;
 }
 
+.markdown figure {
+    @apply mb-8;
+}
+
+.markdown figure img {
+    @apply mb-0 block;
+}
+
+.markdown figcaption {
+    @apply text-xs text-center italic px-3 py-2;
+    color: var(--text);
+    background-color: var(--inlineCode-bg);
+    line-height: 1.4;
+}
+
 .markdown iframe {
     @apply mb-8;
     max-width: 100%;
@@ -112,6 +128,7 @@
 
 .markdown ol {
     @apply mb-8 list-inside md:list-outside list-decimal;
+    padding-left: 1.5rem;
 }
 
 .markdown input {

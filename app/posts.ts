@@ -9,6 +9,7 @@ export interface Post {
   spoiler: string;
   youtube?: string;
   bluesky?: string;
+  content: string;
 }
 
 export const metadata = {
@@ -73,6 +74,7 @@ export async function generateFeed() {
       id: `${site_url}${post.slug}/`,
       link: `${site_url}${post.slug}/`,
       title: post.title,
+      content: post.content,
     });
   }
 
