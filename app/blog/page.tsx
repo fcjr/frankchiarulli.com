@@ -61,7 +61,7 @@ function PostTitle({ post }: { post: Post }) {
 function PostMeta({ post }: { post: Post }) {
   return (
     <p className="text-sm text-paragraph mb-3">
-      {new Date(post.date).toLocaleDateString("en", {
+      {new Date(post.date.replace(/-/g, "/")).toLocaleDateString("en", {
         day: "numeric",
         month: "long",
         year: "numeric",

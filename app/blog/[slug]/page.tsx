@@ -21,15 +21,15 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const file = await readFile(filename, "utf8");
   let postComponents: any = {};
   try {
-    postComponents = await import("../../public/" + slug + "/components.js");
+    postComponents = await import(/* webpackIgnore: true */ "../../public/" + slug + "/components.js");
   } catch (e: any) {
-    if (!e || e.code !== "MODULE_NOT_FOUND") {
+    if (!e || (e.code !== "MODULE_NOT_FOUND" && e.code !== "ERR_MODULE_NOT_FOUND")) {
       throw e;
     }
   }
   let Wrapper = postComponents.Wrapper ?? Fragment;
   const { content, data } = matter(file);
-  const isDraft = new Date(data.date).getFullYear() > new Date().getFullYear();
+  const isDraft = new Date(data.date.replace(/-/g, "/")).getFullYear() > new Date().getFullYear();
   const editUrl = `https://github.com/fcjr/frankchiarulli.com/edit/main/public/${encodeURIComponent(
     slug,
   )}/index.md`;
@@ -54,7 +54,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           {data.title}
         </h1>
         <p className="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
-          {new Date(data.date).toLocaleDateString("en", {
+          {new Date(data.date.replace(/-/g, "/")).toLocaleDateString("en", {
             day: "numeric",
             month: "long",
             year: "numeric",
