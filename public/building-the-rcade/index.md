@@ -41,7 +41,11 @@ The project had three goals:
 
 ### Starting with a Bare CRT
 
-The project started with a CRT monitor that had all its wires cut off. Just a bare tube, no connectors, no interface. I wanted to keep the original CRT rather than swap in an LCD for the same reason the Rapid Riter works so well: retro hardware and its constraints inspire people.
+The project started with me scouring Facebook Marketplace and Craigslist, bombarding Greg with
+listing after listing. We eventually found a gutted cabinet with an 80s CRT that had all its
+wires cut. Just a bare tube, no connectors, no interface. I wanted to keep the original CRT
+rather than swap in an LCD for the same reason the Rapid Riter works so well: retro hardware and
+its constraints inspire people.
 
 <div style={{display: 'flex', gap: '1rem', marginBottom: '2rem'}}>
   <figure style={{width: '50%', margin: 0}}>
