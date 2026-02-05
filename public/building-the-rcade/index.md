@@ -416,9 +416,8 @@ This project wouldn't exist without contributions from:
 - [Rose Hall](https://rose.hall.ly): Plugin system architecture and cabinet software
 - [Stephen D](https://www.scd31.com/): Custom 24-bit USB display adapter (hardware and firmware)
 - [Joseph Abrahamson](https://jspha.com/), [Jack Heard](https://github.com/jm771), [Joel Holmberg](https://www.joelholmberg.com): Oscilloscope work, CRT wiring, and JAMMA connector
-- [Iris E Fernandez Valdes](https://github.com/abettercoach): Custom input controller firmware
+- [Iris E Fernandez Valdes](https://github.com/abettercoach), [Anjana Vakil](https://anjana.dev/): Custom input controller firmware
 - [David Allen Feil](https://wobblybits.blog): vga666 adapter configuration and initial video output
-- [Anjana Vakil](https://anjana.dev/): Custom input controller firmware
 - [Greg Sadetsky](https://greg.technology): Inspiration (Rapid Riter) and contributions to the platform
 
 These are just a few of the people involved. Many more Recursers contributed ideas, tested hardware, playtested games, and helped shape the project along the way.
