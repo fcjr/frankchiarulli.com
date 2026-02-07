@@ -45,6 +45,7 @@
     color: var(--inlineCode-text);
     padding: 0.15em 0.2em 0.05em;
     white-space: normal;
+    overflow-wrap: break-word;
 }
 
 .markdown pre {
