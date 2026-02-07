@@ -118,7 +118,7 @@ We've demonstrated that a 360M parameter model can compress text to 0.68 bits pe
 If you want to try it out or run your own benchmarks, source code and installation instructions are on [GitHub](https://github.com/fcjr/smll).
 
 ```bash
-pip install smll
+pip install pysmll
 ```
 
 ```python
