@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import { Merriweather } from "next/font/google";
 
 export const sans = localFont({
-  src: "./fonts/Isonorm 3098 Regular.otf",
+  src: "./fonts/CommitMono-400-Regular.woff2",
   display: "swap",
   weight: "400",
   style: "normal",
