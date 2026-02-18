@@ -1,4 +1,4 @@
-import { readdir, readFile } from "fs/promises";
+import { readdir, readFile, access } from "fs/promises";
 import matter from "gray-matter";
 import { Feed } from "feed";
 
@@ -28,9 +28,21 @@ export const metadata = {
 
 export async function getPosts(): Promise<Post[]> {
   const entries = await readdir("./public/", { withFileTypes: true });
-  const dirs = entries
+  const allDirs = entries
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
+  const dirs = (
+    await Promise.all(
+      allDirs.map(async (dir) => {
+        try {
+          await access("./public/" + dir + "/index.md");
+          return dir;
+        } catch {
+          return null;
+        }
+      }),
+    )
+  ).filter((dir): dir is string => dir !== null);
   const fileContents = await Promise.all(
     dirs.map((dir) => readFile("./public/" + dir + "/index.md", "utf8")),
   );

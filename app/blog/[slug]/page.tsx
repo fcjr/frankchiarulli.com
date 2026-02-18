@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { readdir, readFile } from "fs/promises";
+import { readdir, readFile, access } from "fs/promises";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote-client/rsc";
 import Link from "../../Link";
@@ -144,9 +144,21 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
 export async function generateStaticParams() {
   const entries = await readdir("./public/", { withFileTypes: true });
-  const dirs = entries
+  const allDirs = entries
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
+  const dirs = (
+    await Promise.all(
+      allDirs.map(async (dir) => {
+        try {
+          await access("./public/" + dir + "/index.md");
+          return dir;
+        } catch {
+          return null;
+        }
+      }),
+    )
+  ).filter((dir): dir is string => dir !== null);
   return dirs.map((dir) => ({ slug: dir }));
 }
 

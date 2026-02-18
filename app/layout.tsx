@@ -25,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <HomeLink />
           <nav className="mt-4 flex gap-4 text-sm text-headline items-center">
             <Link href="/blog" className="hover:text-secondary transition-colors">Blog</Link>
+            <Link href="/art" className="hover:text-secondary transition-colors">Art</Link>
             <Link href="https://github.com/fcjr" target="_blank" className="hover:text-secondary transition-colors">GitHub</Link>
             <Link href="https://linkedin.com/in/frankchiarulli" target="_blank" className="hover:text-secondary transition-colors">LinkedIn</Link>
             <Link href="https://bsky.app/profile/frankchiarulli.com" target="_blank" className="hover:text-secondary transition-colors">Bluesky</Link>
