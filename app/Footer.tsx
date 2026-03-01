@@ -29,7 +29,14 @@ export default function Footer() {
 
         .sky {
           position: absolute;
-          inset: 0;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 54%;
+          z-index: 2;
+          overflow: hidden;
+          -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 12%);
           background: linear-gradient(
             180deg,
             #0e0c08 0%,
@@ -61,7 +68,7 @@ export default function Footer() {
           left: 0;
           width: 100%;
           height: 50%;
-          z-index: 1;
+          z-index: 3;
         }
 
         .star {
@@ -83,7 +90,7 @@ export default function Footer() {
 
         .sun {
           position: absolute;
-          top: 18%;
+          top: 33%;
           left: 50%;
           transform: translateX(-50%);
           width: clamp(90px, 16vw, 150px);
@@ -91,7 +98,7 @@ export default function Footer() {
           border-radius: 50%;
           background: linear-gradient(180deg, #b5636a 0%, #c87838 30%, #d4943a 60%, #e8b840 100%);
           box-shadow: 0 0 80px rgba(212, 148, 58, 0.5), 0 0 160px rgba(212, 148, 58, 0.2);
-          z-index: 2;
+          z-index: 4;
         }
 
         :global(:root:not(.dark)) .sun {
@@ -113,9 +120,9 @@ export default function Footer() {
           bottom: 0;
           left: 0;
           width: 100%;
-          height: 46%;
+          height: 58%;
           overflow: hidden;
-          z-index: 3;
+          z-index: 1;
         }
 
         .ground-fill { position: absolute; inset: 0; background: var(--bg); }
@@ -136,16 +143,6 @@ export default function Footer() {
           --grid-line: rgba(212, 148, 58, 0.5);
         }
 
-        .ground-fade {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 30%;
-          background: linear-gradient(to bottom, var(--bg), transparent);
-          z-index: 1;
-        }
-
         :global(:root:not(.dark)) .ground-grid { --grid-line: rgba(176, 120, 40, 0.25); }
 
         @keyframes scroll-grid {
@@ -159,7 +156,7 @@ export default function Footer() {
           left: 0;
           width: 100%;
           height: 2px;
-          z-index: 4;
+          z-index: 5;
         }
 
         .horizon::before {
@@ -189,7 +186,7 @@ export default function Footer() {
           font-size: 0.6rem;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          z-index: 5;
+          z-index: 6;
           color: rgba(220, 200, 170, 0.5);
         }
         :global(:root:not(.dark)) .footer-meta { color: rgba(74, 68, 64, 0.4); }
@@ -203,32 +200,32 @@ export default function Footer() {
       <div className="fade-in" />
 
       <div className="scene">
-        <div className="sky" />
-        <div className="stars">
-          <div className="star" style={{ top: '8%', left: '8%', '--dur': '3s', '--delay': '0s' } as any} />
-          <div className="star" style={{ top: '15%', left: '22%', '--dur': '4.2s', '--delay': '-1.2s' } as any} />
-          <div className="star" style={{ top: '5%', left: '38%', '--dur': '3.5s', '--delay': '-2s' } as any} />
-          <div className="star" style={{ top: '12%', left: '52%', '--dur': '2.8s', '--delay': '-0.5s' } as any} />
-          <div className="star" style={{ top: '20%', left: '65%', '--dur': '4s', '--delay': '-3s' } as any} />
-          <div className="star" style={{ top: '4%', left: '78%', '--dur': '3.8s', '--delay': '-1.8s' } as any} />
-          <div className="star" style={{ top: '14%', left: '88%', '--dur': '3.2s', '--delay': '-2.5s' } as any} />
-          <div className="star" style={{ top: '10%', left: '95%', '--dur': '4.5s', '--delay': '-0.8s' } as any} />
-          <div className="star" style={{ top: '22%', left: '5%', '--dur': '3.3s', '--delay': '-1.5s' } as any} />
-          <div className="star" style={{ top: '3%', left: '60%', '--dur': '3.7s', '--delay': '-3.5s' } as any} />
-        </div>
-        <div className="sun">
-          <div className="sun-slices">
-            <div className="sun-slice" />
-            <div className="sun-slice" />
-            <div className="sun-slice" />
-            <div className="sun-slice" />
-            <div className="sun-slice" />
+        <div className="sky">
+          <div className="stars">
+            <div className="star" style={{ top: '8%', left: '8%', '--dur': '3s', '--delay': '0s' } as any} />
+            <div className="star" style={{ top: '15%', left: '22%', '--dur': '4.2s', '--delay': '-1.2s' } as any} />
+            <div className="star" style={{ top: '5%', left: '38%', '--dur': '3.5s', '--delay': '-2s' } as any} />
+            <div className="star" style={{ top: '12%', left: '52%', '--dur': '2.8s', '--delay': '-0.5s' } as any} />
+            <div className="star" style={{ top: '20%', left: '65%', '--dur': '4s', '--delay': '-3s' } as any} />
+            <div className="star" style={{ top: '4%', left: '78%', '--dur': '3.8s', '--delay': '-1.8s' } as any} />
+            <div className="star" style={{ top: '14%', left: '88%', '--dur': '3.2s', '--delay': '-2.5s' } as any} />
+            <div className="star" style={{ top: '10%', left: '95%', '--dur': '4.5s', '--delay': '-0.8s' } as any} />
+            <div className="star" style={{ top: '22%', left: '5%', '--dur': '3.3s', '--delay': '-1.5s' } as any} />
+            <div className="star" style={{ top: '3%', left: '60%', '--dur': '3.7s', '--delay': '-3.5s' } as any} />
+          </div>
+          <div className="sun">
+            <div className="sun-slices">
+              <div className="sun-slice" />
+              <div className="sun-slice" />
+              <div className="sun-slice" />
+              <div className="sun-slice" />
+              <div className="sun-slice" />
+            </div>
           </div>
         </div>
         <div className="ground">
           <div className="ground-fill" />
           <div className="ground-grid" />
-          <div className="ground-fade" />
         </div>
         <div className="horizon" />
         <div className="footer-meta">Planted May '23 / Tended Mar '26</div>
