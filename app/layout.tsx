@@ -2,8 +2,8 @@ import Link from "./Link";
 import HomeLink from "./HomeLink";
 import RecurseRing from "./RecurseRing";
 import RCScout from "./RCScout";
-import ThemeToggle from "./ThemeToggle";
-import ThemeScript from "./ThemeScript";
+
+
 import Footer from "./Footer";
 import { sans } from "./fonts";
 import "./global.css";
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={sans.className} suppressHydrationWarning>
       <head>
-        <ThemeScript />
+
       </head>
       <body className="text-paragraph antialiased bg-background">
         <div className="grid-bg" aria-hidden="true" />
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <circle cx="5" cy="19" r="1" fill="currentColor"/>
                   </svg>
                 </Link>
-                <ThemeToggle />
+
               </nav>
             </header>
 

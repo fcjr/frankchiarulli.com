@@ -49,18 +49,6 @@ export default function Footer() {
           );
         }
 
-        :global(:root:not(.dark)) .sky {
-          background: linear-gradient(
-            180deg,
-            #e8e0d4 0%,
-            #e0d0b8 18%,
-            #d8c0a0 38%,
-            #c89878 55%,
-            #b87060 70%,
-            #c88030 87%,
-            #d4a040 100%
-          );
-        }
 
         .stars {
           position: absolute;
@@ -81,7 +69,6 @@ export default function Footer() {
           animation-delay: var(--delay);
         }
 
-        :global(:root:not(.dark)) .star { display: none; }
 
         @keyframes twinkle {
           0%, 100% { opacity: 0.1; }
@@ -101,14 +88,8 @@ export default function Footer() {
           z-index: 4;
         }
 
-        :global(:root:not(.dark)) .sun {
-          background: linear-gradient(180deg, #944a52 0%, #b07828 30%, #c89030 60%, #e0a830 100%);
-          box-shadow: 0 0 50px rgba(176, 120, 40, 0.25), 0 0 100px rgba(176, 120, 40, 0.1);
-        }
-
         .sun-slices { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; }
-        .sun-slice { position: absolute; left: 0; width: 100%; background: #f5f0ea; }
-        :global(.dark) .sun-slice { background: #0e0c08; opacity: 0.85; }
+        .sun-slice { position: absolute; left: 0; width: 100%; background: #0e0c08; opacity: 0.85; }
         .sun-slice:nth-child(1) { bottom: 15%; height: 2.5%; }
         .sun-slice:nth-child(2) { bottom: 25%; height: 3%; }
         .sun-slice:nth-child(3) { bottom: 34%; height: 3.5%; }
@@ -143,7 +124,6 @@ export default function Footer() {
           --grid-line: rgba(212, 148, 58, 0.5);
         }
 
-        :global(:root:not(.dark)) .ground-grid { --grid-line: rgba(176, 120, 40, 0.25); }
 
         @keyframes scroll-grid {
           0% { transform: perspective(200px) rotateX(60deg) translateY(0); }
@@ -189,7 +169,6 @@ export default function Footer() {
           z-index: 6;
           color: rgba(220, 200, 170, 0.5);
         }
-        :global(:root:not(.dark)) .footer-meta { color: rgba(74, 68, 64, 0.4); }
 
         @media (prefers-reduced-motion) {
           .ground-grid { animation: none !important; }

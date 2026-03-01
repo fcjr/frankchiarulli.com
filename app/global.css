@@ -3,30 +3,6 @@
 @tailwind utilities;
 
 :root {
-    --bg: #f5f0ea;
-    --text: #4a4440;
-    --headline: #1a1815;
-    --link: #1a1815;
-    --button: #b07828;
-    --button-text: #f5f0ea;
-    --code-bg: #1a1815;
-    --inlineCode-bg: #e8e0d4;
-    --inlineCode-text: #1a1815;
-    --stroke: #d4ccc0;
-    --main: #e8e0d4;
-    --highlight: #b07828;
-    --secondary: #b07828;
-    --tertiary: #944a52;
-    --grid: rgba(160, 140, 110, 0.12);
-    --glow: rgba(176, 120, 40, 0.25);
-    --glow-strong: rgba(176, 120, 40, 0.5);
-    --noise-opacity: 0.025;
-    --card-bg: rgba(255, 252, 248, 0.5);
-    --card-border: rgba(0, 0, 0, 0.06);
-    --card-hover-border: rgba(176, 120, 40, 0.3);
-}
-
-.dark {
     --bg: #121210;
     --text: #9a9590;
     --headline: #ede6dd;
@@ -118,20 +94,11 @@ body {
         0deg,
         transparent,
         transparent 3px,
-        rgba(0, 0, 0, 0.008) 3px,
-        rgba(0, 0, 0, 0.008) 6px
-    );
-}
-
-.dark .scanlines {
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 3px,
         rgba(0, 0, 0, 0.02) 3px,
         rgba(0, 0, 0, 0.02) 6px
     );
 }
+
 
 /* ═══════════════════════════════════════════
    HERO TITLE - MASSIVE GLITCH
@@ -289,37 +256,14 @@ body {
 }
 
 /* ═══════════════════════════════════════════
-   THEME TOGGLE
-   ═══════════════════════════════════════════ */
-.theme-toggle .sun-icon {
-    display: none;
-}
-
-.theme-toggle .moon-icon {
-    display: block;
-}
-
-.dark .theme-toggle .sun-icon {
-    display: block;
-}
-
-.dark .theme-toggle .moon-icon {
-    display: none;
-}
-
-/* ═══════════════════════════════════════════
    DIVIDER LINE
    ═══════════════════════════════════════════ */
 .glow-divider {
     border: none;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--secondary), var(--tertiary), transparent);
-    opacity: 0.4;
-    margin: 2rem 0;
-}
-
-.dark .glow-divider {
     opacity: 0.6;
+    margin: 2rem 0;
 }
 
 /* ═══════════════════════════════════════════
