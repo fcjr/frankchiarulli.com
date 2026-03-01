@@ -8,7 +8,7 @@ export const metadata = {
 
 export default async function BlogPage() {
   const posts = await getPosts();
-  
+
   return (
     <div className="flex flex-col gap-8">
       <div>
@@ -21,21 +21,23 @@ export default async function BlogPage() {
         </Link>
       </div>
       <header>
-        <h1 className="text-3xl font-bold text-headline mb-4">Blog</h1>
+        <h1 className="text-4xl font-bold text-headline mb-3 tracking-tight">Blog</h1>
         <p className="text-paragraph">
-          Thoughts on privacy, security, programming, and building better software.
+          Privacy, security, programming, and building things.
         </p>
       </header>
 
-      <div className="flex flex-col gap-8">
+      <hr className="glow-divider" />
+
+      <div className="flex flex-col gap-4">
         {posts.length > 0 ? (
           posts.map((post) => (
             <Link
               key={post.slug}
-              className="block group"
+              className="card block p-5 group"
               href={"/blog/" + post.slug + "/"}
             >
-              <article className="pb-6 border-b border-stroke border-opacity-20 last:border-b-0">
+              <article>
                 <PostTitle post={post} />
                 <PostMeta post={post} />
                 <PostSubtitle post={post} />
@@ -52,7 +54,7 @@ export default async function BlogPage() {
 
 function PostTitle({ post }: { post: Post }) {
   return (
-    <h2 className="text-2xl font-semibold text-headline group-hover:text-secondary mb-2 leading-tight transition-colors">
+    <h2 className="text-xl font-bold text-headline group-hover:text-secondary mb-1 leading-tight transition-colors">
       {post.title}
     </h2>
   );
@@ -60,7 +62,7 @@ function PostTitle({ post }: { post: Post }) {
 
 function PostMeta({ post }: { post: Post }) {
   return (
-    <p className="text-sm text-paragraph mb-3">
+    <p className="text-xs text-paragraph mb-2 uppercase tracking-wider">
       {new Date(post.date.replace(/-/g, "/")).toLocaleDateString("en", {
         day: "numeric",
         month: "long",
@@ -71,5 +73,5 @@ function PostMeta({ post }: { post: Post }) {
 }
 
 function PostSubtitle({ post }: { post: Post }) {
-  return <p className="text-paragraph leading-relaxed">{post.spoiler}</p>;
+  return <p className="text-paragraph text-sm leading-relaxed">{post.spoiler}</p>;
 }

@@ -15,6 +15,7 @@ module.exports = {
         highlight: 'var(--highlight)',
         secondary: 'var(--secondary)',
         tertiary: 'var(--tertiary)',
+        grid: 'var(--grid)',
       },
     },
   },

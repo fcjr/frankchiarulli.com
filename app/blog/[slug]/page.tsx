@@ -48,12 +48,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <h1
           className={[
             sans.className,
-            "text-[40px] font-black leading-[44px] text-[--title]",
+            "text-[40px] font-black leading-[44px] text-headline tracking-tight",
           ].join(" ")}
         >
           {data.title}
         </h1>
-        <p className="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
+        <p className="mt-2 text-[13px] text-paragraph uppercase tracking-wider">
           {new Date(data.date.replace(/-/g, "/")).toLocaleDateString("en", {
             day: "numeric",
             month: "long",

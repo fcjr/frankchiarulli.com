@@ -13,6 +13,11 @@
 
 .markdown a:not(.tip):not(.linked-heading) {
     @apply border-b-[1px] border-headline text-headline hover:text-secondary hover:border-secondary;
+    transition: color 0.2s ease, text-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.markdown a:not(.tip):not(.linked-heading):hover {
+    text-shadow: 0 0 8px var(--glow), 0 0 16px var(--glow);
 }
 
 .markdown hr {
@@ -57,6 +62,7 @@
     border-bottom-left-radius: var(--radius-bottom);
     padding-top: var(--padding-top);
     padding-bottom: var(--padding-bottom);
+    border: 1px solid var(--card-border);
 }
 
 .markdown pre code {
@@ -66,7 +72,7 @@
 .markdown blockquote {
     @apply relative -left-2 -ml-4 mb-8 pl-4;
     font-style: italic;
-    @apply border-l-[3px] border-stroke;
+    border-left: 3px solid var(--secondary);
     opacity: 0.8;
 }
 
@@ -105,6 +111,7 @@
 .markdown img {
     @apply mb-8;
     max-width: 100%;
+    border-radius: 8px;
 }
 
 .markdown figure {

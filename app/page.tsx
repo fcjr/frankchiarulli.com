@@ -1,5 +1,5 @@
 import Link from "./Link";
-import Color from "colorjs.io";
+import { sans } from "./fonts";
 import { metadata, getPosts, Post } from "./posts";
 
 export { metadata };
@@ -7,64 +7,52 @@ export { metadata };
 export default async function Home() {
   const posts = await getPosts();
   return (
-    <div className="flex flex-col gap-6">
-      <section className="mb-4">
-        <p className="text-lg text-headline mb-3">
-          Hi, I'm Frank! I write code that keeps you safe and private online.
-        </p>
-        <p className="text-paragraph mb-2">
-          I'm a software engineer passionate about privacy, security, embedded systems, and open source.
-          I work mostly with Go, TypeScript, Python, Java, Kotlin, Swift, and I'm currently learning Rust.
-          I recently started operating my own ASN <Link href="https://www.peeringdb.com/asn/402030" className="text-headline hover:text-secondary underline">AS402030</Link> to learn more about BGP and peering.
-        </p>
-        <p className="text-paragraph mb-2">
-          I am currently attending the <s>Summer 2</s> Fall 2 (I extended 🙈) batch of <Link href="https://www.recurse.com/" className="text-headline hover:text-secondary underline">Recurse Center</Link>, having recently left my role as tech lead and engineering manager at <Link href="https://www.jpmorganchase.com/" className="text-headline hover:text-secondary underline">JPMorgan Chase</Link>'s Global Business Accelerator.
-          Previously, I was a founding engineer at <Link href="https://www.svix.com/" className="text-headline hover:text-secondary underline">Svix</Link> (YC W21) and lead backend/desktop engineer at <Link href="https://www.ghostery.com/" className="text-headline hover:text-secondary underline">Ghostery</Link>/<Link href="https://cliqz.com/" className="text-headline hover:text-secondary underline">Cliqz</Link>, working on anti-tracking software.
-        </p>
-        <p className="text-paragraph text-sm italic">
-          Probably doing something I shouldn't with cGo or WinAPI.
+    <div className="flex flex-col gap-3">
+      {/* Hero */}
+      <section>
+        <h1 className={`hero-title mb-2 ${sans.className}`}>
+          <span className="glitch-wrap" data-text="Frank">
+            Frank
+          </span>
+          <br />
+          <span className="glitch-wrap" data-text="Chiarulli Jr">
+            Chiarulli Jr
+          </span>
+          <span className="text-secondary">.</span>
+        </h1>
+        <p className="text-headline max-w-xl">
+          Software engineer and artist building at the edge of privacy, security, and open source.
         </p>
       </section>
 
-      {posts.length > 0 && (
-        <section>
-          <h2 className="text-xl font-semibold text-headline mb-3">Latest Post</h2>
-            <Link
-              className="block group mb-4"
-              href={"/blog/" + posts[0].slug + "/"}
-            >
-              <article>
-                <PostTitle post={posts[0]} />
-                <PostMeta post={posts[0]} />
-                <PostSubtitle post={posts[0]} />
-              </article>
-            </Link>
-        </section>
-      )}
+      <hr className="glow-divider" style={{ margin: '0.25rem 0' }} />
+
+      {/* Bio — compact */}
+      <section className="max-w-xl text-sm leading-relaxed">
+        <p className="text-paragraph mb-2">
+          I write Go, TypeScript, Python, Kotlin, and Swift — currently learning Rust.
+          I also make <Link href="/art" className="neon-link">sculpture, photography, and installations</Link>.
+          Currently at <Link href="https://www.recurse.com/" className="neon-link">Recurse Center</Link>.
+          Previously <Link href="https://www.jpmorganchase.com/" className="neon-link">JPMorgan Chase</Link>,{" "}
+          <Link href="https://www.svix.com/" className="neon-link">Svix</Link> (YC W21),{" "}
+          <Link href="https://www.ghostery.com/" className="neon-link">Ghostery</Link>/<Link href="https://cliqz.com/" className="neon-link">Cliqz</Link>.
+        </p>
+      </section>
+
+      {/* Inline links */}
+      <nav className="flex gap-3 text-xs">
+        <Link href="/blog" className="card inline-block px-4 py-2 group">
+          <span className="text-headline font-semibold group-hover:text-secondary transition-colors">Blog</span>
+        </Link>
+        <Link href="/art" className="card inline-block px-4 py-2 group">
+          <span className="text-headline font-semibold group-hover:text-secondary transition-colors">Art</span>
+        </Link>
+        {posts.length > 0 && (
+          <Link href={"/blog/" + posts[0].slug + "/"} className="card inline-block px-4 py-2 group">
+            <span className="text-tertiary font-semibold group-hover:text-secondary transition-colors">Latest Post: {posts[0].title}</span>
+          </Link>
+        )}
+      </nav>
     </div>
   );
-}
-
-function PostTitle({ post }: { post: Post }) {
-  return (
-    <h2 className="text-xl font-semibold text-headline group-hover:text-secondary mb-1 leading-tight transition-colors">
-      {post.title}
-    </h2>
-  );
-}
-
-function PostMeta({ post }: { post: Post }) {
-  return (
-    <p className="text-sm text-paragraph mb-1">
-      {new Date(post.date).toLocaleDateString("en", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      })}
-    </p>
-  );
-}
-
-function PostSubtitle({ post }: { post: Post }) {
-  return <p className="text-paragraph leading-relaxed">{post.spoiler}</p>;
 }

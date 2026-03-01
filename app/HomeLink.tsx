@@ -7,15 +7,22 @@ import Link from "./Link";
 export default function HomeLink() {
   const pathname = usePathname();
   const isActive = pathname === "/";
+
+  if (isActive) {
+    return null; // Hero on homepage handles the name
+  }
+
   return (
     <Link
       href="/"
       className={[
         sans.className,
-        "inline-block text-3xl font-bold text-headline hover:text-secondary transition-colors",
+        "hero-title inline-block",
       ].join(" ")}
     >
-      Frank Chiarulli Jr.
+      <span className="glitch-wrap" data-text="fcjr">
+        fcjr
+      </span>
     </Link>
   );
 }

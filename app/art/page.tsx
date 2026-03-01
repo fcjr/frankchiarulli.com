@@ -420,12 +420,13 @@ export default function ArtPage() {
         </Link>
       </div>
       <header>
-        <h1 className="text-3xl font-bold text-headline mb-4">Art</h1>
+        <h1 className="text-4xl font-bold text-headline mb-3 tracking-tight">Art</h1>
         <p className="text-paragraph">
-          A collection of digital art, photography, printmaking, sculpture, and
-          installations from a previous life.
+          Sculpture, photography, printmaking, and interactive installations from a previous life.
         </p>
       </header>
+
+      <hr className="glow-divider" />
 
       <Gallery art={art} albums={albums} />
     </div>
