@@ -77,9 +77,9 @@ export default function Footer() {
 
         .sun {
           position: absolute;
-          top: 33%;
+          bottom: 0;
           left: 50%;
-          transform: translateX(-50%);
+          transform: translate(-50%, 10%);
           width: clamp(90px, 16vw, 150px);
           aspect-ratio: 1;
           border-radius: 50%;
