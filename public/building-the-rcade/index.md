@@ -164,7 +164,7 @@ Each player has:
 - Two action buttons
 - One spinner (rotary encoder found on games like Tempest or Arkanoid)
 
-Eva helped a lot when we were figuring out the control design, and was kind enough to let me take over a corner of the hub semi-permanently, both for building the cabinet and now as its permanent home. They also showed me the [Wondercab](https://www.deathbyaudioarcade.com/wondercab), an open-source arcade cabinet design, which influenced how we thought about the controls.
+Eva helped a lot when we were figuring out the control design, and was kind enough to let me take over a corner of the hub semi-permanently, both for building the cabinet and now as its permanent home. They also showed me the [Wondercab](https://www.deathbyaudioarcade.com/wondercab), an arcade cabinet designed for rotating residency of games, which influenced how we thought about the controls.
 
 We added the spinners after playing [Hoverburger](https://hoverburger.com) at [Wonderville](https://www.wonderville.nyc) in Brooklyn. The spinner controls felt so good that we knew we had to have them on the RCade. If you're in NYC, definitely check out Wonderville, it's an incredible arcade bar full of indie games.
 
