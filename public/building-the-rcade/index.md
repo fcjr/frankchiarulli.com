@@ -391,7 +391,7 @@ We've run game jams where people build and ship games in a single session. The s
 
 ### Some of My Favorite Games
 
-**[NIBBLES.BAS](https://rcade.dev/games/nibbles)** by [Joe](https://purposefulserendipity.com) is a recreation of the original NIBBLES.BAS, but with a ton of beautiful easter eggs. My favorite: he built it in sub-pixels, so if you use the spinner knob it breaks out of the x/y grid.
+**[NIBBLES.BAS](https://rcade.dev/games/nibbles)** by [Joe](https://joe.mou.fo/show/nibbles/) is a recreation of the original NIBBLES.BAS, but with a ton of beautiful easter eggs. My favorite: he built it in sub-pixels, so if you use the spinner knob it breaks out of the x/y grid.
 
 **[SIGGY SKETCH](https://rcade.dev/games/siggy-sketch)** by [Iris](https://github.com/abettercoach), [Victoria](https://victoriaritvo.com), and [Anjana](https://anjana.dev/) is a true-to-life implementation of an Etch A Sketch.
 
