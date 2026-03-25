@@ -32,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <nav className="flex gap-3 items-center flex-wrap pt-1">
                 <Link href="/blog" className="nav-link">Blog</Link>
                 <Link href="/art" className="nav-link">Art</Link>
+                <Link href="/press" className="nav-link">Media</Link>
                 <Link href="https://github.com/fcjr" target="_blank" className="nav-link">GitHub</Link>
                 <Link href="https://linkedin.com/in/frankchiarulli" target="_blank" className="nav-link">LinkedIn</Link>
                 <Link href="https://bsky.app/profile/frankchiarulli.com" target="_blank" className="nav-link">Bluesky</Link>
