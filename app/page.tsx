@@ -32,8 +32,12 @@ export default async function Home() {
         <p className="text-paragraph mb-2">
           I write Go, TypeScript, Python, Kotlin, and Swift — currently learning Rust.
           I also make <Link href="/art" className="neon-link">sculpture, photography, and installations</Link>.
-          Currently at <Link href="https://www.recurse.com/" className="neon-link">Recurse Center</Link>.
-          Previously <Link href="https://www.jpmorganchase.com/" className="neon-link">JPMorgan Chase</Link>,{" "}
+          I operate my own ASN <Link href="https://www.peeringdb.com/asn/402030" className="neon-link">AS402030</Link>.
+          Currently building <Link href="https://browseclearly.com" className="neon-link">Clearly</Link>,{" "}
+          <Link href="https://moonfoot.co" className="neon-link">Moonfoot Labs</Link>, and{" "}
+          <Link href="https://leftshift.com" className="neon-link">Left Shift</Link>.
+          Previously <Link href="https://www.recurse.com/" className="neon-link">Recurse Center</Link>,{" "}
+          <Link href="https://www.jpmorganchase.com/" className="neon-link">JPMorgan Chase</Link>,{" "}
           <Link href="https://www.svix.com/" className="neon-link">Svix</Link> (YC W21),{" "}
           <Link href="https://www.ghostery.com/" className="neon-link">Ghostery</Link>/<Link href="https://cliqz.com/" className="neon-link">Cliqz</Link>.
         </p>
