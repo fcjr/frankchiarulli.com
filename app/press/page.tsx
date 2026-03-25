@@ -11,7 +11,7 @@ type Entry = {
   venue: string;
   date: string;
   url?: string;
-  type: "talk" | "podcast" | "article" | "paper" | "exhibition";
+  type: "talk" | "podcast" | "article" | "paper" | "exhibition" | "mention";
   description?: string;
 };
 
@@ -38,6 +38,24 @@ const entries: Entry[] = [
     date: "2026-02-05",
     url: "https://www.hackster.io/news/this-usb-to-analog-vga-display-adapter-is-more-than-gud-enough-for-arcade-gaming-66a17fa88e74",
     type: "article",
+  },
+  {
+    title: "Building a 24-bit Arcade CRT Display Adapter, From Scratch",
+    venue: "scd31.com",
+    date: "2026-02-04",
+    url: "https://www.scd31.com/posts/building-an-arcade-display-adapter",
+    type: "mention",
+    description:
+      "Stephen Downward's deep technical writeup of building a custom USB display adapter for the RCade arcade cabinet.",
+  },
+  {
+    title: "Nibbles",
+    venue: "joe.mou.fo",
+    date: "2026-01-01",
+    url: "https://joe.mou.fo/show/nibbles/",
+    type: "mention",
+    description:
+      "A modern recreation of Nibbles.BAS with arcade spinner controls, inspired by the RCade cabinet.",
   },
   {
     title: "Let's Be Frank... A Ghostery Developer Says \"Hi!\"",
@@ -100,6 +118,7 @@ const typeColors: Record<Entry["type"], string> = {
   article: "var(--headline)",
   paper: "var(--secondary)",
   exhibition: "var(--tertiary)",
+  mention: "var(--text)",
 };
 
 const typeLabels: Record<Entry["type"], string> = {
@@ -108,6 +127,7 @@ const typeLabels: Record<Entry["type"], string> = {
   article: "Press",
   paper: "Paper",
   exhibition: "Exhibition",
+  mention: "Mention",
 };
 
 // Group entries by year
