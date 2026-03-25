@@ -55,8 +55,8 @@ export default async function Home() {
           <span className="text-headline font-semibold group-hover:text-secondary transition-colors">Media</span>
         </Link>
         {posts.length > 0 && (
-          <Link href={"/blog/" + posts[0].slug + "/"} className="card inline-block px-4 py-2 group">
-            <span className="text-tertiary font-semibold group-hover:text-secondary transition-colors"><span className="hidden sm:inline">Latest </span>Post: {posts[0].title}</span>
+          <Link href={"/blog/" + posts[0].slug + "/"} className="card inline-block px-4 py-2 group min-w-0">
+            <span className="text-tertiary font-semibold group-hover:text-secondary transition-colors truncate block"><span className="hidden sm:inline">Latest </span>Post: {posts[0].title}</span>
           </Link>
         )}
       </nav>
