@@ -7,10 +7,10 @@ export { metadata };
 export default async function Home() {
   const posts = await getPosts();
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2">
       {/* Hero */}
       <section>
-        <h1 className={`hero-title mb-2 ${sans.className}`}>
+        <h1 className={`hero-title mb-1 ${sans.className}`}>
           <span className="glitch-wrap" data-text="Frank">
             Frank
           </span>
@@ -29,7 +29,7 @@ export default async function Home() {
 
       {/* Bio — compact */}
       <section className="max-w-xl text-sm leading-relaxed">
-        <p className="text-paragraph mb-2">
+        <p className="text-paragraph mb-1">
           I write Go, TypeScript, Python, Kotlin, and Swift — currently learning Rust.
           I also make <Link href="/art" className="neon-link">sculpture, photography, and installations</Link>.
           I operate my own ASN <Link href="https://www.peeringdb.com/asn/402030" className="neon-link">AS402030</Link>.

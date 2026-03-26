@@ -23,8 +23,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="scanlines" aria-hidden="true" />
 
         <div className="relative z-10">
-          <div className="mx-auto max-w-3xl px-6 pt-4 pb-2 w-full">
-            <header className="mb-4 flex items-start justify-between gap-4">
+          <div className="mx-auto max-w-3xl px-6 pt-2 pb-0 w-full">
+            <header className="mb-2 flex items-start justify-between gap-4">
               <HomeLink />
               <nav className="flex gap-3 items-center flex-wrap pt-1">
                 <Link href="/blog" className="nav-link">Blog</Link>
