@@ -1,5 +1,8 @@
 'use client';
 
+import RCScout from "./RCScout";
+import RecurseRing from "./RecurseRing";
+
 export default function Footer() {
   return (
     <div className="synth-footer">
@@ -75,27 +78,6 @@ export default function Footer() {
           50% { opacity: 0.8; }
         }
 
-        .sun {
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translate(-50%, 10%);
-          width: clamp(90px, 16vw, 150px);
-          aspect-ratio: 1;
-          border-radius: 50%;
-          background: linear-gradient(180deg, #b5636a 0%, #c87838 30%, #d4943a 60%, #e8b840 100%);
-          box-shadow: 0 0 80px rgba(212, 148, 58, 0.5), 0 0 160px rgba(212, 148, 58, 0.2);
-          z-index: 4;
-        }
-
-        .sun-slices { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; }
-        .sun-slice { position: absolute; left: 0; width: 100%; background: #0e0c08; opacity: 0.85; }
-        .sun-slice:nth-child(1) { bottom: 15%; height: 2.5%; }
-        .sun-slice:nth-child(2) { bottom: 25%; height: 3%; }
-        .sun-slice:nth-child(3) { bottom: 34%; height: 3.5%; }
-        .sun-slice:nth-child(4) { bottom: 42%; height: 4.5%; }
-        .sun-slice:nth-child(5) { bottom: 50%; height: 6%; }
-
         .ground {
           position: absolute;
           bottom: 0;
@@ -161,13 +143,7 @@ export default function Footer() {
           left: 0;
           width: 100%;
           text-align: center;
-          font-family: monospace;
-          opacity: 0.25;
-          font-size: 0.6rem;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
           z-index: 6;
-          color: rgba(220, 200, 170, 0.5);
         }
 
         @media (prefers-reduced-motion) {
@@ -192,22 +168,16 @@ export default function Footer() {
             <div className="star" style={{ top: '22%', left: '5%', '--dur': '3.3s', '--delay': '-1.5s' } as any} />
             <div className="star" style={{ top: '3%', left: '60%', '--dur': '3.7s', '--delay': '-3.5s' } as any} />
           </div>
-          <div className="sun">
-            <div className="sun-slices">
-              <div className="sun-slice" />
-              <div className="sun-slice" />
-              <div className="sun-slice" />
-              <div className="sun-slice" />
-              <div className="sun-slice" />
-            </div>
-          </div>
         </div>
         <div className="ground">
           <div className="ground-fill" />
           <div className="ground-grid" />
         </div>
         <div className="horizon" />
-        <div className="footer-meta">Planted May '23 / Tended Mar '26</div>
+        <div className="footer-meta">
+              <RCScout />
+              <RecurseRing />
+            </div>
       </div>
     </div>
   );

@@ -1,8 +1,5 @@
 import Link from "./Link";
 import HomeLink from "./HomeLink";
-import RecurseRing from "./RecurseRing";
-import RCScout from "./RCScout";
-
 
 import Footer from "./Footer";
 import { sans } from "./fonts";
@@ -52,14 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="relative z-20">
               <Activity mode="visible">{children}</Activity>
             </main>
-
-            <div className="mt-2 relative z-20">
-              <RCScout />
-              <RecurseRing />
-            </div>
           </div>
-
-          {/* Scene flows directly after content — no tricks */}
           <Footer />
         </div>
       </body>

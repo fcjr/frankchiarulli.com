@@ -43,20 +43,13 @@ export default async function Home() {
         </p>
       </section>
 
-      {/* Inline links */}
-      <nav className="flex gap-3 text-xs">
-        <Link href="/blog" className="card inline-block px-4 py-2 group">
-          <span className="text-headline font-semibold group-hover:text-secondary transition-colors">Blog</span>
-        </Link>
-        <Link href="/art" className="card inline-block px-4 py-2 group">
-          <span className="text-headline font-semibold group-hover:text-secondary transition-colors">Art</span>
-        </Link>
-        <Link href="/press" className="card inline-block px-4 py-2 group">
-          <span className="text-headline font-semibold group-hover:text-secondary transition-colors">Media</span>
-        </Link>
+      <nav className="flex">
         {posts.length > 0 && (
           <Link href={"/blog/" + posts[0].slug + "/"} className="card inline-block px-4 py-2 group min-w-0">
-            <span className="text-tertiary font-semibold group-hover:text-secondary transition-colors truncate block"><span className="hidden sm:inline">Latest </span>Post: {posts[0].title}</span>
+            <span className="text-tertiary font-semibold truncate block">Latest Post: {posts[0].title}</span>
+            <div>
+              {posts[0].spoiler} <span className="neon-link">Read More.</span>
+            </div>
           </Link>
         )}
       </nav>
