@@ -15,7 +15,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={sans.className} suppressHydrationWarning>
       <head>
-
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Frank Chiarulli Jr. — RSS"
+          href="https://frankchiarulli.com/blog/rss.xml"
+        />
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          title="Frank Chiarulli Jr. — Atom"
+          href="https://frankchiarulli.com/blog/atom.xml"
+        />
       </head>
       <body className="text-paragraph antialiased bg-background">
         <div className="grid-bg" aria-hidden="true" />

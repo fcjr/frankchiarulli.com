@@ -5,6 +5,9 @@ export const metadata = {
   title: "Art - Frank Chiarulli Jr.",
   description:
     "Art gallery featuring digital art, photography, printmaking, sculpture, and installations by Frank Chiarulli Jr.",
+  alternates: {
+    canonical: "/art",
+  },
 };
 
 export type ArtPiece = {

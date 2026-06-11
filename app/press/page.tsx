@@ -4,6 +4,9 @@ import { sans } from "../fonts";
 export const metadata = {
   title: "Media - Frank Chiarulli Jr.",
   description: "Talks, press coverage, publications, and exhibitions by Frank Chiarulli Jr.",
+  alternates: {
+    canonical: "/press",
+  },
 };
 
 type Entry = {

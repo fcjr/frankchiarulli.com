@@ -4,6 +4,9 @@ import { getPosts, Post } from "../posts";
 export const metadata = {
   title: "Blog - Frank Chiarulli Jr.",
   description: "All blog posts by Frank Chiarulli Jr.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default async function BlogPage() {

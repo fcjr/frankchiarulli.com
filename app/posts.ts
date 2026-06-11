@@ -19,10 +19,7 @@ export const metadata = {
     title: "frankchiarulli.com",
   },
   alternates: {
-    types: {
-      "application/atom+xml": "https://frankchiarulli.com/blog/atom.xml",
-      "application/rss+xml": "https://frankchiarulli.com/blog/rss.xml",
-    },
+    canonical: "/",
   },
 };
 
