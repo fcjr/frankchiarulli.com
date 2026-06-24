@@ -2,6 +2,7 @@
 
 import RCScout from "./RCScout";
 import RecurseRing from "./RecurseRing";
+import ScrollCue from "./ScrollCue";
 
 export default function Footer() {
   return (
@@ -28,6 +29,18 @@ export default function Footer() {
           min-height: 260px;
           overflow: hidden;
           margin-top: -60px; /* overlap the fade */
+        }
+
+        /* back layer: the sunset sky */
+        .scene-bg {
+          position: absolute;
+          inset: 0;
+        }
+
+        /* front layer: ground + grid + horizon line */
+        .scene-front {
+          position: absolute;
+          inset: 0;
         }
 
         .sky {
@@ -155,6 +168,7 @@ export default function Footer() {
       <div className="fade-in" />
 
       <div className="scene">
+        <div className="scene-bg">
         <div className="sky">
           <div className="stars">
             <div className="star" style={{ top: '8%', left: '8%', '--dur': '3s', '--delay': '0s' } as any} />
@@ -169,16 +183,20 @@ export default function Footer() {
             <div className="star" style={{ top: '3%', left: '60%', '--dur': '3.7s', '--delay': '-3.5s' } as any} />
           </div>
         </div>
+        </div>
+        <div className="scene-front">
         <div className="ground">
           <div className="ground-fill" />
           <div className="ground-grid" />
         </div>
         <div className="horizon" />
+        </div>
         <div className="footer-meta">
               <RCScout />
               <RecurseRing />
             </div>
       </div>
+      <ScrollCue />
     </div>
   );
 }

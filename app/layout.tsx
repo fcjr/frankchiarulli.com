@@ -33,8 +33,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="noise" aria-hidden="true" />
         <div className="scanlines" aria-hidden="true" />
 
-        <div className="relative z-10">
-          <div className="mx-auto max-w-3xl px-6 pt-2 pb-0 w-full">
+        <div className="app-shell relative z-10">
+          <div className="app-main mx-auto max-w-3xl px-6 pt-2 pb-0 w-full">
             <header className="mb-2 flex items-start justify-between gap-4">
               <HomeLink />
               <nav className="flex gap-3 items-center flex-wrap pt-1">

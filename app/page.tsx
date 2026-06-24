@@ -1,13 +1,16 @@
 import Link from "./Link";
 import { sans } from "./fonts";
-import { metadata, getPosts, Post } from "./posts";
+import { metadata, getPosts } from "./posts";
+import { products, builds, consulting, Project } from "./projects";
 
 export { metadata };
 
 export default async function Home() {
   const posts = await getPosts();
+  const latest = posts[0];
+
   return (
-    <div className="flex flex-col gap-2">
+    <div className="home-page flex flex-col">
       {/* Hero */}
       <section>
         <h1 className={`hero-title mb-1 ${sans.className}`}>
@@ -22,20 +25,18 @@ export default async function Home() {
         </h1>
         <p className="text-headline max-w-xl">
           Software engineer and artist building at the edge of privacy, security, and open source.
+          <span className="term-cursor" aria-hidden="true" />
         </p>
       </section>
 
-      <hr className="glow-divider" style={{ margin: '0.25rem 0' }} />
+      <hr className="glow-divider" style={{ margin: "0.5rem 0 0.4rem" }} />
 
       {/* Bio — compact */}
       <section className="max-w-xl text-sm leading-relaxed">
-        <p className="text-paragraph mb-1">
-          I write Go, TypeScript, Python, Kotlin, and Swift — currently learning Rust.
+        <p className="text-paragraph">
+          I build across the whole stack, hardware to frontend, in whatever language a problem needs: Go, TypeScript, Python, Rust, Kotlin, Swift.
           I also make <Link href="/art" className="neon-link">sculpture, photography, and installations</Link>.
           I operate my own ASN <Link href="https://www.peeringdb.com/asn/402030" className="neon-link">AS402030</Link>.
-          Currently building <Link href="https://browseclearly.com" className="neon-link">Clearly</Link>,{" "}
-          <Link href="https://moonfoot.co" className="neon-link">Moonfoot Labs</Link>, and{" "}
-          <Link href="https://leftshift.com" className="neon-link">Left Shift</Link>.
           Previously <Link href="https://www.recurse.com/" className="neon-link">Recurse Center</Link>,{" "}
           <Link href="https://www.jpmorganchase.com/" className="neon-link">JPMorgan Chase</Link>,{" "}
           <Link href="https://www.svix.com/" className="neon-link">Svix</Link> (YC W21),{" "}
@@ -43,16 +44,61 @@ export default async function Home() {
         </p>
       </section>
 
-      <nav className="flex">
-        {posts.length > 0 && (
-          <Link href={"/blog/" + posts[0].slug + "/"} className="card inline-block px-4 py-2 group min-w-0">
-            <span className="text-tertiary font-semibold truncate block">Latest Post: {posts[0].title}</span>
-            <div>
-              {posts[0].spoiler} <span className="neon-link">Read More.</span>
-            </div>
+      {/* Writing */}
+      <section className="reg-section">
+        <div className="reg-head">
+          <span className={`reg-path ${sans.className}`}>~/writing</span>
+          <span className="reg-lead" aria-hidden="true" />
+          <Link href="/blog" className={`reg-meta ${sans.className}`}>
+            view all <span className="reg-meta-arrow">→</span>
+          </Link>
+        </div>
+        {latest && (
+          <Link href={"/blog/" + latest.slug + "/"} className="reg-item reg-feature group">
+            <span className="reg-feature-top">
+              <span className="reg-caret" aria-hidden="true">›</span>
+              <span className={`reg-name ${sans.className}`}>{latest.title}</span>
+              <span className="reg-arrow" aria-hidden="true">→</span>
+            </span>
+            <span className="reg-desc">{latest.spoiler}</span>
           </Link>
         )}
-      </nav>
+      </section>
+
+      <Registry path="~/building" projects={products} />
+      <Registry path="~/consulting" projects={consulting} />
+      <Registry path="~/builds" projects={builds} />
     </div>
+  );
+}
+
+function Registry({ path, projects }: { path: string; projects: Project[] }) {
+  return (
+    <section className="reg-section">
+      <div className="reg-head">
+        <span className={`reg-path ${sans.className}`}>{path}</span>
+        <span className="reg-lead" aria-hidden="true" />
+        <span className={`reg-meta ${sans.className}`}>
+          {String(projects.length).padStart(2, "0")}
+        </span>
+      </div>
+      <div>
+        {projects.map((project) => (
+          <RegistryRow key={project.url} project={project} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function RegistryRow({ project }: { project: Project }) {
+  const internal = project.url.startsWith("/");
+  return (
+    <Link href={project.url} className="reg-item reg-row group">
+      <span className="reg-caret" aria-hidden="true">›</span>
+      <span className={`reg-name ${sans.className}`}>{project.name}</span>
+      <span className="reg-desc">{project.tagline}</span>
+      <span className="reg-arrow" aria-hidden="true">{internal ? "→" : "↗"}</span>
+    </Link>
   );
 }

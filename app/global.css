@@ -104,7 +104,7 @@ body {
    HERO TITLE - MASSIVE GLITCH
    ═══════════════════════════════════════════ */
 .hero-title {
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-size: clamp(2rem, 5.5vw, 4rem);
     line-height: 0.9;
     font-weight: 700;
     letter-spacing: -0.04em;
@@ -264,6 +264,310 @@ body {
     background: linear-gradient(90deg, transparent, var(--secondary), var(--tertiary), transparent);
     opacity: 0.6;
     margin: 2rem 0;
+}
+
+/* ═══════════════════════════════════════════
+   TERMINAL REGISTRY (home showcase)
+   ═══════════════════════════════════════════ */
+.reg-section {
+    margin-top: 1.4rem;
+}
+
+.reg-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+    margin-bottom: 0.4rem;
+}
+
+.reg-path {
+    color: var(--secondary);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 10px var(--glow);
+    white-space: nowrap;
+}
+
+.reg-lead {
+    flex: 1 1 auto;
+    align-self: center;
+    height: 0;
+    border-bottom: 1px dashed var(--stroke);
+    opacity: 0.8;
+}
+
+.reg-meta {
+    color: var(--text);
+    opacity: 0.55;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+}
+
+a.reg-meta {
+    text-decoration: none;
+    transition: color 0.18s ease, opacity 0.18s ease;
+}
+
+a.reg-meta:hover,
+a.reg-meta:focus-visible {
+    color: var(--secondary);
+    opacity: 1;
+    outline: none;
+}
+
+a.reg-meta .reg-meta-arrow {
+    display: inline-block;
+    transition: transform 0.18s ease;
+}
+
+a.reg-meta:hover .reg-meta-arrow,
+a.reg-meta:focus-visible .reg-meta-arrow {
+    transform: translateX(3px);
+}
+
+/* shared row visuals */
+.reg-item {
+    text-decoration: none;
+    border-radius: 4px;
+    position: relative;
+    transition: background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.reg-item + .reg-item {
+    border-top: 1px solid rgba(255, 250, 240, 0.045);
+}
+
+.reg-caret {
+    color: var(--stroke);
+    transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.reg-name {
+    color: var(--headline);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.reg-desc {
+    color: var(--text);
+    font-size: 0.82rem;
+    min-width: 0;
+}
+
+.reg-arrow {
+    color: var(--text);
+    opacity: 0.35;
+    font-size: 0.8rem;
+    transition: color 0.18s ease, opacity 0.18s ease;
+}
+
+.reg-item:hover,
+.reg-item:focus-visible {
+    background: rgba(212, 148, 58, 0.05);
+    box-shadow: inset 0 0 0 1px rgba(212, 148, 58, 0.12),
+        0 0 24px -8px var(--glow);
+    outline: none;
+}
+
+.reg-item:hover .reg-caret,
+.reg-item:focus-visible .reg-caret {
+    color: var(--secondary);
+    transform: translateX(2px);
+}
+
+.reg-item:hover .reg-name,
+.reg-item:focus-visible .reg-name {
+    color: var(--secondary);
+    text-shadow: 0 0 10px var(--glow);
+}
+
+.reg-item:hover .reg-arrow,
+.reg-item:focus-visible .reg-arrow {
+    color: var(--secondary);
+    opacity: 0.9;
+}
+
+/* compact aligned row */
+.reg-row {
+    display: grid;
+    grid-template-columns: 1.5ch 15ch 1fr auto;
+    align-items: baseline;
+    column-gap: 0.9rem;
+    row-gap: 0.1rem;
+    padding: 0.38rem 0.45rem;
+}
+
+/* featured row (latest post) */
+.reg-feature {
+    display: block;
+    padding: 0.7rem 0.45rem;
+}
+
+.reg-feature .reg-feature-top {
+    display: grid;
+    grid-template-columns: 1.5ch 1fr auto;
+    align-items: baseline;
+    column-gap: 0.9rem;
+}
+
+.reg-feature .reg-name {
+    white-space: normal;
+    font-size: 0.98rem;
+}
+
+.reg-feature .reg-desc {
+    display: block;
+    margin-top: 0.3rem;
+    padding-left: calc(1.5ch + 0.9rem);
+}
+
+.term-cursor {
+    display: inline-block;
+    width: 0.55ch;
+    height: 1.05em;
+    background: var(--secondary);
+    margin-left: 0.2em;
+    transform: translateY(0.14em);
+    box-shadow: 0 0 8px var(--glow);
+    animation: term-blink 1.1s steps(1) infinite;
+}
+
+@keyframes term-blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+
+@media (max-width: 640px) {
+    .reg-row {
+        grid-template-columns: 1.5ch 1fr auto;
+    }
+    .reg-row .reg-desc {
+        grid-column: 2 / -1;
+    }
+}
+
+/* ═══════════════════════════════════════════
+   HOME: TEXT RISES OVER THE SUNSET, BEHIND THE HORIZON
+   Sky/sunset = back layer (behind text). Ground + grid +
+   horizon line = front layer (over text), so the content
+   scrolls up over the sunset and tucks behind the horizon.
+   ═══════════════════════════════════════════ */
+.home-page {
+    padding-bottom: 36vh;
+}
+
+/* the text sits between the two synthwave layers */
+body:has(.home-page) .app-main {
+    position: relative;
+    z-index: 1;
+}
+
+/* footer is only a host now — its layers are fixed to the viewport.
+   keep it from forming a stacking context so the layers can straddle
+   the content's z-index. */
+body:has(.home-page) .synth-footer {
+    position: static;
+    margin-top: 0;
+}
+
+body:has(.home-page) .synth-footer .scene {
+    margin-top: 0;
+    height: 0;
+    min-height: 0;
+}
+
+body:has(.home-page) .synth-footer .fade-in {
+    display: none;
+}
+
+/* recurse badge: pin to the bottom, in the front layer, clickable */
+body:has(.home-page) .synth-footer .footer-meta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    z-index: 3;
+    pointer-events: auto;
+}
+
+/* scroll cue: "more ▾" floating just above the sunset.
+   only on the home page; rendered from the footer so it shares the
+   recurse badge's stacking layer instead of being trapped behind the
+   sunset's front layer. */
+.scroll-cue {
+    display: none;
+}
+
+body:has(.home-page) .scroll-cue {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12vh;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    font-size: 0.68rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    text-shadow: 0 0 12px var(--glow), 0 0 4px var(--bg);
+    opacity: 0.9;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+body:has(.home-page) .scroll-cue-hidden {
+    opacity: 0;
+}
+
+.scroll-cue-arrow {
+    font-size: 0.9rem;
+    line-height: 0.7;
+    animation: cue-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes cue-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+}
+
+/* back: the sunset, behind the text */
+body:has(.home-page) .synth-footer .scene-bg {
+    position: fixed;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 34vh;
+    min-height: 220px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* front: ground + grid + horizon line, over the text */
+body:has(.home-page) .synth-footer .scene-front {
+    position: fixed;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 34vh;
+    min-height: 220px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* The floor stays full-height so the grid lines stay dense right up to
+   the horizon (no gap), but on the home page we mask it off above the
+   horizon line so the grid never bleeds over the sunset gradient. The
+   grid only paints at and below the horizon; above it, the clean sunset
+   shows through. (Horizon ≈ 20.7% down the 58%-tall ground box.) */
+body:has(.home-page) .synth-footer .scene-front .ground {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, #000 22%);
+    mask-image: linear-gradient(to bottom, transparent 20%, #000 22%);
 }
 
 /* ═══════════════════════════════════════════
