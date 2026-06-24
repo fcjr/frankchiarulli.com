@@ -14,16 +14,36 @@ type Entry = {
   venue: string;
   date: string;
   url?: string;
+  links?: { label: string; url: string }[];
   type: "talk" | "podcast" | "article" | "paper" | "exhibition" | "mention";
   description?: string;
 };
 
 const entries: Entry[] = [
   {
+    title: "etch-a-db",
+    venue: "FLIP TABLE; 2026",
+    date: "2026-05-17",
+    url: "https://www.youtube.com/watch?v=VXo0CTjTPlU",
+    links: [
+      { label: "Watch", url: "https://www.youtube.com/watch?v=VXo0CTjTPlU" },
+      { label: "Project site", url: "https://www.etchadb.com/" },
+      { label: "FLIP TABLE;", url: "https://fliptable.nyc/#etch-a-db" },
+    ],
+    type: "talk",
+    description:
+      "Lightning talk on a database that uses an Etch-a-Sketch as its storage medium, presented at a mini-hackathon and showcase for 'weird' databases.",
+  },
+  {
     title: "RCade: Building a Community Arcade Cabinet",
     venue: "Localhost at the Recurse Center",
     date: "2026-03-18",
     url: "https://luma.com/localhost-rcade",
+    links: [
+      { label: "Write-up", url: "/blog/building-the-rcade/" },
+      { label: "GitHub", url: "https://github.com/fcjr/RCade" },
+      { label: "Web player", url: "https://rcade.dev" },
+    ],
     type: "talk",
     description:
       "Presented at Localhost on reviving the hardware and building the deployment system for a custom arcade cabinet with a real CRT, custom graphics card, and 44+ community-made games.",
@@ -212,25 +232,74 @@ export default function PressPage() {
 function EntryCard({ entry }: { entry: Entry }) {
   const color = typeColors[entry.type];
 
+  const meta = (
+    <div className="flex items-center gap-3 flex-wrap">
+      <span
+        className="inline-block text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-current"
+        style={{ color }}
+      >
+        {typeLabels[entry.type]}
+      </span>
+      <span className="text-xs text-paragraph uppercase tracking-wider">
+        {entry.venue}
+      </span>
+      <span className="text-xs text-paragraph opacity-50">
+        {new Date(entry.date.replace(/-/g, "/")).toLocaleDateString("en", {
+          month: "short",
+          year: "numeric",
+        })}
+      </span>
+    </div>
+  );
+
+  const description = entry.description && (
+    <p className="text-sm text-paragraph leading-relaxed">{entry.description}</p>
+  );
+
+  // When there are extra links we can't wrap the whole card in an anchor
+  // (nested anchors are invalid), so the title links to the canonical url
+  // and the extra links render as a row of chips below.
+  if (entry.links && entry.links.length > 0) {
+    return (
+      <div className="card block p-5 relative group">
+        {/* Stretched overlay link makes the whole card clickable (canonical url).
+            Nested anchors are invalid, so the extra links are raised above it. */}
+        {entry.url && (
+          <Link href={entry.url} className="absolute inset-0 z-[1]">
+            <span className="sr-only">{entry.title}</span>
+          </Link>
+        )}
+        <article className="flex flex-col gap-2">
+          {meta}
+          <h3 className="text-lg font-bold text-headline group-hover:text-secondary leading-tight transition-colors">
+            {entry.title}
+            {entry.url && (
+              <span className="inline-block ml-2 text-xs opacity-40 group-hover:opacity-80 transition-opacity">
+                ↗
+              </span>
+            )}
+          </h3>
+          {description}
+          <div className="relative z-[2] flex items-center gap-3 flex-wrap mt-1 w-fit">
+            {entry.links.map((link) => (
+              <Link
+                key={link.url}
+                href={link.url}
+                className="inline-flex items-center gap-1 text-xs font-medium text-paragraph hover:text-secondary transition-colors"
+              >
+                {link.label}
+                <span className="opacity-40">↗</span>
+              </Link>
+            ))}
+          </div>
+        </article>
+      </div>
+    );
+  }
+
   const inner = (
     <article className="flex flex-col gap-2">
-      <div className="flex items-center gap-3 flex-wrap">
-        <span
-          className="inline-block text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-current"
-          style={{ color }}
-        >
-          {typeLabels[entry.type]}
-        </span>
-        <span className="text-xs text-paragraph uppercase tracking-wider">
-          {entry.venue}
-        </span>
-        <span className="text-xs text-paragraph opacity-50">
-          {new Date(entry.date.replace(/-/g, "/")).toLocaleDateString("en", {
-            month: "short",
-            year: "numeric",
-          })}
-        </span>
-      </div>
+      {meta}
       <h3 className="text-lg font-bold text-headline group-hover:text-secondary leading-tight transition-colors">
         {entry.title}
         {entry.url && (
@@ -239,11 +308,7 @@ function EntryCard({ entry }: { entry: Entry }) {
           </span>
         )}
       </h3>
-      {entry.description && (
-        <p className="text-sm text-paragraph leading-relaxed">
-          {entry.description}
-        </p>
-      )}
+      {description}
     </article>
   );
 
