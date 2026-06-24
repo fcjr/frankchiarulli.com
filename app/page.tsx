@@ -67,20 +67,34 @@ export default async function Home() {
 
       <Registry path="~/building" projects={products} />
       <Registry path="~/consulting" projects={consulting} />
-      <Registry path="~/builds" projects={builds} />
+      <Registry path="~/builds" projects={builds} viewAllHref="https://github.com/fcjr" />
     </div>
   );
 }
 
-function Registry({ path, projects }: { path: string; projects: Project[] }) {
+function Registry({
+  path,
+  projects,
+  viewAllHref,
+}: {
+  path: string;
+  projects: Project[];
+  viewAllHref?: string;
+}) {
   return (
     <section className="reg-section">
       <div className="reg-head">
         <span className={`reg-path ${sans.className}`}>{path}</span>
         <span className="reg-lead" aria-hidden="true" />
-        <span className={`reg-meta ${sans.className}`}>
-          {String(projects.length).padStart(2, "0")}
-        </span>
+        {viewAllHref ? (
+          <Link href={viewAllHref} className={`reg-meta ${sans.className}`}>
+            view all <span className="reg-meta-arrow">→</span>
+          </Link>
+        ) : (
+          <span className={`reg-meta ${sans.className}`}>
+            {String(projects.length).padStart(2, "0")}
+          </span>
+        )}
       </div>
       <div>
         {projects.map((project) => (
