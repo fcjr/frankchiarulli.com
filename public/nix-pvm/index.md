@@ -20,7 +20,7 @@ A virtual machine is the real wall. It's a whole simulated computer with its own
 
 A VM needs the CPU's help to run at any speed. Modern chips have virtualization built into the silicon for it. On Linux, [KVM](https://linux-kvm.org/page/Main_Page) is what uses it, and you reach KVM through one file, `/dev/kvm`. No file, no VMs, and a microVM won't even start without it.
 
-On hardware you own, the file is just there. The trouble with a cheap cloud box is that the box is itself a VM. Your $5 [Hetzner](https://www.hetzner.com/cloud) instance isn't a computer, it's a VM on Hetzner's hardware, so a microVM on it would be a VM inside a VM. That's [nested virtualization](https://en.wikipedia.org/wiki/Hardware-assisted_virtualization#Nested_virtualization), and it only works if your provider passes the CPU's virtualization down to you. Budget tiers almost never do. Hetzner Cloud doesn't, on any tier. No nested virtualization, no `/dev/kvm`, no microVM.
+On hardware you own, the file is just there. The trouble with a cheap cloud box is that the box is itself a VM. Your $5 [Hetzner](https://www.hetzner.com/cloud) instance isn't a computer, it's a VM on Hetzner's hardware, so a microVM on it would be a VM inside a VM. That's [nested virtualization](https://pve.proxmox.com/wiki/Nested_Virtualization), and it only works if your provider passes the CPU's virtualization down to you. Budget tiers almost never do. Hetzner Cloud doesn't, on any tier. No nested virtualization, no `/dev/kvm`, no microVM.
 
 The usual answer is to rent bare metal, where `/dev/kvm` is real. But bare metal is expensive and inflexible, and I wanted the opposite: lots of small, cheap boxes. So I kept looking.
 
