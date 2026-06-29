@@ -146,11 +146,11 @@ For the games people were making at this point, it was fine. But we wanted bette
   </figure>
 </div>
 
-### Stephen's Custom Display Adapter
+### Sophie's Custom Display Adapter
 
-[Stephen D](https://www.scd31.com/) took on the challenge of building a proper display adapter. We wanted to replace the Raspberry Pi 5 with a more capable computer that could run WebGPU. The Pi's GPIO-based video output tied us to that specific hardware. A USB display adapter would let us use any laptop or mini PC.
+[Sophie D](https://www.scd31.com/) took on the challenge of building a proper display adapter. We wanted to replace the Raspberry Pi 5 with a more capable computer that could run WebGPU. The Pi's GPIO-based video output tied us to that specific hardware. A USB display adapter would let us use any laptop or mini PC.
 
-Stephen wrote an [amazing in-depth blog post](https://www.scd31.com/posts/building-an-arcade-display-adapter) about the entire journey, including multiple failed attempts, designing custom PCBs, writing PIO assembly for the RP2040, implementing the GUD (Generic USB Display) protocol, and eventually landing on an STM32H750-based solution with precision DACs. I highly recommend reading it.
+Sophie wrote an [amazing in-depth blog post](https://www.scd31.com/posts/building-an-arcade-display-adapter) about the entire journey, including multiple failed attempts, designing custom PCBs, writing PIO assembly for the RP2040, implementing the GUD (Generic USB Display) protocol, and eventually landing on an STM32H750-based solution with precision DACs. I highly recommend reading it.
 
 The result: 24-bit color at 60fps with no visible latency. Words can't describe how amazing the before and after looks. The 18-bit to 24-bit jump eliminated all the color banding we'd been living with.
 
@@ -179,7 +179,7 @@ The spinners are weighted knobs that you can spin freely in either direction. In
 
 ### The Marquee
 
-We also added a marquee to the top of the cabinet using two HUB75 RGB LED matrices. They fit perfectly in the space where an original arcade marquee would go. David helped me drill out the cabinet to mount them, and Stephen designed the RCade logo that now glows above the screen.
+We also added a marquee to the top of the cabinet using two HUB75 RGB LED matrices. They fit perfectly in the space where an original arcade marquee would go. David helped me drill out the cabinet to mount them, and Sophie designed the RCade logo that now glows above the screen.
 
 <div style={{display: 'flex', gap: '1rem', marginBottom: '2rem'}}>
   <figure style={{width: '50%', margin: 0}}>
@@ -414,7 +414,7 @@ This is just a small selection. There are too many good games to list. Check out
 This project wouldn't exist without contributions from:
 
 - [Rose Hall](https://rose.hall.ly): Plugin system architecture and cabinet software
-- [Stephen D](https://www.scd31.com/): Custom 24-bit USB display adapter (hardware and firmware)
+- [Sophie D](https://www.scd31.com/): Custom 24-bit USB display adapter (hardware and firmware)
 - [Joseph Abrahamson](https://jspha.com/), [Jack Heard](https://github.com/jm771), [Joel Holmberg](https://www.joelholmberg.com): Oscilloscope work, CRT wiring, and JAMMA connector
 - [Iris E Fernandez Valdes](https://github.com/abettercoach), [Anjana Vakil](https://anjana.dev/): Custom input controller firmware
 - [David Allen Feil](https://wobblybits.blog): vga666 adapter configuration and initial video output
@@ -428,7 +428,7 @@ The RCade exists because of a few things that came together.
 
 RC gives you time and space to work on weird projects without business justification. The arcade cabinet had no product requirements, no user stories, no quarterly goals. It exists because it seemed like a cool thing to build.
 
-But more than the project itself, I loved that the RCade gave me a reason to work with all these incredible people. It pulled me deeper into the community. There were two weeks of all-nighters with Rose to get ready for our first game jam, and many late nights with Joseph, David, and Stephen working on the hardware. These weren't obligations. They were some of the best nights of my time at RC.
+But more than the project itself, I loved that the RCade gave me a reason to work with all these incredible people. It pulled me deeper into the community. There were two weeks of all-nighters with Rose to get ready for our first game jam, and many late nights with Joseph, David, and Sophie working on the hardware. These weren't obligations. They were some of the best nights of my time at RC.
 
 <figure>
   <img src="/building-the-rcade/complete-rcade.jpg" alt="The complete RCade with the marquee glowing" />

@@ -69,7 +69,7 @@ const entries: Entry[] = [
     url: "https://www.scd31.com/posts/building-an-arcade-display-adapter",
     type: "mention",
     description:
-      "Stephen Downward's deep technical writeup of building a custom USB display adapter for the RCade arcade cabinet.",
+      "Sophie Downward's deep technical writeup of building a custom USB display adapter for the RCade arcade cabinet.",
   },
   {
     title: "Nibbles",
