@@ -112,7 +112,7 @@ function RegistryRow({ project }: { project: Project }) {
       <span className="reg-caret" aria-hidden="true">›</span>
       <span className={`reg-name ${sans.className}`}>{project.name}</span>
       <span className="reg-desc">{project.tagline}</span>
-      <span className="reg-arrow" aria-hidden="true">{internal ? "→" : "↗"}</span>
+      <span className="reg-arrow" aria-hidden="true">{internal ? "→" : "↗︎"}</span>
     </Link>
   );
 }

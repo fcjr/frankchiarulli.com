@@ -275,7 +275,7 @@ function EntryCard({ entry }: { entry: Entry }) {
             {entry.title}
             {entry.url && (
               <span className="inline-block ml-2 text-xs opacity-40 group-hover:opacity-80 transition-opacity">
-                ↗
+                ↗︎
               </span>
             )}
           </h3>
@@ -288,7 +288,7 @@ function EntryCard({ entry }: { entry: Entry }) {
                 className="inline-flex items-center gap-1 text-xs font-medium text-paragraph hover:text-secondary transition-colors"
               >
                 {link.label}
-                <span className="opacity-40">↗</span>
+                <span className="opacity-40">↗︎</span>
               </Link>
             ))}
           </div>
@@ -304,7 +304,7 @@ function EntryCard({ entry }: { entry: Entry }) {
         {entry.title}
         {entry.url && (
           <span className="inline-block ml-2 text-xs opacity-40 group-hover:opacity-80 transition-opacity">
-            ↗
+            ↗︎
           </span>
         )}
       </h3>
