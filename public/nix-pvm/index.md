@@ -28,7 +28,7 @@ The usual answer is to rent bare metal, where `/dev/kvm` is real. But bare metal
 
 [PVM](https://github.com/virt-pvm/linux) (Pagetable Virtual Machine) does in software what a VM normally offloads to those missing CPU features. It does that work itself, so it runs on a box that never had the hardware to begin with. It comes from [Ant Group](https://lwn.net/Articles/963718/), who have had a lot of success running it in production, so it's definitely battle hardened enough for my tiny project.
 
-The cost is that PVM lives in the Linux kernel, so you run custom builds. Two of them:
+Unfortunately PVM requires a fork of the Linux kernel, so you run need to run custom builds. Two of them:
 
 - A host kernel for the cloud box. Boot on it and `/dev/kvm` appears, done in software. The box now looks like it can run VMs.
 - A guest kernel for the VM. PVM's faked hardware is odd enough that a stock kernel won't boot on it, so the VM boots this one instead.
