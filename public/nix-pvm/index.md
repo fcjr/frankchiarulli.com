@@ -42,8 +42,6 @@ Hetzner cx23 (no hardware virtualization)
       → the guest boots all the way to a working system
 ```
 
-It works.
-
 ## Building the Kernels Once
 
 Booting it once is easy. The annoying part is that both kernels have to be compile to add PVM, and a Linux kernel is huge: about an hour for the host, twenty minutes for the guest on my low-end CI box (Github Actions).
