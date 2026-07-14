@@ -11,7 +11,7 @@ A while back I bought an [openterface](https://openterface.com/minikvm/).  It ca
   <figcaption>The openterface cable, and an EMF detector picking up its interference</figcaption>
 </figure>
 
-I typically have a zero tolerance for power only, or low quality cables, (I immediately toss them), but this cable was so anti-tangle and satisfying it became permanently attached to my laptop power adapter.
+I typically have a zero tolerance for power-only or low quality cables (I immediately toss them), but this cable was so anti-tangle and satisfying it became permanently attached to my laptop power adapter.
 
 For those of you who know me, you know I always carry a [pinecil](https://pine64.com/product/pinecil-smart-mini-portable-soldering-iron/) usb-c soldering iron with me.  I had been using the openterface cable for my pinecil as well, assuming it would survive an accidental touch of my soldering iron, however recently I scraped it with the tip and it immediately began to burn and melt.  This was enough to send me on a journey to buy way too many silicone cables.
 
@@ -20,20 +20,20 @@ For those of you who know me, you know I always carry a [pinecil](https://pine64
   <figcaption>The scar my pinecil left on the openterface cable</figcaption>
 </figure>
 
-This is why I called it silicone-*like* earlier.  I expect genuine high quality silicone to be heat resistant enough to nick it with my soldering iron without it immediately burning or melting...
+This is why I called it silicone-*like* earlier.  I expect genuine high quality silicone to be heat resistant enough to survive a nick from my soldering iron without immediately burning or melting.
 
-## The candiates
+## The candidates
 
-The first cable I looked at was one that I saw my buddy [Robert](https://robertqueenin.com/hello/) rocking while hanging at the [Recurse Center](https://recurse.com), It was a [Chillkit](https://www.amazon.com/dp/B0DK6X38NW) cable which looked as beautiful and satisfying as the openterface one, however it's no longer available and only reports usb 2.0 speeds on the listing, so I decided to buy a few randome ones and test them myself.
+The first cable I looked at was one that I saw my buddy [Robert](https://robertqueenin.com/hello/) rocking while hanging at the [Recurse Center](https://recurse.com).  It was a [Chillkit](https://www.amazon.com/dp/B0DK6X38NW) cable which looked as beautiful and satisfying as the openterface one, however it's no longer available and only reports USB 2.0 speeds on the listing, so I decided to buy a few random ones and test them myself.
 
-The first I bought was one from a brand named [Grtoed](https://amazon.com/dp/B0CL611FNP) (Amazon really [messed up](https://www.nytimes.com/2020/02/11/style/amazon-trademark-copyright.html) the trademark office...).  I do not like this cable.  It is silicone, passes my pinecil test, and is USB 3 SuperSpeed+, but it feels like plastic and does not bring me joy.
+The first one I actually bought was from a brand named [Grtoed](https://amazon.com/dp/B0CL611FNP) (Amazon really [messed up](https://www.nytimes.com/2020/02/11/style/amazon-trademark-copyright.html) the trademark office...).  I do not like this cable.  It is silicone, passes my pinecil test, and is USB 3 SuperSpeed+, but it feels like plastic and does not bring me joy.
 
 <figure>
   <img src="/best-silicone-usb-cable/grtoed-cable.jpg" alt="The orange Grtoed 20Gbps 240W USB-C cable" />
   <figcaption>The Grtoed cable: fast, heat resistant, joyless</figcaption>
 </figure>
 
-The next one I tried was from [Thzzhnno](https://www.amazon.com/dp/B0CWK8MZ4G).  Initial impressions were slightly better than the Grtoed cable, it also feels rigid and plasticky, but has slightly nicer connectors.  However, like the openterface cable, the Thzzhnno is definitely not heat resistant, and immediately melted under the tip of my soldering iron, but unlike the openterface cable it did not seem to burn, it just melt.  The thicker cable seems to have better EMI shielding too and enumerates as genuine USB 3 SuperSpeed+, but I still can't recommend it.
+The next one I tried was from [Thzzhnno](https://www.amazon.com/dp/B0CWK8MZ4G).  Initial impressions were slightly better than the Grtoed cable, it also feels rigid and plasticky, but has slightly nicer connectors.  However, like the openterface cable, the Thzzhnno is definitely not heat resistant, and immediately melted under the tip of my soldering iron, but unlike the openterface cable it did not seem to burn, it just melted.  The thicker cable seems to have better EMI shielding too and enumerates as genuine USB 3 SuperSpeed+, but I still can't recommend it.
 
 <figure>
   <img src="/best-silicone-usb-cable/thzzhnno-cable-melted.jpg" alt="The orange Thzzhnno cable with its knurled metal USB-C connector, showing a melted spot from my soldering iron" />
