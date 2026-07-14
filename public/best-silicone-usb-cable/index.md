@@ -24,7 +24,7 @@ This is why I called it silicone-*like* earlier.  I expect genuine high quality 
 
 ## The candidates
 
-The first cable I looked at was one that I saw my buddy [Robert](https://robertqueenin.com/hello/) rocking while hanging at the [Recurse Center](https://recurse.com).  It was a [Chillkit](https://www.amazon.com/dp/B0DK6X38NW) cable which looked as beautiful and satisfying as the openterface one, however it's no longer available and only reports USB 2.0 speeds on the listing, so I decided to buy a few random ones and test them myself.
+The first cable I looked at was one that I saw my buddy [Robert](https://robertqueenin.com/hello/) rocking while hanging at the [Recurse Center](https://www.recurse.com/scout/click?t=ba46ea16fafed13b3f8ccacb0ce83ad1).  It was a [Chillkit](https://www.amazon.com/dp/B0DK6X38NW) cable which looked as beautiful and satisfying as the openterface one, however it's no longer available and only reports USB 2.0 speeds on the listing, so I decided to buy a few random ones and test them myself.
 
 The first one I actually bought was from a brand named [Grtoed](https://amazon.com/dp/B0CL611FNP) (Amazon really [messed up](https://www.nytimes.com/2020/02/11/style/amazon-trademark-copyright.html) the trademark office...).  I do not like this cable.  It is silicone, passes my pinecil test, and is USB 3 SuperSpeed+, but it feels like plastic and does not bring me joy.
 
