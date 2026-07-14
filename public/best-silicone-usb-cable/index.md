@@ -24,6 +24,8 @@ This is why I called it silicone-*like* earlier.  I expect genuine high quality 
 
 ## The candiates
 
+The first cable I looked at was one that I saw my buddy [Robert](https://robertqueenin.com/hello/) rocking while hanging at the [Recurse Center](https://recurse.com), It was a [Chillkit](https://www.amazon.com/dp/B0DK6X38NW) cable which looked as beautiful and satisfying as the openterface one, however it's no longer available and only reports usb 2.0 speeds on the listing, so I decided to buy a few randome ones and test them myself.
+
 The first I bought was one from a brand named [Grtoed](https://amazon.com/dp/B0CL611FNP) (Amazon really [messed up](https://www.nytimes.com/2020/02/11/style/amazon-trademark-copyright.html) the trademark office...).  I do not like this cable.  It is silicone, passes my pinecil test, and is USB 3 SuperSpeed+, but it feels like plastic and does not bring me joy.
 
 <figure>
@@ -54,4 +56,8 @@ The final one I've tried is from [toocki](https://www.amazon.com/dp/B0F1TLWV8X).
 
 ## Conclusion
 
-I am still on the hunt for the best usb-c cable that checks all my boxes.  Genuinely heat resistant silicone, feels great, long (6-10ft), and is genuinely usb 3.1 or greater.  If you know of any cables that fit these criteria please shoot me an email! I would love to update this article with a genuine recommendation.
+I am still on the hunt for the best usb-c cable that checks all my boxes.  Genuinely heat resistant silicone, feels great, long (6-10ft), and is genuinely usb 3.1 or greater.
+
+That said, there are partial winners.  If you only care about speed and heat resistance, the Grtoed is the closest on paper, it just doesn't feel great.  If you mostly care about power and feel, get the LISEN, or the toocki if you want something thinner and more packable.
+
+If you know of any cables that check all of these boxes please shoot me an email! I would love to update this article with a genuine recommendation.
