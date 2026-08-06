@@ -12,7 +12,7 @@
     "colorjs.io": "^0.4.5",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
-    "next": "^16.2.6",
+    "next": "^16.3.0",
     "next-mdx-remote-client": "^2.1.1",
     "overnight": "^1.8.0",
     "react": "^19",
@@ -30,7 +30,7 @@
     "eslint": "^8",
     "eslint-config-next": "13.5.6",
     "patch-package": "^8.0.0",
-    "postcss": "^8.5.10",
+    "postcss": "^8.5.23",
     "tailwindcss": "^3.3.5"
   }
 }
