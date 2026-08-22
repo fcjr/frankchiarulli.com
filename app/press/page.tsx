@@ -21,6 +21,22 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    title: "Building a Community Arcade Cabinet",
+    venue: "HOPE 26",
+    date: "2026-08-14",
+    url: "https://www.youtube.com/watch?v=eG4-CWzicBM&t=3874s",
+    links: [
+      { label: "Watch", url: "https://www.youtube.com/watch?v=eG4-CWzicBM&t=3874s" },
+      { label: "Schedule", url: "https://schedule.hope.net/hope26/talk/BLDCW7/" },
+      { label: "Write-up", url: "/blog/building-the-rcade/" },
+      { label: "GitHub", url: "https://github.com/fcjr/RCade" },
+      { label: "Web player", url: "https://rcade.dev" },
+    ],
+    type: "talk",
+    description:
+      "Presented with Sophie Downward and Rose Hall at HOPE 26 on the RCade, a custom arcade cabinet built at the Recurse Center with a real CRT, a custom graphics card, spinner controllers, and a deploy pipeline where anyone can ship a game by pushing to GitHub.",
+  },
+  {
     title: "etch-a-db",
     venue: "FLIP TABLE; 2026",
     date: "2026-05-17",
@@ -38,8 +54,10 @@ const entries: Entry[] = [
     title: "RCade: Building a Community Arcade Cabinet",
     venue: "Localhost at the Recurse Center",
     date: "2026-03-18",
-    url: "https://luma.com/localhost-rcade",
+    url: "https://www.youtube.com/watch?v=W-OpIbLUOU0",
     links: [
+      { label: "Watch", url: "https://www.youtube.com/watch?v=W-OpIbLUOU0" },
+      { label: "Event", url: "https://www.recurse.com/events/localhost-rcade" },
       { label: "Write-up", url: "/blog/building-the-rcade/" },
       { label: "GitHub", url: "https://github.com/fcjr/RCade" },
       { label: "Web player", url: "https://rcade.dev" },
