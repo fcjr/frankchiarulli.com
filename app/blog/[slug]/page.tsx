@@ -3,7 +3,6 @@ import { readdir, readFile, access } from "fs/promises";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote-client/rsc";
 import Link from "../../Link";
-import { sans } from "../../fonts";
 import remarkSmartpants from "remark-smartypants";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
@@ -46,14 +45,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       </div>
       <article>
         <h1
-          className={[
-            sans.className,
-            "text-[40px] font-black leading-[44px] text-headline tracking-tight",
-          ].join(" ")}
+          className="display uppercase text-[40px] font-normal leading-[44px] text-headline tracking-wide"
         >
           {data.title}
         </h1>
-        <p className="mt-2 text-[13px] text-paragraph uppercase tracking-wider">
+        <p className="mt-2 text-[13px] text-paragraph">
           {new Date(data.date.replace(/-/g, "/")).toLocaleDateString("en", {
             day: "numeric",
             month: "long",

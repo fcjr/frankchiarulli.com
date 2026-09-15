@@ -6,3 +6,11 @@ export const sans = localFont({
   weight: "400",
   style: "normal",
 });
+
+export const display = localFont({
+  src: "./fonts/Isonorm 3098 Regular.otf",
+  display: "swap",
+  weight: "400",
+  style: "normal",
+  variable: "--font-display",
+});

@@ -216,7 +216,7 @@ export default function Gallery({
                   setActiveFilter(null);
                 }
               }}
-              className="px-3 py-1.5 text-sm rounded-full border-2 border-headline/30 text-headline hover:border-secondary hover:text-secondary transition-colors cursor-pointer font-medium"
+              className="px-3 py-1.5 text-sm rounded-none border-2 border-headline/30 text-headline hover:border-secondary hover:text-secondary transition-colors cursor-pointer font-medium"
             >
               ← Back
             </button>
@@ -227,7 +227,7 @@ export default function Gallery({
               <button
                 key={item.slug}
                 onClick={() => setActiveFilter(item.slug)}
-                className={`px-3 py-1.5 text-sm rounded-full transition-colors cursor-pointer ${
+                className={`px-3 py-1.5 text-sm rounded-none transition-colors cursor-pointer ${
                   isActive
                     ? "bg-headline text-background font-semibold"
                     : "border-2 border-headline/30 text-headline hover:border-secondary hover:text-secondary font-medium"

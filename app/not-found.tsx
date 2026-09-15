@@ -1,4 +1,3 @@
-import { sans } from "./fonts";
 import Link from "./Link";
 import "./markdown.css";
 
@@ -7,8 +6,7 @@ export default function NotFound() {
     <article className="markdown">
       <h1
         className={[
-          sans.className,
-          "text-[40px] font-black leading-[44px] text-headline tracking-tight",
+          "display uppercase text-[40px] font-normal leading-[44px] text-headline tracking-wide",
         ].join(" ")}
       >
         Not found

@@ -1,5 +1,5 @@
 import Link from "./Link";
-import { sans } from "./fonts";
+import SputnikCanvas from "./SputnikCanvas";
 import { metadata, getPosts } from "./posts";
 import { products, builds, consulting, Project } from "./projects";
 
@@ -12,24 +12,20 @@ export default async function Home() {
   return (
     <div className="home-page flex flex-col">
       {/* Hero */}
-      <section>
-        <h1 className={`hero-title mb-1 ${sans.className}`}>
-          <span className="glitch-wrap" data-text="Frank">
-            Frank
-          </span>
+      <section className="hero">
+        <SputnikCanvas />
+        <h1 className="hero-title mb-1">
+          <span className="glitch-wrap">Frank</span>
           <br />
-          <span className="glitch-wrap" data-text="Chiarulli Jr">
-            Chiarulli Jr
-          </span>
+          <span className="glitch-wrap">Chiarulli Jr</span>
           <span className="text-secondary">.</span>
         </h1>
-        <p className="text-headline max-w-xl">
+        <p className="hero-sub">
           Software engineer and artist building at the edge of privacy, security, and open source.
-          <span className="term-cursor" aria-hidden="true" />
         </p>
       </section>
 
-      <hr className="glow-divider" style={{ margin: "0.5rem 0 0.4rem" }} />
+      <hr className="glow-divider" style={{ margin: "1.4rem 0 1.2rem" }} />
 
       {/* Bio — compact */}
       <section className="max-w-xl text-sm leading-relaxed">
@@ -47,21 +43,23 @@ export default async function Home() {
       {/* Writing */}
       <section className="reg-section">
         <div className="reg-head">
-          <span className={`reg-path ${sans.className}`}>~/writing</span>
+          <span className="reg-path">~/writing</span>
           <span className="reg-lead" aria-hidden="true" />
-          <Link href="/blog" className={`reg-meta ${sans.className}`}>
+          <Link href="/blog" className="reg-meta">
             view all <span className="reg-meta-arrow">→</span>
           </Link>
         </div>
         {latest && (
-          <Link href={"/blog/" + latest.slug + "/"} className="reg-item reg-feature group">
-            <span className="reg-feature-top">
-              <span className="reg-caret" aria-hidden="true">›</span>
-              <span className={`reg-name ${sans.className}`}>{latest.title}</span>
-              <span className="reg-arrow" aria-hidden="true">→</span>
-            </span>
-            <span className="reg-desc">{latest.spoiler}</span>
-          </Link>
+          <div className="reg-list">
+            <Link href={"/blog/" + latest.slug + "/"} className="reg-item reg-feature group">
+              <span className="reg-feature-top">
+                <span className="reg-caret" aria-hidden="true">›</span>
+                <span className="reg-name">{latest.title}</span>
+                <span className="reg-arrow" aria-hidden="true">→</span>
+              </span>
+              <span className="reg-desc">{latest.spoiler}</span>
+            </Link>
+          </div>
         )}
       </section>
 
@@ -84,19 +82,19 @@ function Registry({
   return (
     <section className="reg-section">
       <div className="reg-head">
-        <span className={`reg-path ${sans.className}`}>{path}</span>
+        <span className="reg-path">{path}</span>
         <span className="reg-lead" aria-hidden="true" />
         {viewAllHref ? (
-          <Link href={viewAllHref} className={`reg-meta ${sans.className}`}>
+          <Link href={viewAllHref} className="reg-meta">
             view all <span className="reg-meta-arrow">→</span>
           </Link>
         ) : (
-          <span className={`reg-meta ${sans.className}`}>
+          <span className="reg-meta">
             {String(projects.length).padStart(2, "0")}
           </span>
         )}
       </div>
-      <div>
+      <div className="reg-list">
         {projects.map((project) => (
           <RegistryRow key={project.url} project={project} />
         ))}
@@ -110,7 +108,7 @@ function RegistryRow({ project }: { project: Project }) {
   return (
     <Link href={project.url} className="reg-item reg-row group">
       <span className="reg-caret" aria-hidden="true">›</span>
-      <span className={`reg-name ${sans.className}`}>{project.name}</span>
+      <span className="reg-name">{project.name}</span>
       <span className="reg-desc">{project.tagline}</span>
       <span className="reg-arrow" aria-hidden="true">{internal ? "→" : "↗︎"}</span>
     </Link>

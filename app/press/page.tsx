@@ -1,5 +1,4 @@
 import Link from "../Link";
-import { sans } from "../fonts";
 
 export const metadata = {
   title: "Media - Frank Chiarulli Jr.",
@@ -154,10 +153,10 @@ const entries: Entry[] = [
 ];
 
 const typeColors: Record<Entry["type"], string> = {
-  talk: "var(--secondary)",
+  talk: "var(--accent)",
   podcast: "var(--tertiary)",
   article: "var(--headline)",
-  paper: "var(--secondary)",
+  paper: "var(--accent)",
   exhibition: "var(--tertiary)",
   mention: "var(--text)",
 };
@@ -197,7 +196,7 @@ export default function PressPage() {
         </Link>
       </div>
       <header>
-        <h1 className={`text-4xl font-bold text-headline mb-3 tracking-tight ${sans.className}`}>
+        <h1 className={`display uppercase text-4xl font-normal text-headline mb-3 tracking-wide`}>
           Media
         </h1>
         <p className="text-paragraph max-w-lg">
@@ -212,7 +211,7 @@ export default function PressPage() {
         {/* Vertical timeline line */}
         <div
           className="absolute left-[7px] top-2 bottom-2 w-px hidden sm:block"
-          style={{ background: "linear-gradient(180deg, var(--secondary), var(--tertiary), transparent)" }}
+          style={{ background: "var(--stroke)" }}
         />
 
         <div className="flex flex-col gap-10">
@@ -221,20 +220,19 @@ export default function PressPage() {
               {/* Year marker */}
               <div className="flex items-center gap-4 mb-5">
                 <div
-                  className="hidden sm:flex w-[15px] h-[15px] rounded-full items-center justify-center flex-shrink-0"
+                  className="hidden sm:flex w-[15px] h-[15px] items-center justify-center flex-shrink-0"
                   style={{
-                    background: "var(--bg)",
-                    border: "2px solid var(--secondary)",
-                    boxShadow: "0 0 8px var(--glow)",
+                    background: "var(--accent)",
+                    border: "2px solid var(--ink)",
                   }}
                 />
-                <h2 className={`text-2xl font-bold text-headline tracking-tight ${sans.className}`}>
+                <h2 className="display uppercase text-2xl font-normal text-headline tracking-wide">
                   {year}
                 </h2>
               </div>
 
               {/* Entries for this year */}
-              <div className="flex flex-col gap-4 sm:pl-9">
+              <div className="flex flex-col sm:pl-9">
                 {items.map((entry, i) => (
                   <EntryCard key={i} entry={entry} />
                 ))}
@@ -253,7 +251,7 @@ function EntryCard({ entry }: { entry: Entry }) {
   const meta = (
     <div className="flex items-center gap-3 flex-wrap">
       <span
-        className="inline-block text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full border border-current"
+        className="inline-block text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-none border border-current"
         style={{ color }}
       >
         {typeLabels[entry.type]}

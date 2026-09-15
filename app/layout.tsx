@@ -2,7 +2,8 @@ import Link from "./Link";
 import HomeLink from "./HomeLink";
 
 import Footer from "./Footer";
-import { sans } from "./fonts";
+import { sans, display } from "./fonts";
+import { getPosts } from "./posts";
 import "./global.css";
 
 export const metadata = {
@@ -11,9 +12,11 @@ export const metadata = {
 
 const Activity: any = Symbol.for("react.activity");
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const [latest] = await getPosts();
+
   return (
-    <html lang="en" className={sans.className} suppressHydrationWarning>
+    <html lang="en" className={`${sans.className} ${display.variable}`} suppressHydrationWarning>
       <head>
         <link
           rel="alternate"
@@ -31,13 +34,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="text-paragraph antialiased bg-background">
         <div className="grid-bg" aria-hidden="true" />
         <div className="noise" aria-hidden="true" />
-        <div className="scanlines" aria-hidden="true" />
 
         <div className="app-shell relative z-10">
-          <div className="app-main mx-auto max-w-3xl px-6 pt-2 pb-0 w-full">
-            <header className="mb-2 flex items-start justify-between gap-4">
+          <div className="app-main sheet mx-auto max-w-3xl px-6 pt-5 pb-6 w-full">
+            <header className="mb-6 flex items-start justify-between gap-4">
               <HomeLink />
-              <nav className="flex gap-3 items-center flex-wrap pt-1">
+              <nav className="flex gap-1 items-center flex-wrap pt-1">
                 <Link href="/blog" className="nav-link">Blog</Link>
                 <Link href="/art" className="nav-link">Art</Link>
                 <Link href="/press" className="nav-link">Media</Link>
@@ -47,21 +49,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link href="https://x.com/_fcjr" target="_blank" className="nav-link">X</Link>
                 <Link href="mailto:frank@frankchiarulli.com" className="nav-link">Email</Link>
                 <Link href="/blog/rss.xml" title="RSS Feed" aria-label="RSS Feed" className="nav-link">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M4 11a9 9 0 0 1 9 9" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M4 4a16 16 0 0 1 16 16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="5" cy="19" r="1" fill="currentColor"/>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M4 11a9 9 0 0 1 9 9" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="square" strokeLinejoin="miter"/>
+                    <path d="M4 4a16 16 0 0 1 16 16" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="square" strokeLinejoin="miter"/>
+                    <rect x="3.5" y="17.5" width="3" height="3" fill="currentColor"/>
                   </svg>
                 </Link>
-
               </nav>
             </header>
 
             <main className="relative z-20">
               <Activity mode="visible">{children}</Activity>
             </main>
+            <span className="sheet-b" aria-hidden="true" />
           </div>
-          <Footer />
+          <Footer latest={latest ? { title: latest.title, href: "/blog/" + latest.slug + "/" } : undefined} />
         </div>
       </body>
     </html>

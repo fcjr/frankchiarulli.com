@@ -24,7 +24,7 @@ export default async function BlogPage() {
         </Link>
       </div>
       <header>
-        <h1 className="text-4xl font-bold text-headline mb-3 tracking-tight">Blog</h1>
+        <h1 className="display uppercase text-4xl font-normal text-headline mb-3 tracking-wide">Blog</h1>
         <p className="text-paragraph">
           Privacy, security, programming, and building things.
         </p>
@@ -32,7 +32,7 @@ export default async function BlogPage() {
 
       <hr className="glow-divider" />
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col">
         {posts.length > 0 ? (
           posts.map((post) => (
             <Link
@@ -65,7 +65,7 @@ function PostTitle({ post }: { post: Post }) {
 
 function PostMeta({ post }: { post: Post }) {
   return (
-    <p className="text-xs text-paragraph mb-2 uppercase tracking-wider">
+    <p className="text-xs text-paragraph mb-2">
       {new Date(post.date.replace(/-/g, "/")).toLocaleDateString("en", {
         day: "numeric",
         month: "long",

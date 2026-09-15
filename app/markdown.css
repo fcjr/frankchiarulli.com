@@ -1,8 +1,8 @@
 .markdown {
     line-height: 28px;
     --path: none;
-    --radius-top: 12px;
-    --radius-bottom: 12px;
+    --radius-top: 0;
+    --radius-bottom: 0;
     --padding-top: 1rem;
     --padding-bottom: 1rem;
 }
@@ -12,28 +12,43 @@
 }
 
 .markdown a:not(.tip):not(.linked-heading) {
-    @apply border-b-[1px] border-headline text-headline hover:text-secondary hover:border-secondary;
-    transition: color 0.2s ease, text-shadow 0.2s ease, border-color 0.2s ease;
+    @apply border-b-[1px] border-headline text-headline;
+    transition: color 0.12s ease, background 0.12s ease, border-color 0.12s ease;
 }
 
 .markdown a:not(.tip):not(.linked-heading):hover {
-    text-shadow: 0 0 8px var(--glow), 0 0 16px var(--glow);
+    color: var(--accent-text);
+    background: var(--accent);
+    border-color: var(--accent);
 }
 
 .markdown hr {
-    @apply pt-8 opacity-10;
+    @apply mb-8;
+    border: 0;
+    height: 1px;
+    background: var(--stroke);
+}
+
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+    font-family: var(--font-display), inherit;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--headline);
 }
 
 .markdown h2 {
-    @apply mt-2 pb-8 text-3xl font-bold;
+    @apply mt-2 pb-8 text-3xl;
 }
 
 .markdown h3 {
-    @apply mt-2 pb-8 text-2xl font-bold;
+    @apply mt-2 pb-8 text-2xl;
 }
 
 .markdown h4 {
-    @apply mt-2 pb-8 text-xl font-bold;
+    @apply mt-2 pb-8 text-xl;
 }
 
 .markdown :is(h1, h2, h3, h4) a:is(:hover, :focus, :active)::before,
@@ -45,8 +60,9 @@
 }
 
 .markdown :not(pre) > code {
-    border-radius: 10px;
+    border-radius: 0;
     background-color: var(--inlineCode-bg);
+    box-shadow: inset 0 0 0 1px var(--stroke-soft);
     color: var(--inlineCode-text);
     padding: 0.15em 0.2em 0.05em;
     white-space: normal;
@@ -62,7 +78,7 @@
     border-bottom-left-radius: var(--radius-bottom);
     padding-top: var(--padding-top);
     padding-bottom: var(--padding-bottom);
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--ink);
 }
 
 .markdown pre code {
@@ -72,8 +88,8 @@
 .markdown blockquote {
     @apply relative -left-2 -ml-4 mb-8 pl-4;
     font-style: italic;
-    border-left: 3px solid var(--secondary);
-    opacity: 0.8;
+    border-left: 3px solid var(--accent);
+    color: var(--headline);
 }
 
 .markdown blockquote p {
@@ -111,7 +127,8 @@
 .markdown img {
     @apply mb-8;
     max-width: 100%;
-    border-radius: 8px;
+    border-radius: 0;
+    border: 1px solid var(--stroke);
 }
 
 .markdown figure {
@@ -124,9 +141,12 @@
 
 .markdown figcaption {
     @apply text-xs text-center italic px-3 py-2;
-    color: var(--text);
-    background-color: var(--inlineCode-bg);
+    color: var(--chip-text);
+    background-color: var(--ink);
     line-height: 1.4;
+    font-style: normal;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .markdown iframe {
@@ -152,9 +172,18 @@
 .markdown th,
 .markdown td {
     border: 1px solid var(--stroke);
-    opacity: 0.6;
     padding: 8px;
     text-align: left;
+    vertical-align: top;
+}
+
+.markdown th {
+    background: var(--ink);
+    color: var(--chip-text);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
 }
 
 
@@ -162,24 +191,23 @@
     margin-left: -16px;
     margin-right: -16px;
     padding-left: 12px;
-    border-left: 4px solid var(--tertiary);
-    background-color: var(--secondary);
-    opacity: 0.2;
+    border-left: 4px solid var(--accent);
+    background-color: rgba(255, 255, 255, 0.06);
     display: block;
     padding-right: 1em;
 }
 
 .tip {
-    @apply inline-block px-8 py-4 font-sans font-semibold text-xl rounded-full shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 border-b-[1px] overflow-clip transition-transform;
+    @apply inline-block px-8 py-4 font-sans font-semibold text-xl rounded-none transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 border-b-[1px] overflow-clip transition-transform;
     @apply bg-button text-button-text border-button;
 }
 
 .tip.tip-sm {
-    @apply inline-block px-6 py-2 text-lg shadow-md;
+    @apply inline-block px-6 py-2 text-lg;
 }
 
 .tip-bg {
-    background-image: linear-gradient(45deg, var(--secondary), var(--tertiary));
+    background-image: linear-gradient(45deg, var(--accent), var(--tertiary));
     position: absolute;
     top: 0;
     left: 0;

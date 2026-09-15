@@ -423,7 +423,7 @@ export default function ArtPage() {
         </Link>
       </div>
       <header>
-        <h1 className="text-4xl font-bold text-headline mb-3 tracking-tight">Art</h1>
+        <h1 className="display uppercase text-4xl font-normal text-headline mb-3 tracking-wide">Art</h1>
         <p className="text-paragraph">
           Sculpture, photography, printmaking, and interactive installations from a previous life.
         </p>
