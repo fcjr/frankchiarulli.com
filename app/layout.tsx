@@ -34,10 +34,36 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="text-paragraph antialiased bg-background">
         <div className="grid-bg" aria-hidden="true" />
         <div className="noise" aria-hidden="true" />
+        <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true" focusable="false">
+          <defs>
+            <filter id="boil" x="-5%" y="-400%" width="110%" height="900%" colorInterpolationFilters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="1" result="n">
+                <animate attributeName="seed" values="1;2;3" dur="0.6s" repeatCount="indefinite" calcMode="discrete" />
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+            <filter id="boil-text" x="-3%" y="-10%" width="106%" height="120%" colorInterpolationFilters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="1" result="n">
+                <animate attributeName="seed" values="1;2;3" dur="0.6s" repeatCount="indefinite" calcMode="discrete" />
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+            <filter id="boil-name" x="-3%" y="-10%" width="106%" height="120%" colorInterpolationFilters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="1" result="n">
+                <animate attributeName="seed" values="1;2;3" dur="0.6s" repeatCount="indefinite" calcMode="discrete" />
+              </feTurbulence>
+              <feDisplacementMap id="boil-name-map" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+            <filter id="boil-still" x="-5%" y="-400%" width="110%" height="900%" colorInterpolationFilters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="1" result="n" />
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </defs>
+        </svg>
 
         <div className="app-shell relative z-10">
           <div className="app-main sheet mx-auto max-w-3xl px-6 pt-5 pb-6 w-full">
-            <header className="mb-6 flex items-start justify-between gap-4">
+            <header className="relative z-30 mb-6 flex items-start justify-between gap-4">
               <HomeLink />
               <nav className="flex gap-1 items-center flex-wrap pt-1">
                 <Link href="/blog" className="nav-link">Blog</Link>

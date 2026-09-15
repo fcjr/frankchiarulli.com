@@ -211,7 +211,7 @@ export default function PressPage() {
         {/* Vertical timeline line */}
         <div
           className="absolute left-[7px] top-2 bottom-2 w-px hidden sm:block"
-          style={{ background: "var(--stroke)" }}
+          style={{ background: "var(--stroke)", filter: "var(--boil)" }}
         />
 
         <div className="flex flex-col gap-10">

@@ -27,6 +27,7 @@
     border: 0;
     height: 1px;
     background: var(--stroke);
+    filter: var(--boil);
 }
 
 .markdown h2,
@@ -88,8 +89,18 @@
 .markdown blockquote {
     @apply relative -left-2 -ml-4 mb-8 pl-4;
     font-style: italic;
-    border-left: 3px solid var(--accent);
     color: var(--headline);
+}
+
+.markdown blockquote::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    filter: var(--boil);
 }
 
 .markdown blockquote p {

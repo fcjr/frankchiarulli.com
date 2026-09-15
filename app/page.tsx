@@ -1,5 +1,6 @@
 import Link from "./Link";
 import SputnikCanvas from "./SputnikCanvas";
+import HeroTitle from "./HeroTitle";
 import { metadata, getPosts } from "./posts";
 import { products, builds, consulting, Project } from "./projects";
 
@@ -14,12 +15,7 @@ export default async function Home() {
       {/* Hero */}
       <section className="hero">
         <SputnikCanvas />
-        <h1 className="hero-title mb-1">
-          <span className="glitch-wrap">Frank</span>
-          <br />
-          <span className="glitch-wrap">Chiarulli Jr</span>
-          <span className="text-secondary">.</span>
-        </h1>
+        <HeroTitle />
         <p className="hero-sub">
           Software engineer and artist building at the edge of privacy, security, and open source.
         </p>

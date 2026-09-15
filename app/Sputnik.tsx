@@ -21,6 +21,24 @@ const MORPH = 1.6;
 const SPREAD = 0.8;
 const ANTENNA_LENGTH = 2.6;
 
+// click to pump it up; the fifth quick click bursts it into line
+// fragments that get sucked back together
+const PUMPS = 5;
+const PUMP_STEP = 0.11;
+const PUMP_TIMEOUT = 1.3;
+const POP_INFLATE = 0.08;
+const POP_BURST = 3.2;
+const POP_SETTLE = 0.5;
+
+const easeOut = (k: number) => 1 - (1 - k) * (1 - k);
+const easeInOut = (k: number) => (k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2);
+
+// small deterministic value in -1..1
+function hash(a: number, b: number) {
+  const h = Math.sin(a * 127.1 + b * 311.7) * 43758.5453;
+  return (h - Math.floor(h)) * 2 - 1;
+}
+
 const smooth = (k: number) => k * k * (3 - 2 * k);
 
 // morph progress for a point at height u (0..1) at phase p (0..1);
@@ -109,6 +127,13 @@ function Satellite({ animate }: { animate: boolean }) {
   const antennas = useRef<(THREE.Group | null)[]>([]);
   const pointer = useRef({ x: 0, y: 0 });
   const tilt = useRef({ x: 0, y: 0 });
+  const fill = useRef<THREE.Mesh>(null);
+  const popAt = useRef(-1);
+  const pendingJump = useRef(false);
+  const jump = useRef(0);
+  const pumps = useRef(0);
+  const lastPump = useRef(-1);
+  const puff = useRef(1);
 
   // a cube-sphere: box vertices pushed onto the unit sphere, so the
   // grid lines up with the cube's edges and corners when it morphs there
@@ -134,6 +159,34 @@ function Satellite({ animate }: { animate: boolean }) {
     return g;
   }, []);
   const lineRadii = useMemo(() => radiusTable(graticuleDirs), []);
+  // one fling direction per run of segments, so pieces are arcs not dust
+  const scatter = useMemo(() => {
+    const n = graticuleDirs.length / 6;
+    const out = new Float32Array(n * 3);
+    for (let k = 0; k < n; k++) {
+      const c = Math.floor(k / 8);
+      const j = c * 8 + 4;
+      const mx = graticuleDirs[j * 6];
+      const my = graticuleDirs[j * 6 + 1];
+      const mz = graticuleDirs[j * 6 + 2];
+      out[k * 3] = mx * 0.85 + hash(c, 1) * 0.45;
+      out[k * 3 + 1] = my * 0.85 + hash(c, 2) * 0.45;
+      out[k * 3 + 2] = mz * 0.85 + hash(c, 3) * 0.45;
+    }
+    return out;
+  }, []);
+
+  const pop = (e: { stopPropagation: () => void }) => {
+    e.stopPropagation(); // the ray hits both the lines and the fill; count once
+    if (!animate || popAt.current >= 0) return;
+    pumps.current += 1;
+    lastPump.current = -2; // stamped with the clock on the next frame
+    if (pumps.current >= PUMPS) {
+      pumps.current = 0;
+      popAt.current = -2;
+      pendingJump.current = true;
+    }
+  };
   const antennaRadii = useMemo(
     () => SHAPES.map((f) => antennaDirs.map((d) => f(d.x, d.y, d.z))),
     [],
@@ -165,6 +218,51 @@ function Satellite({ animate }: { animate: boolean }) {
     if (!animate || !group.current) return;
     const t = clock.elapsedTime;
 
+    // pumping: each click puffs it up a step; it sighs back down if you stop
+    if (lastPump.current === -2) lastPump.current = t;
+    if (pumps.current > 0 && t - lastPump.current > PUMP_TIMEOUT) pumps.current = 0;
+    const target = 1 + PUMP_STEP * pumps.current;
+    const rate = target > puff.current ? 18 : 4;
+    puff.current += (target - puff.current) * (1 - Math.exp(-delta * rate));
+    const strain = pumps.current / PUMPS;
+    group.current.position.set(
+      hash(Math.floor(t * 30), 1) * 0.05 * strain,
+      hash(Math.floor(t * 30), 2) * 0.05 * strain,
+      0,
+    );
+
+    // pop state
+    if (popAt.current === -2) popAt.current = t;
+    const age = popAt.current < 0 ? Infinity : t - popAt.current;
+    let sx = puff.current;
+    let sy = puff.current;
+    let env = 0;
+    if (age < POP_INFLATE) {
+      const k = easeOut(age / POP_INFLATE);
+      sx = puff.current * (1 + 0.25 * k);
+      sy = puff.current * (1 + 0.1 * k);
+    } else if (age < POP_INFLATE + POP_BURST) {
+      puff.current = 1;
+      sx = 1;
+      sy = 1;
+      if (pendingJump.current) {
+        jump.current += 1;
+        pendingJump.current = false;
+      }
+      // fly apart fast, hang for a beat, then drift back together slowly
+      const u = (age - POP_INFLATE) / POP_BURST;
+      env = u < 0.1 ? easeOut(u / 0.1) : u < 0.3 ? 1 : 1 - easeInOut((u - 0.3) / 0.7);
+    } else if (age < POP_INFLATE + POP_BURST + POP_SETTLE) {
+      const u = (age - POP_INFLATE - POP_BURST) / POP_SETTLE;
+      const wob = Math.sin(u * Math.PI * 2.5) * (1 - u) * 0.22;
+      sx = 1 + wob;
+      sy = 1 - wob;
+    } else if (popAt.current >= 0) {
+      popAt.current = -1;
+    }
+    group.current.scale.set(sx, sy, sx);
+    if (fill.current) fill.current.visible = env < 0.03;
+
     // slow tumble plus a little lean toward the pointer
     const ease = 1 - Math.exp(-delta * 3);
     tilt.current.x += (pointer.current.y * 0.25 - tilt.current.x) * ease;
@@ -174,12 +272,27 @@ function Satellite({ animate }: { animate: boolean }) {
     group.current.rotation.z = Math.sin(t * 0.18) * 0.15;
 
     // morph the body and its graticule
-    const { idx, next, p, flip } = phaseAt(t);
+    const { idx, next, p, flip } = phaseAt(t + jump.current * (HOLD + MORPH));
     const pos = geometry.attributes.position;
     morph(base, pos.array as Float32Array, radii[idx], radii[next], p, flip);
     pos.needsUpdate = true;
     const lpos = lines.attributes.position;
-    morph(graticuleDirs, lpos.array as Float32Array, lineRadii[idx], lineRadii[next], p, flip);
+    const larr = lpos.array as Float32Array;
+    morph(graticuleDirs, larr, lineRadii[idx], lineRadii[next], p, flip);
+    if (env > 0) {
+      const n = scatter.length / 3;
+      for (let k = 0; k < n; k++) {
+        const dx = scatter[k * 3] * env;
+        const dy = scatter[k * 3 + 1] * env;
+        const dz = scatter[k * 3 + 2] * env;
+        larr[k * 6] += dx;
+        larr[k * 6 + 1] += dy;
+        larr[k * 6 + 2] += dz;
+        larr[k * 6 + 3] += dx;
+        larr[k * 6 + 4] += dy;
+        larr[k * 6 + 5] += dz;
+      }
+    }
     lpos.needsUpdate = true;
 
     // keep the antennas seated on the surface
@@ -190,16 +303,27 @@ function Satellite({ animate }: { animate: boolean }) {
       const ra = antennaRadii[idx][i];
       const rb = antennaRadii[next][i];
       const r = ra + (rb - ra) * progress(p, u);
-      g.position.copy(d).multiplyScalar(r - 0.02);
+      g.position.copy(d).multiplyScalar(r - 0.02 + env * 1.2);
+      g.rotation.z = env * (i % 2 ? 1.4 : -1.4);
     });
   });
 
   return (
     <group ref={group} rotation={[0.35, 0.6, 0]}>
-      <lineSegments geometry={lines}>
+      <lineSegments geometry={lines} onClick={pop}>
         <lineBasicMaterial color={INK} transparent opacity={0.9} />
       </lineSegments>
-      <mesh geometry={geometry}>
+      <mesh
+        ref={fill}
+        geometry={geometry}
+        onClick={pop}
+        onPointerOver={() => {
+          document.body.style.cursor = "pointer";
+        }}
+        onPointerOut={() => {
+          document.body.style.cursor = "";
+        }}
+      >
         <meshBasicMaterial color={BG} polygonOffset polygonOffsetFactor={0} polygonOffsetUnits={4} />
       </mesh>
       {antennaDirs.map((d, i) => (
@@ -209,16 +333,17 @@ function Satellite({ animate }: { animate: boolean }) {
             antennas.current[i] = el;
           }}
           position={d.clone().multiplyScalar(0.98)}
-          quaternion={antennaQuats[i]}
         >
-          <mesh position={[0, ANTENNA_LENGTH / 2, 0]}>
-            <cylinderGeometry args={[0.012, 0.012, ANTENNA_LENGTH, 6]} />
-            <meshBasicMaterial color={INK} />
-          </mesh>
-          <mesh position={[0, ANTENNA_LENGTH, 0]}>
-            <sphereGeometry args={[0.04, 8, 8]} />
-            <meshBasicMaterial color={RED} />
-          </mesh>
+          <group quaternion={antennaQuats[i]}>
+            <mesh position={[0, ANTENNA_LENGTH / 2, 0]}>
+              <cylinderGeometry args={[0.012, 0.012, ANTENNA_LENGTH, 6]} />
+              <meshBasicMaterial color={INK} />
+            </mesh>
+            <mesh position={[0, ANTENNA_LENGTH, 0]}>
+              <sphereGeometry args={[0.04, 8, 8]} />
+              <meshBasicMaterial color={RED} />
+            </mesh>
+          </group>
         </group>
       ))}
     </group>

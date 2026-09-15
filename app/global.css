@@ -36,6 +36,8 @@
     --card-border: var(--stroke);
     --card-hover-border: var(--ink);
     --font-mono: inherit;
+    --boil: url(#boil);
+    --boil-text: url(#boil-text);
 }
 
 html {
@@ -113,6 +115,7 @@ body {
     height: 12px;
     border: 0 solid var(--stroke);
     pointer-events: none;
+    filter: var(--boil);
 }
 
 .sheet::before { top: 0; left: 0; border-top-width: 1px; border-left-width: 1px; }
@@ -132,6 +135,15 @@ body {
     color: var(--headline);
     position: relative;
     display: inline-block;
+}
+
+h1.hero-title {
+    cursor: pointer;
+    user-select: none;
+}
+
+.hero-title.boiling {
+    filter: url(#boil-name);
 }
 
 .hero-title .glitch-wrap {
@@ -164,7 +176,6 @@ a.hero-title:hover {
     right: -7.5rem;
     width: 17rem;
     height: 17rem;
-    pointer-events: none;
     z-index: 0;
 }
 
@@ -218,14 +229,24 @@ a.hero-title:hover {
    ═══════════════════════════════════════════ */
 .card {
     background: var(--card-bg);
-    border: 1px solid var(--card-border);
+    border: 1px solid transparent;
     border-radius: 0;
-    transition: background 0.15s ease, border-color 0.15s ease;
+    transition: background 0.15s ease;
     position: relative;
 }
 
 .card + .card {
     margin-top: -1px;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px solid var(--card-border);
+    pointer-events: none;
+    filter: var(--boil);
+    transition: border-color 0.15s ease;
 }
 
 .card::before {
@@ -241,9 +262,12 @@ a.hero-title:hover {
 }
 
 .card:hover {
-    border-color: var(--card-hover-border);
     background: rgba(27, 29, 28, 0.06);
     z-index: 1;
+}
+
+.card:hover::after {
+    border-color: var(--card-hover-border);
 }
 
 .card:hover::before {
@@ -280,6 +304,7 @@ a.hero-title:hover {
     background: var(--stroke);
     opacity: 1;
     margin: 0.75rem 0;
+    filter: var(--boil);
 }
 
 /* ═══════════════════════════════════════════
@@ -304,12 +329,14 @@ a.hero-title:hover {
     line-height: 1;
     padding: 0.38em 0.5em 0.3em;
     white-space: nowrap;
+    filter: var(--boil);
 }
 
 .reg-lead {
     flex: 1 1 auto;
     height: 0;
     border-bottom: 1px solid var(--stroke-soft);
+    filter: var(--boil);
 }
 
 .reg-meta {
@@ -342,9 +369,23 @@ a.reg-meta:focus-visible .reg-meta-arrow {
 
 /* rows */
 .reg-list {
-    border-top: 1px solid var(--stroke);
-    border-bottom: 1px solid var(--stroke);
+    position: relative;
 }
+
+.reg-list::before,
+.reg-list::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--stroke);
+    pointer-events: none;
+    filter: var(--boil);
+}
+
+.reg-list::before { top: 0; }
+.reg-list::after { bottom: 0; }
 
 .reg-item {
     text-decoration: none;
@@ -352,8 +393,16 @@ a.reg-meta:focus-visible .reg-meta-arrow {
     transition: background 0.12s ease;
 }
 
-.reg-item + .reg-item {
-    border-top: 1px solid var(--stroke-soft);
+.reg-item + .reg-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: var(--stroke-soft);
+    pointer-events: none;
+    filter: var(--boil);
 }
 
 .reg-caret {
@@ -463,26 +512,47 @@ a.reg-meta:focus-visible .reg-meta-arrow {
 .tb-grid {
     display: grid;
     grid-template-columns: 1.2fr 1.6fr 0.8fr 0.8fr;
+    position: relative;
+}
+
+.tb-grid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
     border: 1px solid var(--ink);
+    pointer-events: none;
+    filter: var(--boil);
 }
 
 .tb-cell {
     padding: 0.45rem 0.6rem 0.5rem;
-    border-right: 1px solid var(--ink);
-    border-bottom: 1px solid var(--ink);
     min-width: 0;
     font-size: 0.8rem;
     color: var(--headline);
+    position: relative;
 }
 
-.tb-cell:nth-child(4n) {
+.tb-cell::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-right: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    pointer-events: none;
+    filter: var(--boil);
+}
+
+.tb-cell:nth-child(4n)::after {
     border-right: 0;
+}
+
+.tb-cell.tb-span::after {
+    border-right: 0;
+    border-bottom: 0;
 }
 
 .tb-cell.tb-span {
     grid-column: 1 / -1;
-    border-right: 0;
-    border-bottom: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -519,10 +589,10 @@ a.reg-meta:focus-visible .reg-meta-arrow {
     .tb-grid {
         grid-template-columns: 1fr 1fr;
     }
-    .tb-cell:nth-child(4n) {
+    .tb-cell:nth-child(4n)::after {
         border-right: 1px solid var(--ink);
     }
-    .tb-cell:nth-child(2n) {
+    .tb-cell:nth-child(2n)::after {
         border-right: 0;
     }
 }
@@ -531,6 +601,10 @@ a.reg-meta:focus-visible .reg-meta-arrow {
    REDUCED MOTION
    ═══════════════════════════════════════════ */
 @media (prefers-reduced-motion) {
+    :root {
+        --boil: url(#boil-still);
+        --boil-text: url(#boil-still);
+    }
     * {
         transition: none !important;
         animation: none !important;
