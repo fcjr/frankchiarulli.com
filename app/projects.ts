@@ -79,4 +79,9 @@ export const builds: Project[] = [
     tagline: "Local AI subtitle generation & translation",
     url: "https://github.com/fcjr/subtool",
   },
+  {
+    name: "etch-a-db",
+    tagline: "A database stored on an Etch-a-Sketch",
+    url: "https://www.etchadb.com/",
+  },
 ];
