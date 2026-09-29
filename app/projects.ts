@@ -22,6 +22,11 @@ export const products: Project[] = [
     url: "https://moonfoot.co",
   },
   {
+    name: "restorekit",
+    tagline: "Restore any T2 or Apple Silicon Mac over USB",
+    url: "https://restorekit.org",
+  },
+  {
     name: "Verdancy",
     tagline: "Feedback platform for apps built with AI",
     url: "https://verdancy.ai",
@@ -48,11 +53,6 @@ export const builds: Project[] = [
     name: "RCade",
     tagline: "Community arcade cabinet on a real CRT",
     url: "/blog/building-the-rcade/",
-  },
-  {
-    name: "etch-a-db",
-    tagline: "A database stored on an Etch-a-Sketch",
-    url: "https://www.etchadb.com/",
   },
   {
     name: "ShiftAPI",
