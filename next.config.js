@@ -1,9 +1,11 @@
+const isDev = process.env.NODE_ENV === "development";
+
 module.exports = {
-  output: "export",
+  ...(isDev ? {} : { output: "export" }),
   trailingSlash: true,
-  experimental: {
-    viewTransition: true,
-  },
+  pageExtensions: isDev
+    ? ["dev.tsx", "dev.ts", "tsx", "ts", "jsx", "js"]
+    : ["tsx", "ts", "jsx", "js"],
   async headers() {
     return [
       {

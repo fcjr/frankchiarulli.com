@@ -11,6 +11,10 @@ export const metadata = {
 
 export default async function BlogPage() {
   const posts = await getPosts();
+  const DevNewPostButton =
+    process.env.NODE_ENV === "development"
+      ? (await import("../dev-editor/DevNewPostButton")).default
+      : null;
 
   return (
     <div className="flex flex-col gap-8">
@@ -24,10 +28,15 @@ export default async function BlogPage() {
         </Link>
       </div>
       <header>
-        <h1 className="display uppercase text-4xl font-normal text-headline mb-3 tracking-wide">Blog</h1>
-        <p className="text-paragraph">
-          Privacy, security, programming, and building things.
-        </p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="display uppercase text-4xl font-normal text-headline mb-3 tracking-wide">Blog</h1>
+            <p className="text-paragraph">
+              Privacy, security, programming, and building things.
+            </p>
+          </div>
+          {DevNewPostButton && <DevNewPostButton />}
+        </div>
       </header>
 
       <hr className="glow-divider" />

@@ -3,11 +3,12 @@ import { readdir, readFile, access } from "fs/promises";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote-client/rsc";
 import Link from "../../Link";
+import { Term } from "../../Term";
 import remarkSmartpants from "remark-smartypants";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { remarkMdxEvalCodeBlock } from "../../mdx";
+import { remarkMdxEvalCodeBlock, remarkPeleMermaid } from "../../mdx";
 import overnight from "overnight/themes/Overnight-Slumber.json";
 import "../../markdown.css";
 import remarkGfm from "remark-gfm";
@@ -28,10 +29,128 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   }
   let Wrapper = postComponents.Wrapper ?? Fragment;
   const { content, data } = matter(file);
-  const isDraft = new Date(data.date.replace(/-/g, "/")).getFullYear() > new Date().getFullYear();
   const editUrl = `https://github.com/fcjr/frankchiarulli.com/edit/main/public/${encodeURIComponent(
     slug,
   )}/index.md`;
+
+  const articleNode = (
+    <article>
+      <h1
+        className="display uppercase text-[40px] font-normal leading-[44px] text-headline tracking-wide"
+      >
+        {data.title}
+      </h1>
+      <p className="mt-2 text-[13px] text-paragraph">
+        {new Date(data.date.replace(/-/g, "/")).toLocaleDateString("en", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        })}
+      </p>
+      <div className="markdown">
+        <div className="mb-8 relative md:-left-6 flex flex-wrap items-baseline">
+          {data.youtube && (
+            <a
+              className="leading-tight mt-4"
+              href={data.youtube}
+              target="_blank"
+              aria-label="Watch on YouTube"
+            >
+              <span className="hidden min-[400px]:inline">Watch on </span>
+              YouTube
+            </a>
+          )}
+        </div>
+
+        <Wrapper>
+          <MDXRemote
+            source={content}
+            components={{
+              a: Link,
+              img: ({ src, ...rest }) => {
+                if (src && !/^https?:\/\//.test(src)) {
+                  // https://github.com/gaearon/overreacted.io/issues/827
+                  src = `/${slug}/${src}`;
+                }
+                return <img src={src} {...rest} />;
+              },
+              MermaidDiagram: ({ svg }: { svg: string }) => (
+                <div className="pele-diagram" dangerouslySetInnerHTML={{ __html: svg }} />
+              ),
+              Term,
+              ...postComponents,
+            }}
+            options={{
+              mdxOptions: {
+                useDynamicImport: true,
+                remarkPlugins: [
+                  remarkSmartpants,
+                  remarkGfm,
+                  remarkPeleMermaid,
+                  [remarkMdxEvalCodeBlock, filename],
+                ] as any,
+                rehypePlugins: [
+                  [
+                    rehypePrettyCode,
+                    {
+                      theme: overnight,
+                    },
+                  ],
+                  [rehypeSlug],
+                  [
+                    rehypeAutolinkHeadings,
+                    {
+                      behavior: "wrap",
+                      properties: {
+                        className: "linked-heading",
+                        target: "_self",
+                      },
+                    },
+                  ],
+                ] as any,
+              } as any,
+            }}
+          />
+        </Wrapper>
+        <hr />
+        <p>
+          {data.bluesky && (
+            <>
+              <Link href={data.bluesky}>Discuss on Bluesky</Link>
+              &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+            </>
+          )}
+          {data.youtube && (
+            <>
+              <Link href={data.youtube}>Watch on YouTube</Link>
+              &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+            </>
+          )}
+          <Link href={editUrl}>Edit on GitHub</Link>
+        </p>
+      </div>
+    </article>
+  );
+
+  if (process.env.NODE_ENV === "development") {
+    const DevPostGate = (await import("../../dev-editor/DevPostGate")).default;
+    return (
+      <DevPostGate
+        slug={slug}
+        initialFrontmatter={{
+          title: String(data.title ?? ""),
+          date: String(data.date ?? ""),
+          spoiler: String(data.spoiler ?? ""),
+          youtube: data.youtube ? String(data.youtube) : "",
+          bluesky: data.bluesky ? String(data.bluesky) : "",
+        }}
+        initialContent={content.replace(/^\n+/, "")}
+      >
+        {articleNode}
+      </DevPostGate>
+    );
+  }
+
   return (
     <>
       <div className="mb-8">
@@ -43,97 +162,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <span>all posts</span>
         </Link>
       </div>
-      <article>
-        <h1
-          className="display uppercase text-[40px] font-normal leading-[44px] text-headline tracking-wide"
-        >
-          {data.title}
-        </h1>
-        <p className="mt-2 text-[13px] text-paragraph">
-          {new Date(data.date.replace(/-/g, "/")).toLocaleDateString("en", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          })}
-        </p>
-        <div className="markdown">
-          <div className="mb-8 relative md:-left-6 flex flex-wrap items-baseline">
-            {data.youtube && (
-              <a
-                className="leading-tight mt-4"
-                href={data.youtube}
-                target="_blank"
-                aria-label="Watch on YouTube"
-              >
-                <span className="hidden min-[400px]:inline">Watch on </span>
-                YouTube
-              </a>
-            )}
-          </div>
-
-          <Wrapper>
-            <MDXRemote
-              source={content}
-              components={{
-                a: Link,
-                img: ({ src, ...rest }) => {
-                  if (src && !/^https?:\/\//.test(src)) {
-                    // https://github.com/gaearon/overreacted.io/issues/827
-                    src = `/${slug}/${src}`;
-                  }
-                  return <img src={src} {...rest} />;
-                },
-                ...postComponents,
-              }}
-              options={{
-                mdxOptions: {
-                  useDynamicImport: true,
-                  remarkPlugins: [
-                    remarkSmartpants,
-                    remarkGfm,
-                    [remarkMdxEvalCodeBlock, filename],
-                  ] as any,
-                  rehypePlugins: [
-                    [
-                      rehypePrettyCode,
-                      {
-                        theme: overnight,
-                      },
-                    ],
-                    [rehypeSlug],
-                    [
-                      rehypeAutolinkHeadings,
-                      {
-                        behavior: "wrap",
-                        properties: {
-                          className: "linked-heading",
-                          target: "_self",
-                        },
-                      },
-                    ],
-                  ] as any,
-                } as any,
-              }}
-            />
-          </Wrapper>
-          <hr />
-          <p>
-            {data.bluesky && (
-              <>
-                <Link href={data.bluesky}>Discuss on Bluesky</Link>
-                &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-              </>
-            )}
-            {data.youtube && (
-              <>
-                <Link href={data.youtube}>Watch on YouTube</Link>
-                &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-              </>
-            )}
-            <Link href={editUrl}>Edit on GitHub</Link>
-          </p>
-        </div>
-      </article>
+      {articleNode}
     </>
   );
 }
