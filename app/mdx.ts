@@ -1,10 +1,29 @@
 import * as jsx from "acorn-jsx";
 import { Parser } from "acorn";
 import { visit } from "unist-util-visit";
+import { render as renderPele } from "pele";
 
 const parser = Parser.extend(jsx.default());
 
 const lang = new Set(["js", "jsx", "javascript"]);
+
+export function remarkPeleMermaid() {
+  return (tree: any) => {
+    visit(tree, "code", (node: any, index: number | undefined, parent: any) => {
+      if (node.lang === "mermaid" && parent && typeof index === "number") {
+        const { svg } = renderPele(node.value, { fontFamily: "monospace" });
+        parent.children.splice(index, 1, {
+          type: "mdxJsxFlowElement",
+          name: "MermaidDiagram",
+          attributes: [
+            { type: "mdxJsxAttribute", name: "svg", value: svg },
+          ],
+          children: [],
+        });
+      }
+    });
+  };
+}
 
 export function remarkMdxEvalCodeBlock() {
   return (tree: any) => {

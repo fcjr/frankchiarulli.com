@@ -1,0 +1,493 @@
+/* ════════════════════════════════════════════════════════════════
+   DEV-ONLY WYSIWYG EDITOR STYLES
+   Matches frankchiarulli.com's teal / charcoal / red hairline UI.
+   Never imported in production builds.
+   ════════════════════════════════════════════════════════════════ */
+
+.dev-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dev-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.28rem 0.6rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: inherit;
+    line-height: 1.2;
+    border: 1px solid var(--ink);
+    background: var(--bg-deep);
+    color: var(--headline);
+    cursor: pointer;
+    transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+
+.dev-btn:hover,
+.dev-btn:focus-visible {
+    background: var(--ink);
+    color: var(--bg);
+    outline: none;
+}
+
+.dev-btn.dev-btn-primary {
+    background: var(--ink);
+    color: var(--chip-text);
+}
+
+.dev-btn.dev-btn-primary:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-text);
+}
+
+.dev-btn.dev-btn-accent {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-text);
+}
+
+.dev-btn.dev-btn-accent:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--chip-text);
+}
+
+.dev-btn.dev-btn-active {
+    background: var(--ink);
+    color: var(--chip-text);
+}
+
+.dev-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.dev-btn-sm {
+    padding: 0.16rem 0.42rem;
+    font-size: 0.66rem;
+    line-height: 1.2;
+}
+
+/* Sticky editor toolbar */
+.dev-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 45;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 0.65rem;
+    margin: 0 -0.65rem 1.25rem;
+    background: var(--bg);
+    border: 1px solid var(--ink);
+    box-shadow: 0 4px 0 rgba(27, 29, 28, 0.14);
+}
+
+.dev-toolbar-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.dev-toolbar-sep {
+    width: 1px;
+    height: 1.1rem;
+    background: var(--stroke);
+    margin: 0 0.2rem;
+}
+
+.dev-status {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.4rem;
+    border: 1px solid var(--stroke);
+    color: var(--headline);
+    background: var(--bg-deep);
+}
+
+.dev-status.unsaved {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.dev-status.error {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-text);
+}
+
+/* Frontmatter header inside editor */
+.dev-fm {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--stroke);
+}
+
+.dev-fm-title {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed transparent;
+    font-family: var(--font-display), inherit;
+    font-size: 40px;
+    line-height: 44px;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    color: var(--headline);
+    padding: 0 0 0.2rem;
+    outline: none;
+    resize: none;
+}
+
+.dev-fm-title:focus {
+    border-bottom-color: var(--ink);
+}
+
+.dev-fm-row {
+    display: grid;
+    grid-template-columns: 9.5rem 1fr;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+}
+
+.dev-fm-extra {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-top: 0.45rem;
+}
+
+.dev-input {
+    width: 100%;
+    background: var(--bg-deep);
+    border: 1px solid var(--stroke);
+    color: var(--headline);
+    font-family: inherit;
+    font-size: 0.82rem;
+    padding: 0.32rem 0.5rem;
+    outline: none;
+}
+
+.dev-input:focus {
+    border-color: var(--ink);
+    background: var(--bg);
+}
+
+.dev-label {
+    display: block;
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 0.18rem;
+}
+
+/* Wide breakout for SPLIT mode */
+.dev-split-breakout {
+    width: min(94vw, 1340px);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dev-split-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+}
+
+@media (max-width: 960px) {
+    .dev-split-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dev-source-textarea {
+    width: 100%;
+    min-height: 70vh;
+    padding: 0.9rem;
+    background: var(--code-bg);
+    color: #e6ecea;
+    border: 1px solid var(--ink);
+    font-family: inherit;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    resize: vertical;
+    outline: none;
+    tab-size: 2;
+}
+
+.dev-preview-pane {
+    padding: 1rem 1.25rem;
+    background: var(--bg);
+    border: 1px solid var(--ink);
+    min-height: 70vh;
+}
+
+/* Visual WYSIWYG block wrappers */
+.dev-block {
+    position: relative;
+    padding: 0.25rem 0.4rem;
+    margin: 0 -0.4rem 0.25rem;
+    border: 1px solid transparent;
+    transition: border-color 0.1s ease, background 0.1s ease;
+}
+
+.dev-block:hover,
+.dev-block:focus-within {
+    border-color: var(--stroke-soft);
+    background: rgba(27, 29, 28, 0.03);
+    z-index: 15;
+}
+
+.dev-block-tools {
+    position: absolute;
+    bottom: 100%;
+    right: -1px;
+    display: flex;
+    align-items: stretch;
+    gap: 2px;
+    padding: 2px;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+    z-index: 20;
+    background: var(--bg);
+    border: 1px solid var(--stroke-soft);
+    border-bottom: none;
+}
+
+.dev-block:hover .dev-block-tools,
+.dev-block:focus-within .dev-block-tools {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dev-block-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.64rem;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.16rem 0.42rem;
+    background: var(--ink);
+    color: var(--chip-text);
+    border: 1px solid var(--ink);
+}
+
+/* Inline rich text editing */
+.wysiwyg-richtext {
+    outline: none;
+    min-height: 1.4em;
+    word-break: break-word;
+}
+
+.wysiwyg-richtext:empty::before {
+    content: attr(data-placeholder);
+    color: var(--text);
+    opacity: 0.48;
+    pointer-events: none;
+}
+
+.wysiwyg-term {
+    display: inline;
+    cursor: pointer;
+    user-select: none;
+}
+
+.wysiwyg-term .glossary-label {
+    color: var(--headline);
+    border-bottom: 1px dashed var(--accent);
+    background: rgba(200, 48, 42, 0.1);
+    padding: 0 2px;
+}
+
+.wysiwyg-term:hover .glossary-label {
+    background: var(--accent);
+    color: var(--accent-text);
+}
+
+.wysiwyg-link {
+    border-bottom: 1px solid var(--headline);
+    color: var(--headline);
+}
+
+/* List items in visual mode */
+.dev-list-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin-bottom: 0.35rem;
+}
+
+.dev-list-marker {
+    color: var(--headline);
+    font-size: 0.85rem;
+    min-width: 1.2rem;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.dev-list-item .wysiwyg-richtext {
+    flex: 1 1 auto;
+}
+
+/* Code / Mermaid / Raw sub-editor */
+.dev-code-box {
+    border: 1px solid var(--ink);
+    background: var(--code-bg);
+    color: #e6ecea;
+    margin-bottom: 0.4rem;
+}
+
+.dev-code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.3rem 0.55rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    font-size: 0.7rem;
+    color: var(--chip-text);
+}
+
+.dev-code-lang {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.72rem;
+    padding: 0.12rem 0.4rem;
+    width: 8rem;
+    outline: none;
+}
+
+.dev-code-input {
+    width: 100%;
+    min-height: 6rem;
+    padding: 0.65rem;
+    background: transparent;
+    color: #e6ecea;
+    border: none;
+    font-family: inherit;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    resize: vertical;
+    outline: none;
+}
+
+/* Interactive table editor */
+.dev-table-cell-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0;
+    outline: none;
+}
+
+.dev-table-cell-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Insert bar between blocks */
+.dev-insert-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.45rem 0.6rem;
+    margin-top: 0.75rem;
+    border: 1px dashed var(--stroke);
+    background: var(--bg-deep);
+}
+
+.dev-insert-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-right: 0.25rem;
+}
+
+/* Modal / Popover overlay */
+.dev-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(27, 29, 28, 0.45);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.dev-modal {
+    width: min(28rem, 94vw);
+    background: var(--bg);
+    border: 2px solid var(--ink);
+    padding: 1rem 1.1rem;
+    box-shadow: 6px 6px 0 var(--ink);
+}
+
+.dev-modal-title {
+    font-family: var(--font-display), inherit;
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--headline);
+    margin: 0 0 0.75rem;
+}
+
+.dev-modal-field {
+    margin-bottom: 0.65rem;
+}
+
+.dev-modal-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+}
+
+/* New post creator box on /blog */
+.dev-new-post-panel {
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--ink);
+    border-left: 3px solid var(--accent);
+    background: var(--bg-deep);
+}
+
+.dev-drop-banner {
+    position: fixed;
+    inset: 1rem;
+    z-index: 90;
+    border: 2px dashed var(--accent);
+    background: rgba(169, 183, 180, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display), inherit;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--headline);
+    pointer-events: none;
+}

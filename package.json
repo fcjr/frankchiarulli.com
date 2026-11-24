@@ -16,6 +16,7 @@
     "next": "^16.2.6",
     "next-mdx-remote-client": "^2.1.1",
     "overnight": "^1.8.0",
+    "pele": "^1.13.0",
     "react": "^19",
     "react-dom": "^19",
     "rehype-autolink-headings": "^7.1.0",
