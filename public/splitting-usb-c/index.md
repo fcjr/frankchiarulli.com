@@ -1,7 +1,7 @@
 ---
 title: "Splitting USB-C: USB 3 and USB 2 on One Port"
 date: '2026-11-23'
-spoiler: "10 Gbps USB 3 and a USB 2 hub on one port, cheaper than the USB 2 board."
+spoiler: "10 Gbps USB 3 and a USB 2 hub on one port, cheaper than a USB 2 board."
 ---
 
 I started building [restorekit.org](https://restorekit.org) dongles a few months ago at the [Recurse Center](https://recurse.com). They are small inline USB-C boards that sit between a host computer and a target mac. They set the target mac into <Term tip="Device Firmware Update: Apple's lowest-level recovery mode built into the boot ROM, so even a bricked Mac can be reflashed.">DFU</Term> mode over <Term tip="USB Power Delivery: the communication protocol over the CC wire used to negotiate power, roles, and vendor-defined commands.">USB-PD</Term> without having to touch the target at all, and work with an open-source toolkit for restoring macs without the need for another mac.
